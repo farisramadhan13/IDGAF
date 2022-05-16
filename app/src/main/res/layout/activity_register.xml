@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".register.RegisterActivity">
+
+    <TextView
+        android:id="@+id/name_label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/name_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.capstoneproject.aplikasiantifoodwaste.custom.CustomEditTextName
+        android:id="@+id/custom_edit_text_name_register"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_gravity="start"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name_label" />
+
+    <TextView
+        android:id="@+id/email_label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/email_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/custom_edit_text_name_register" />
+
+    <com.capstoneproject.aplikasiantifoodwaste.custom.CustomEditTextEmail
+        android:id="@+id/custom_edit_text_email_register"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_gravity="start"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email_label" />
+
+    <TextView
+        android:id="@+id/password_label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/password_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/custom_edit_text_email_register" />
+
+    <com.capstoneproject.aplikasiantifoodwaste.custom.CustomEditTextPassword
+        android:id="@+id/custom_edit_text_password_register"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_gravity="start"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password_label" />
+
+    <com.capstoneproject.aplikasiantifoodwaste.custom.CustomButtonRegister
+        android:id="@+id/custom_button_register"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:enabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/custom_edit_text_password_register" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

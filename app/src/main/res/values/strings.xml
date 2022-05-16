@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">AplikasiAntiFoodWaste</string>
+    <string name="email_label">Email</string>
+    <string name="password_label">Password</string>
+    <string name="name_label">Nama</string>
+    <string name="new_account_label1">Belum punya akun?</string>
+    <string name="new_account_label2">Yuk daftar</string>
+</resources>
