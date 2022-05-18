@@ -1,27 +1,32 @@
 package com.capstoneproject.aplikasiantifoodwaste.login
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import com.capstoneproject.aplikasiantifoodwaste.R
 import com.capstoneproject.aplikasiantifoodwaste.custom.CustomButtonLogin
 import com.capstoneproject.aplikasiantifoodwaste.custom.CustomEditTextEmail
 import com.capstoneproject.aplikasiantifoodwaste.custom.CustomEditTextPassword
+import com.capstoneproject.aplikasiantifoodwaste.databinding.ActivityLoginBinding
+import com.capstoneproject.aplikasiantifoodwaste.register.RegisterActivity
 
 class LoginActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityLoginBinding
     private lateinit var customButtonLogin: CustomButtonLogin
     private lateinit var customEditTextEmailLogin: CustomEditTextEmail
     private lateinit var customEditTextPasswordLogin: CustomEditTextPassword
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        customButtonLogin = findViewById(R.id.custom_button_login)
-        customEditTextEmailLogin = findViewById(R.id.custom_edit_text_email_login)
-        customEditTextPasswordLogin = findViewById(R.id.custom_edit_text_password_login)
+        supportActionBar?.hide()
 
+        customButtonLogin = binding.customButtonLogin
+        customEditTextEmailLogin = binding.customEditTextEmailLogin
+        customEditTextPasswordLogin = binding.customEditTextPasswordLogin
 
         setMyButtonEnable()
         customEditTextEmailLogin.addTextChangedListener(object : TextWatcher {
@@ -42,7 +47,10 @@ class LoginActivity : AppCompatActivity() {
             override fun afterTextChanged(s: Editable) {
             }
         })
-//        R.id.label_new_account2.setOnClickListener
+        binding.labelNewAccount2.setOnClickListener{
+            startActivity(Intent(this, RegisterActivity::class.java))
+            finish()
+        }
     }
     private fun setMyButtonEnable() {
         val resultEmail = customEditTextEmailLogin.text

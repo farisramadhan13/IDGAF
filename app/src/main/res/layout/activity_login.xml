@@ -7,14 +7,30 @@
     tools:context=".login.LoginActivity">
 
     <TextView
+        android:id="@+id/label_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/login"
+        android:textSize="20sp"
+        android:fontFamily="@font/montserrat_bold"
+        android:textColor="@color/purple"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/email_label"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/montserrat_bold"
         android:text="@string/email_label"
+        android:textColor="@color/black"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/label_login" />
 
     <com.capstoneproject.aplikasiantifoodwaste.custom.CustomEditTextEmail
         android:id="@+id/custom_edit_text_email_login"
@@ -24,6 +40,8 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
+        android:textSize="16sp"
+        android:fontFamily="@font/montserrat_bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/email_label" />
@@ -35,6 +53,9 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:text="@string/password_label"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:fontFamily="@font/montserrat_bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/custom_edit_text_email_login" />
 
@@ -46,6 +67,8 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
+        android:textSize="16sp"
+        android:fontFamily="@font/montserrat_bold"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -58,6 +81,8 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
+        android:textSize="16sp"
+        android:fontFamily="@font/montserrat_bold"
         android:enabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -68,9 +93,12 @@
         android:id="@+id/label_new_account1"
         android:layout_width="wrap_content"
         android:layout_height="45dp"
-        android:layout_marginStart="112dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:text="@string/new_account_label1"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:fontFamily="@font/montserrat_medium"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/custom_button_login" />
 
@@ -78,10 +106,13 @@
         android:id="@+id/label_new_account2"
         android:layout_width="wrap_content"
         android:layout_height="45dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="112dp"
+        android:fontFamily="@font/montserrat_medium"
         android:text="@string/new_account_label2"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/orange"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/label_new_account1"
         app:layout_constraintTop_toBottomOf="@+id/custom_button_login" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

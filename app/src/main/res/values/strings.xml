@@ -1,8 +1,17 @@
 <resources>
     <string name="app_name">AplikasiAntiFoodWaste</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
     <string name="email_label">Email</string>
     <string name="password_label">Password</string>
     <string name="name_label">Nama</string>
-    <string name="new_account_label1">Belum punya akun?</string>
-    <string name="new_account_label2">Yuk daftar</string>
+    <string name="new_account_label1">Don\'t have an account yet?</string>
+    <string name="new_account_label2">Register Now</string>
+    <string name="login_account_label1">Already have an account?</string>
+    <string name="login_account_label2">Login Now</string>
+    <string name="title_welcome">Selamat Datang di IDGAF</string>
+    <string name="desc_welcome">IDGAF (I Do Give A Food) adalah aplikasi untuk mengurangi food waste</string>
+    <string name="agreement_welcome">By registering or logging in you accept the terms and conditions and privacy policy</string>
+    <string name="title_splash">IDGAF</string>
+    <string name="desc_splash">(I Do Give A Food)</string>
 </resources>

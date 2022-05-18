@@ -1,26 +1,31 @@
 package com.capstoneproject.aplikasiantifoodwaste.register
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import com.capstoneproject.aplikasiantifoodwaste.R
-import com.capstoneproject.aplikasiantifoodwaste.custom.CustomButtonLogin
+import com.capstoneproject.aplikasiantifoodwaste.custom.CustomButtonRegister
 import com.capstoneproject.aplikasiantifoodwaste.custom.CustomEditTextEmail
 import com.capstoneproject.aplikasiantifoodwaste.custom.CustomEditTextPassword
+import com.capstoneproject.aplikasiantifoodwaste.databinding.ActivityRegisterBinding
+import com.capstoneproject.aplikasiantifoodwaste.login.LoginActivity
 
 class RegisterActivity : AppCompatActivity() {
-    private lateinit var customButtonRegister: CustomButtonLogin
+    private lateinit var binding: ActivityRegisterBinding
+    private lateinit var customButtonRegister: CustomButtonRegister
     private lateinit var customEditTextEmailRegister: CustomEditTextEmail
     private lateinit var customEditTextPasswordRegister: CustomEditTextPassword
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_register)
+        binding = ActivityRegisterBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        supportActionBar?.hide()
 
-        customButtonRegister = findViewById(R.id.custom_button_register)
-        customEditTextEmailRegister = findViewById(R.id.custom_edit_text_email_register)
-        customEditTextPasswordRegister = findViewById(R.id.custom_edit_text_password_register)
+        customButtonRegister = binding.customButtonRegister
+        customEditTextEmailRegister = binding.customEditTextEmailRegister
+        customEditTextPasswordRegister = binding.customEditTextPasswordRegister
 
         setMyButtonEnable()
         customEditTextEmailRegister.addTextChangedListener(object : TextWatcher {
@@ -41,7 +46,10 @@ class RegisterActivity : AppCompatActivity() {
             override fun afterTextChanged(s: Editable) {
             }
         })
-
+        binding.labelLoginAccount2.setOnClickListener {
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+        }
     }
     private fun setMyButtonEnable() {
         val resultEmail = customEditTextEmailRegister.text

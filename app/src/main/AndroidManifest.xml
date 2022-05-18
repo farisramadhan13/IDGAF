@@ -10,23 +10,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AplikasiAntiFoodWaste">
         <activity
-            android:name=".welcome.WelcomeActivity"
-            android:exported="true" />
-        <activity
             android:name=".register.RegisterActivity"
             android:exported="true" />
         <activity
             android:name=".login.LoginActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".home.MainActivity"
             android:exported="true" />
+        <activity
+            android:name=".welcome.WelcomeActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".splash.SplashActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
