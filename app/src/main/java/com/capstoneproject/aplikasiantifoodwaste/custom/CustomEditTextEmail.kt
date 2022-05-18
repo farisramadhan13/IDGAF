@@ -37,7 +37,13 @@ class CustomEditTextEmail: AppCompatEditText, View.OnTouchListener {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
             }
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                if (s.toString().isNotEmpty()) showClearButton() else hideClearButton()
+                if (s.toString().isNotEmpty()){
+                    when{
+                        (!isValidEmail(s.toString())) -> error = "Format email salah"
+                        (s.toString().isEmpty()) -> error = "Email tidak boleh kosong"
+                    }
+                    showClearButton()
+                } else hideClearButton()
             }
             override fun afterTextChanged(s: Editable) {
             }
@@ -48,6 +54,9 @@ class CustomEditTextEmail: AppCompatEditText, View.OnTouchListener {
     }
     private fun hideClearButton() {
         setButtonDrawables()
+    }
+    private fun isValidEmail(email: CharSequence): Boolean {
+        return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
     private fun setButtonDrawables(
         startOfTheText: Drawable? = null,
