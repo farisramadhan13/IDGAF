@@ -15,4 +15,6 @@
     <string name="title_splash">IDGAF</string>
     <string name="desc_splash">(I Do Give A Food)</string>
     <string name="search">Search</string>
+    <string name="scan_your_food">Scan bahan makananmu</string>
+    <string name="welcome_text">Welcome text</string>
 </resources>
