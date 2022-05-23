@@ -6,38 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".home.HomeActivity">
 
-  <HorizontalScrollView
-      android:id="@+id/horizontalScrollView"
-      android:layout_width="match_parent"
-      android:layout_height="150dp"
-
-      android:layout_marginStart="16dp"
-      android:layout_marginEnd="16dp"
-      android:layout_marginTop="30dp"
-      app:layout_constraintTop_toBottomOf="@+id/tableRow">
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/horizontal_rv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-  </HorizontalScrollView>
-
-  <HorizontalScrollView
-      android:id="@+id/horizontalScrollView2"
-      android:layout_width="match_parent"
-      android:layout_height="150dp"
-
-      android:layout_marginStart="16dp"
-      android:layout_marginEnd="16dp"
-      android:layout_marginTop="30dp"
-      app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView">
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/horizontal_rv2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-  </HorizontalScrollView>
-
   <FrameLayout
       android:id="@+id/frame_layout"
       android:layout_width="0dp"
@@ -74,6 +42,16 @@
         tools:ignore="ContentDescription" />
   </FrameLayout>
 
+  <ImageView
+      android:id="@+id/iv_notification"
+      android:layout_width="48dp"
+      android:layout_height="48dp"
+      android:layout_marginTop="16dp"
+      android:layout_marginEnd="16dp"
+      android:src="@drawable/ic_notifications"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
   <TextView
       android:id="@+id/tv_welcome_home"
       android:layout_width="wrap_content"
@@ -87,15 +65,106 @@
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/frame_layout" />
 
-  <ImageView
-      android:id="@+id/iv_notification"
-      android:layout_width="48dp"
-      android:layout_height="48dp"
+  <TableRow
+      android:id="@+id/tableRow"
+      android:layout_width="match_parent"
+      android:layout_height="128dp"
+      android:layout_marginStart="16dp"
       android:layout_marginTop="16dp"
       android:layout_marginEnd="16dp"
-      android:src="@drawable/ic_notifications"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintTop_toTopOf="parent" />
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/tv_welcome_home">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="13dp"
+        android:layout_marginEnd="11dp"
+        app:srcCompat="@drawable/ic_square" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginEnd="11dp"
+        app:srcCompat="@drawable/ic_square" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginEnd="11dp"
+        app:srcCompat="@drawable/ic_square" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center_vertical"
+        app:srcCompat="@drawable/ic_square" />
+  </TableRow>
+
+  <TextView
+      android:id="@+id/tv_storage"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="16dp"
+      android:layout_marginStart="16dp"
+      android:fontFamily="@font/montserrat_bold"
+      android:text="@string/storage"
+      android:textColor="@color/black"
+      android:textSize="16sp"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/tableRow" />
+
+  <Button
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginEnd="16dp"
+      android:fontFamily="@font/montserrat_bold"
+      android:text="@string/see_all"
+      android:textColor="@color/black"
+      android:textSize="11sp"
+      android:minHeight="0dp"
+      android:minWidth="0dp"
+      app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
+      app:layout_constraintEnd_toEndOf="parent" />
+
+  <HorizontalScrollView
+      android:id="@+id/horizontalScrollView"
+      android:layout_width="match_parent"
+      android:layout_height="150dp"
+      android:layout_marginStart="16dp"
+      android:layout_marginEnd="16dp"
+      android:layout_marginTop="8dp"
+      app:layout_constraintTop_toBottomOf="@+id/tv_storage">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/horizontal_rv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+  </HorizontalScrollView>
+
+  <HorizontalScrollView
+      android:id="@+id/horizontalScrollView2"
+      android:layout_width="match_parent"
+      android:layout_height="150dp"
+
+      android:layout_marginStart="16dp"
+      android:layout_marginEnd="16dp"
+      android:layout_marginTop="30dp"
+      app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/horizontal_rv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+  </HorizontalScrollView>
 
   <com.google.android.material.bottomnavigation.BottomNavigationView
       android:id="@+id/bottomNavigationView"
@@ -145,50 +214,6 @@
 
   </com.google.android.material.bottomnavigation.BottomNavigationView>
 
-  <TableRow
-      android:id="@+id/tableRow"
-      android:layout_width="match_parent"
-      android:layout_height="128dp"
-      android:layout_marginStart="16dp"
-      android:layout_marginTop="16dp"
-      android:layout_marginEnd="16dp"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/tv_welcome_home">
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_gravity="center_vertical"
-        android:layout_marginStart="13dp"
-        android:layout_marginEnd="11dp"
-        app:srcCompat="@drawable/ic_square" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_gravity="center_vertical"
-        android:layout_marginEnd="11dp"
-        app:srcCompat="@drawable/ic_square" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_gravity="center_vertical"
-        android:layout_marginEnd="11dp"
-        app:srcCompat="@drawable/ic_square" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_gravity="center_vertical"
-        app:srcCompat="@drawable/ic_square" />
-  </TableRow>
-
   <Button
       android:id="@+id/buttonLogout"
       android:layout_width="wrap_content"
@@ -198,6 +223,5 @@
       app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
