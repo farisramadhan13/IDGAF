@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AplikasiAntiFoodWaste">
         <activity
+            android:name=".SearchFoodListActivity"
+            android:exported="false" />
+        <activity
             android:name=".ScanFoodActivity"
             android:exported="false" />
         <activity
