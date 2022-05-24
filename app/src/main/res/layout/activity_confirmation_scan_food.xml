@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".scan.ScanFoodActivity">
+    tools:context=".scan.ConfirmationScanFoodActivity">
 
     <FrameLayout
         android:id="@+id/scan_food"
@@ -28,10 +28,8 @@
             android:textSize="24sp"/>
     </FrameLayout>
 
-
-
     <ImageView
-        android:id="@+id/iv_preview"
+        android:id="@+id/iv_confirm_photo"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="24dp"
@@ -45,24 +43,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat_bold"
-        android:text="@string/scan_your_food"
+        android:text="@string/confirm_scan_photo"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_preview" />
+        app:layout_constraintTop_toBottomOf="@+id/iv_confirm_photo" />
 
     <Button
-        android:id="@+id/btn_gallery"
-        android:layout_width="160dp"
-        android:layout_height="wrap_content"
+        android:id="@+id/btn_confirm_photo_yes"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
         android:fontFamily="@font/montserrat_bold"
         android:minWidth="0dp"
         android:minHeight="0dp"
         android:layout_marginTop="24dp"
-        android:layout_marginStart="24dp"
-        android:text="@string/take_from_gallery"
+        android:layout_marginStart="40dp"
+        android:text="@string/yes"
         android:textColor="@color/white"
         android:textSize="11sp"
         android:backgroundTint="@color/purple"
@@ -71,14 +69,14 @@
 
     <Button
         android:id="@+id/btn_camera"
-        android:layout_width="160dp"
-        android:layout_height="wrap_content"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="40dp"
         android:fontFamily="@font/montserrat_bold"
         android:minWidth="0dp"
         android:minHeight="0dp"
-        android:text="@string/take_from_camera"
+        android:text="@string/retake_photo"
         android:textColor="@color/white"
         android:textSize="11sp"
         android:backgroundTint="@color/purple"

@@ -22,4 +22,9 @@
     <string name="see_all">Lihat semua</string>
     <string name="take_from_gallery">Ambil dari Galeri</string>
     <string name="take_from_camera">Ambil dari Kamera</string>
+    <string name="food_nearby">Makanan di sekitarku</string>
+    <string name="scan_food">Scan makanan</string>
+    <string name="confirm_scan_photo">Pakai gambar ini?</string>
+    <string name="yes">Iya</string>
+    <string name="retake_photo">Ambil ulang</string>
 </resources>
