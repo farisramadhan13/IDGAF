@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.capstoneproject.aplikasiantifoodwaste.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_storage"
+        android:name="com.capstoneproject.aplikasiantifoodwaste.storage.StorageFragment"
+        android:label="@string/title_storage"
+        tools:layout="@layout/fragment_storage" />
+
+    <fragment
+        android:id="@+id/navigation_order"
+        android:name="com.capstoneproject.aplikasiantifoodwaste.order.OrderFragment"
+        android:label="@string/title_order"
+        tools:layout="@layout/fragment_order" />
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.capstoneproject.aplikasiantifoodwaste.profile.ProfileFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/fragment_profile" />
+
+</navigation>

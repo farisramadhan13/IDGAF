@@ -27,4 +27,10 @@
     <string name="confirm_scan_photo">Pakai gambar ini?</string>
     <string name="yes">Iya</string>
     <string name="retake_photo">Ambil ulang</string>
+    <string name="title_home">Home</string>
+    <string name="title_storage">Storage</string>
+    <string name="title_order">Order</string>
+    <string name="title_profile">Profile</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
