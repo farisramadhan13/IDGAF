@@ -1,22 +1,17 @@
 package com.capstoneproject.aplikasiantifoodwaste.home
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.capstoneproject.aplikasiantifoodwaste.R
 import com.capstoneproject.aplikasiantifoodwaste.databinding.ActivityHomeBinding
-import com.capstoneproject.aplikasiantifoodwaste.welcome.WelcomeActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.firebase.auth.FirebaseAuth
 
 class HomeActivity : AppCompatActivity() {
 
-    private lateinit var auth : FirebaseAuth
     private lateinit var binding : ActivityHomeBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,10 +31,5 @@ class HomeActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        auth = FirebaseAuth.getInstance()
-//        binding.buttonLogout.setOnClickListener {
-//            auth.signOut()
-//            startActivity(Intent(this@HomeActivity, WelcomeActivity::class.java))
-//        }
     }
 }
