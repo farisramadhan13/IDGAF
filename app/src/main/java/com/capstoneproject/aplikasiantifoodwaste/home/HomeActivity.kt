@@ -19,9 +19,9 @@ class HomeActivity : AppCompatActivity() {
         supportActionBar?.hide()
 
         auth = FirebaseAuth.getInstance()
-        binding.buttonLogout.setOnClickListener {
-            auth.signOut()
-            startActivity(Intent(this@HomeActivity, WelcomeActivity::class.java))
-        }
+//        binding.buttonLogout.setOnClickListener {
+//            auth.signOut()
+//            startActivity(Intent(this@HomeActivity, WelcomeActivity::class.java))
+//        }
     }
 }
