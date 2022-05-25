@@ -42,7 +42,7 @@
 
     <TextView
         android:id="@+id/tv_name"
-        android:layout_width="100dp"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginStart="16dp"
@@ -58,6 +58,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
         android:fontFamily="@font/montserrat_semibold"
         android:text="@string/name_label"
         android:textColor="@color/black"
@@ -67,7 +68,7 @@
 
     <TextView
         android:id="@+id/tv_email"
-        android:layout_width="100dp"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat_bold"
         android:text="@string/email_label"
@@ -87,7 +88,34 @@
         android:textColor="@color/black"
         android:textSize="16sp"
         android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
         app:layout_constraintStart_toEndOf="@+id/tv_email"
         app:layout_constraintTop_toBottomOf="@+id/tv_name_profile" />
+
+    <TextView
+        android:id="@+id/tv_telephone"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="@string/telephone_number"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_email" />
+
+    <TextView
+        android:id="@+id/tv_telephone_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="-"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toEndOf="@+id/tv_telephone"
+        app:layout_constraintTop_toBottomOf="@+id/tv_email_profile" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
