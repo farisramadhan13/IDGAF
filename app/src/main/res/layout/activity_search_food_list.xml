@@ -55,50 +55,17 @@
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigationView"
-        android:layout_width="match_parent"
-        android:layout_height="72dp"
+        android:id="@+id/nav_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:background="?android:attr/windowBackground"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" >
-
-        <FrameLayout
-            android:layout_width="340dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal">
-
-            <ImageView
-                android:id="@+id/bottom_nav_home"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                app:srcCompat="@drawable/ic_home"
-                android:layout_gravity="center_vertical"/>
-
-            <ImageView
-                android:id="@+id/bottom_nav_storage"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="100dp"
-                app:srcCompat="@drawable/ic_storage"
-                android:layout_marginEnd="10dp"
-                android:layout_gravity="center_vertical"/>
-
-            <ImageView
-                android:id="@+id/bottom_nav_order"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                app:srcCompat="@drawable/ic_order"
-                android:layout_marginStart="200dp"
-                android:layout_gravity="center_vertical"/>
-
-            <ImageView
-                android:id="@+id/bottom_nav_profile"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="300dp"
-                app:srcCompat="@drawable/ic_profile" />
-        </FrameLayout>
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_nav_menu" >
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 
@@ -106,7 +73,7 @@
         android:layout_width="409dp"
         android:layout_height="588dp"
         android:padding="18dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintBottom_toTopOf="@+id/nav_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frame_layout">
