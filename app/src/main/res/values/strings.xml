@@ -35,4 +35,12 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="name">Nama</string>
     <string name="telephone_number">Nomor Telepon</string>
+    <string name="my_address">Alamat saya</string>
+    <string name="order_id">Order ID</string>
+    <string name="order_name">Order name</string>
+    <string name="order_time">Waktu ambil</string>
+    <string name="order_quantity">Jumlah porsi</string>
+    <string name="order_status">Status pesanan:</string>
+    <string name="received">Diterima</string>
+    <string name="rejected">Ditolak</string>
 </resources>

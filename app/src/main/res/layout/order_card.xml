@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:order_card="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/order_card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginLeft="8dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginRight="8dp"
+    android:layout_marginBottom="4dp"
+    order_card:cardCornerRadius="4dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/order_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="@string/order_id"
+            android:textColor="@color/black"
+            android:textSize="11sp"
+            order_card:layout_constraintStart_toStartOf="parent"
+            order_card:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/order_photo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="8dp"
+            order_card:layout_constraintStart_toStartOf="parent"
+            order_card:layout_constraintTop_toBottomOf="@+id/order_id"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/order_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="@string/order_name"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            order_card:layout_constraintStart_toEndOf="@+id/order_photo"
+            order_card:layout_constraintTop_toBottomOf="@+id/order_id" />
+
+        <TextView
+            android:id="@+id/order_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="@string/order_time"
+            android:textColor="@color/black"
+            android:textSize="11sp"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            order_card:layout_constraintStart_toEndOf="@+id/order_photo"
+            order_card:layout_constraintTop_toBottomOf="@+id/order_name" />
+
+        <TextView
+            android:id="@+id/order_quantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="@string/order_quantity"
+            android:textColor="@color/black"
+            android:textSize="11sp"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            order_card:layout_constraintStart_toEndOf="@+id/order_photo"
+            order_card:layout_constraintTop_toBottomOf="@+id/order_time" />
+
+        <TextView
+            android:id="@+id/order_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="@string/order_status"
+            android:textColor="@color/black"
+            android:textSize="11sp"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            order_card:layout_constraintStart_toEndOf="@+id/order_photo"
+            order_card:layout_constraintTop_toBottomOf="@+id/order_quantity" />
+
+        <TextView
+            android:id="@+id/order_status_received"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="@string/received"
+            android:textColor="@color/light_green"
+            android:textSize="11sp"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="4dp"
+            order_card:layout_constraintStart_toEndOf="@+id/order_status"
+            order_card:layout_constraintTop_toBottomOf="@+id/order_quantity"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/order_status_rejected"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="@string/rejected"
+            android:textColor="@color/red"
+            android:textSize="11sp"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="4dp"
+            order_card:layout_constraintStart_toEndOf="@+id/order_status"
+            order_card:layout_constraintTop_toBottomOf="@+id/order_quantity"
+            android:visibility="gone"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.cardview.widget.CardView>

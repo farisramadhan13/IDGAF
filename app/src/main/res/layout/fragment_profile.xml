@@ -118,4 +118,17 @@
         app:layout_constraintStart_toEndOf="@+id/tv_telephone"
         app:layout_constraintTop_toBottomOf="@+id/tv_email_profile" />
 
+    <TextView
+        android:id="@+id/tv_address"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="@string/my_address"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_telephone" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
