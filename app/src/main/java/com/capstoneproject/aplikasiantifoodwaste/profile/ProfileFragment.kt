@@ -18,7 +18,7 @@ class ProfileFragment : Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         auth = FirebaseAuth.getInstance()
-        binding.buttonLogout.setOnClickListener {
+        binding.btnProfileLogout.setOnClickListener {
             auth.signOut()
             startActivity(Intent(activity, WelcomeActivity::class.java))
         }
