@@ -6,17 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".profile.ProfileFragment">
 
-
-    <Button
-        android:id="@+id/buttonLogout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/black"
-        android:text="Tes Logout"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <androidx.cardview.widget.CardView
         android:id="@+id/iv_profile"
         android:layout_width="150dp"
@@ -59,7 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginStart="8dp"
-        android:fontFamily="@font/montserrat_semibold"
+        android:fontFamily="@font/montserrat_regular"
         android:text="@string/name_label"
         android:textColor="@color/black"
         android:textSize="16sp"
@@ -83,7 +72,7 @@
         android:id="@+id/tv_email_profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/montserrat_semibold"
+        android:fontFamily="@font/montserrat_regular"
         android:text="@string/email_label"
         android:textColor="@color/black"
         android:textSize="16sp"
@@ -109,7 +98,7 @@
         android:id="@+id/tv_telephone_profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/montserrat_semibold"
+        android:fontFamily="@font/montserrat_regular"
         android:text="-"
         android:textColor="@color/black"
         android:textSize="16sp"
@@ -130,5 +119,43 @@
         android:layout_marginStart="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_telephone" />
+
+    <android.widget.Spinner
+        android:id="@+id/spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_address">
+
+    </android.widget.Spinner>
+
+    <Button
+        android:id="@+id/btn_profile_change"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/purple"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="@string/change_profile"
+        android:textColor="@color/white"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+
+
+    <Button
+        android:id="@+id/btn_profile_logout"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/red"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="@string/logout"
+        android:textColor="@color/white"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_profile_change" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
