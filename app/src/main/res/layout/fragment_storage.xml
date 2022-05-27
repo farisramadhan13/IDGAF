@@ -33,5 +33,4 @@
             android:paddingEnd="24dp"
             android:textSize="24sp"/>
     </FrameLayout>
-
 </FrameLayout>
