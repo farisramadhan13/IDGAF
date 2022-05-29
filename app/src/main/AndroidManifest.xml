@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AplikasiAntiFoodWaste">
         <activity
+            android:name=".scan.FoodScanActivity"
+            android:exported="false" />
+        <activity
             android:name=".camera.CameraActivity"
             android:exported="false" />
         <activity
@@ -17,9 +20,6 @@
             android:exported="false" />
         <activity
             android:name=".searchfood.SearchFoodListActivity"
-            android:exported="false" />
-        <activity
-            android:name=".scan.ScanFoodActivity"
             android:exported="false" />
         <activity
             android:name=".register.RegisterActivity"
