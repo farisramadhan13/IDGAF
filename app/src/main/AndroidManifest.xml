@@ -10,13 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AplikasiAntiFoodWaste">
         <activity
-            android:name=".ConfirmationScanFoodActivity"
+            android:name=".camera.CameraActivity"
             android:exported="false" />
         <activity
-            android:name=".SearchFoodListActivity"
+            android:name=".scan.ConfirmationScanFoodActivity"
             android:exported="false" />
         <activity
-            android:name=".ScanFoodActivity"
+            android:name=".searchfood.SearchFoodListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".scan.ScanFoodActivity"
             android:exported="false" />
         <activity
             android:name=".register.RegisterActivity"
