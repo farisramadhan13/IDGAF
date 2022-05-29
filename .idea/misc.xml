@@ -20,7 +20,6 @@
         <entry key="..\:/Users/ASUS/Desktop/New folder/IDGAF/app/src/main/res/layout/activity_search_food_list.xml" value="0.21240942028985507" />
         <entry key="..\:/Users/ASUS/Desktop/New folder/IDGAF/app/src/main/res/layout/activity_splash.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ASUS/Desktop/New folder/IDGAF/app/src/main/res/layout/activity_welcome.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/ASUS/Desktop/New folder/IDGAF/app/src/main/res/layout/fragment_change_profile.xml" value="0.4" />
         <entry key="..\:/Users/ASUS/Desktop/New folder/IDGAF/app/src/main/res/layout/fragment_home.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ASUS/Desktop/New folder/IDGAF/app/src/main/res/layout/fragment_order.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ASUS/Desktop/New folder/IDGAF/app/src/main/res/layout/fragment_profile.xml" value="0.25416666666666665" />
@@ -29,8 +28,12 @@
         <entry key="..\:/Users/ASUS/Desktop/New folder/IDGAF/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/FARIS/AndroidStudioProjects/AplikasiAntiFoodWaste/app/src/main/res/drawable/bg_button.xml" value="0.2703125" />
         <entry key="..\:/Users/FARIS/AndroidStudioProjects/AplikasiAntiFoodWaste/app/src/main/res/drawable/bg_button_disable.xml" value="0.2703125" />
+        <entry key="..\:/Users/FARIS/AndroidStudioProjects/AplikasiAntiFoodWaste/app/src/main/res/drawable/hiasan_home.xml" value="0.19" />
+        <entry key="..\:/Users/FARIS/AndroidStudioProjects/AplikasiAntiFoodWaste/app/src/main/res/drawable/hiasan_home_putih.xml" value="0.154" />
         <entry key="..\:/Users/FARIS/AndroidStudioProjects/AplikasiAntiFoodWaste/app/src/main/res/drawable/ic_clear.xml" value="0.2171875" />
         <entry key="..\:/Users/FARIS/AndroidStudioProjects/AplikasiAntiFoodWaste/app/src/main/res/drawable/ic_group1.xml" value="0.15833333333333333" />
+        <entry key="..\:/Users/FARIS/AndroidStudioProjects/AplikasiAntiFoodWaste/app/src/main/res/drawable/ic_hiasan.xml" value="0.193" />
+        <entry key="..\:/Users/FARIS/AndroidStudioProjects/AplikasiAntiFoodWaste/app/src/main/res/drawable/ic_notifications.xml" value="0.154" />
         <entry key="..\:/Users/FARIS/AndroidStudioProjects/AplikasiAntiFoodWaste/app/src/main/res/layout/activity_camera.xml" value="0.14739583333333334" />
         <entry key="..\:/Users/FARIS/AndroidStudioProjects/AplikasiAntiFoodWaste/app/src/main/res/layout/activity_home.xml" value="0.264" />
         <entry key="..\:/Users/FARIS/AndroidStudioProjects/AplikasiAntiFoodWaste/app/src/main/res/layout/activity_login.xml" value="0.4" />
@@ -38,6 +41,7 @@
         <entry key="..\:/Users/FARIS/AndroidStudioProjects/AplikasiAntiFoodWaste/app/src/main/res/layout/activity_register.xml" value="0.2" />
         <entry key="..\:/Users/FARIS/AndroidStudioProjects/AplikasiAntiFoodWaste/app/src/main/res/layout/activity_splash.xml" value="0.12" />
         <entry key="..\:/Users/FARIS/AndroidStudioProjects/AplikasiAntiFoodWaste/app/src/main/res/layout/activity_welcome.xml" value="0.4" />
+        <entry key="..\:/Users/FARIS/AndroidStudioProjects/AplikasiAntiFoodWaste/app/src/main/res/layout/fragment_home.xml" value="0.2" />
       </map>
     </option>
   </component>
