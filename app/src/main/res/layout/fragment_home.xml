@@ -139,13 +139,35 @@
     <ImageView
         android:id="@+id/iv_hiasan_home_white_square"
         android:layout_width="325dp"
-        android:layout_height="150dp"
+        android:layout_height="125dp"
         android:layout_marginTop="48dp"
         android:background="@drawable/hiasan_home_putih"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_welcome_home" />
+
+    <ImageView
+        android:id="@+id/iv_scan"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/ic_scan"
+        app:layout_constraintEnd_toEndOf="@+id/iv_hiasan_home_white_square"
+        app:layout_constraintStart_toStartOf="@+id/iv_hiasan_home_white_square"
+        app:layout_constraintTop_toTopOf="@+id/iv_hiasan_home_white_square" />
+
+    <TextView
+        android:id="@+id/tv_scan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Scan"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/iv_hiasan_home_white_square"
+        app:layout_constraintStart_toStartOf="@+id/iv_hiasan_home_white_square"
+        app:layout_constraintTop_toBottomOf="@+id/iv_scan" />
 
     <TextView
         android:id="@+id/tv_storage"

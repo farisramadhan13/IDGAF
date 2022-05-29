@@ -34,6 +34,7 @@
         <entry key="..\:/Users/FARIS/AndroidStudioProjects/AplikasiAntiFoodWaste/app/src/main/res/drawable/ic_group1.xml" value="0.15833333333333333" />
         <entry key="..\:/Users/FARIS/AndroidStudioProjects/AplikasiAntiFoodWaste/app/src/main/res/drawable/ic_hiasan.xml" value="0.193" />
         <entry key="..\:/Users/FARIS/AndroidStudioProjects/AplikasiAntiFoodWaste/app/src/main/res/drawable/ic_notifications.xml" value="0.154" />
+        <entry key="..\:/Users/FARIS/AndroidStudioProjects/AplikasiAntiFoodWaste/app/src/main/res/drawable/ic_scan.xml" value="0.154" />
         <entry key="..\:/Users/FARIS/AndroidStudioProjects/AplikasiAntiFoodWaste/app/src/main/res/layout/activity_camera.xml" value="0.14739583333333334" />
         <entry key="..\:/Users/FARIS/AndroidStudioProjects/AplikasiAntiFoodWaste/app/src/main/res/layout/activity_home.xml" value="0.264" />
         <entry key="..\:/Users/FARIS/AndroidStudioProjects/AplikasiAntiFoodWaste/app/src/main/res/layout/activity_login.xml" value="0.4" />
@@ -41,7 +42,7 @@
         <entry key="..\:/Users/FARIS/AndroidStudioProjects/AplikasiAntiFoodWaste/app/src/main/res/layout/activity_register.xml" value="0.2" />
         <entry key="..\:/Users/FARIS/AndroidStudioProjects/AplikasiAntiFoodWaste/app/src/main/res/layout/activity_splash.xml" value="0.12" />
         <entry key="..\:/Users/FARIS/AndroidStudioProjects/AplikasiAntiFoodWaste/app/src/main/res/layout/activity_welcome.xml" value="0.4" />
-        <entry key="..\:/Users/FARIS/AndroidStudioProjects/AplikasiAntiFoodWaste/app/src/main/res/layout/fragment_home.xml" value="0.2" />
+        <entry key="..\:/Users/FARIS/AndroidStudioProjects/AplikasiAntiFoodWaste/app/src/main/res/layout/fragment_home.xml" value="0.536" />
       </map>
     </option>
   </component>
