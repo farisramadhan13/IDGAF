@@ -138,9 +138,11 @@
 
     <ImageView
         android:id="@+id/iv_hiasan_home_white_square"
-        android:layout_width="325dp"
+        android:layout_width="0dp"
         android:layout_height="125dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="48dp"
+        android:layout_marginEnd="16dp"
         android:background="@drawable/hiasan_home_putih"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
