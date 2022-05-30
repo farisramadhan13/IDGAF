@@ -2,8 +2,10 @@ package com.capstoneproject.aplikasiantifoodwaste.scan
 
 import android.Manifest
 import android.content.Intent
+import android.content.Intent.ACTION_GET_CONTENT
 import android.content.pm.PackageManager
 import android.graphics.BitmapFactory
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -12,6 +14,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.capstoneproject.aplikasiantifoodwaste.camera.CameraActivity
 import com.capstoneproject.aplikasiantifoodwaste.camera.rotateBitmap
+import com.capstoneproject.aplikasiantifoodwaste.camera.uriToFile
 import com.capstoneproject.aplikasiantifoodwaste.databinding.ActivityFoodScanBinding
 import java.io.File
 
@@ -69,7 +72,11 @@ class FoodScanActivity : AppCompatActivity() {
         launcherIntentCameraX.launch(intent)
     }
     private fun startGallery() {
-        Toast.makeText(this, "Fitur ini belum tersedia", Toast.LENGTH_SHORT).show()
+        val intent = Intent()
+        intent.action = ACTION_GET_CONTENT
+        intent.type = "image/*"
+        val chooser = Intent.createChooser(intent, "Choose a Picture")
+        launcherIntentGallery.launch(chooser)
     }
     private val launcherIntentCameraX = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == CAMERA_X_RESULT) {
@@ -80,6 +87,15 @@ class FoodScanActivity : AppCompatActivity() {
                 isBackCamera
             )
             binding.ivPreview.setImageBitmap(result)
+        }
+    }
+    private val launcherIntentGallery = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode == RESULT_OK) {
+            val selectedImg: Uri = result.data?.data as Uri
+            val myFile = uriToFile(selectedImg, this@FoodScanActivity)
+            binding.ivPreview.setImageURI(selectedImg)
         }
     }
 }
