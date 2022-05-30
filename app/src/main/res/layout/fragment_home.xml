@@ -6,10 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".home.HomeActivity">
 
-    <TextView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:text="@string/title_home" />
+    <ImageView
+        android:id="@+id/hiasan_home_orange_square"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/hiasan_home_orange" />
 
     <FrameLayout
         android:id="@+id/frame_layout"
@@ -33,7 +37,8 @@
                 android:layout_height="48dp"
                 android:hint="@string/search"
                 android:inputType="text"
-                android:maxLines="1" />
+                android:maxLines="1"
+                android:background="@color/white"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -47,28 +52,32 @@
             tools:ignore="ContentDescription" />
     </FrameLayout>
 
-    <androidx.cardview.widget.CardView
+<!--    <androidx.cardview.widget.CardView-->
+<!--        android:id="@+id/iv_notification"-->
+<!--        android:layout_width="48dp"-->
+<!--        android:layout_height="48dp"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:layout_marginEnd="16dp"-->
+<!--        app:cardBackgroundColor="@android:color/transparent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent">-->
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:layout_width="48dp"-->
+<!--            android:layout_height="48dp"-->
+<!--            android:layout_gravity="center"-->
+<!--            app:cardBackgroundColor="@android:color/transparent">-->
+    <!--        </androidx.cardview.widget.CardView>-->
+<!--    </androidx.cardview.widget.CardView>-->
+
+    <ImageView
         android:id="@+id/iv_notification"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="16dp"
-        app:cardBackgroundColor="@color/white"
-        app:cardCornerRadius="250dp"
+        android:src="@drawable/ic_notifications"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-        <androidx.cardview.widget.CardView
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_gravity="center"
-            app:cardCornerRadius="250dp">
-            <ImageView
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/ic_notifications" />
-        </androidx.cardview.widget.CardView>
-    </androidx.cardview.widget.CardView>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_welcome_home"
@@ -78,67 +87,102 @@
         android:layout_marginStart="16dp"
         android:fontFamily="@font/montserrat_bold"
         android:text="@string/welcome_text"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frame_layout" />
 
-    <TableRow
-        android:id="@+id/tableRow"
-        android:layout_width="match_parent"
-        android:layout_height="128dp"
+    <!--    <TableRow-->
+<!--        android:id="@+id/tableRow"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="128dp"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:layout_marginEnd="16dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/tv_welcome_home">-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/imageView"-->
+<!--            android:layout_width="80dp"-->
+<!--            android:layout_height="80dp"-->
+<!--            android:layout_gravity="center_vertical"-->
+<!--            android:layout_marginStart="13dp"-->
+<!--            android:layout_marginEnd="11dp"-->
+<!--            app:srcCompat="@drawable/ic_square" />-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/imageView2"-->
+<!--            android:layout_width="80dp"-->
+<!--            android:layout_height="80dp"-->
+<!--            android:layout_gravity="center_vertical"-->
+<!--            android:layout_marginEnd="11dp"-->
+<!--            app:srcCompat="@drawable/ic_square" />-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/imageView3"-->
+<!--            android:layout_width="80dp"-->
+<!--            android:layout_height="80dp"-->
+<!--            android:layout_gravity="center_vertical"-->
+<!--            android:layout_marginEnd="11dp"-->
+<!--            app:srcCompat="@drawable/ic_square" />-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/imageView4"-->
+<!--            android:layout_width="80dp"-->
+<!--            android:layout_height="80dp"-->
+<!--            android:layout_gravity="center_vertical"-->
+<!--            app:srcCompat="@drawable/ic_square" />-->
+<!--    </TableRow>-->
+
+    <ImageView
+        android:id="@+id/iv_hiasan_home_white_square"
+        android:layout_width="0dp"
+        android:layout_height="125dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="48dp"
         android:layout_marginEnd="16dp"
+        android:background="@drawable/hiasan_home_putih"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_welcome_home">
+        app:layout_constraintTop_toBottomOf="@+id/tv_welcome_home" />
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="13dp"
-            android:layout_marginEnd="11dp"
-            app:srcCompat="@drawable/ic_square" />
+    <ImageView
+        android:id="@+id/iv_scan"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/ic_scan"
+        app:layout_constraintEnd_toEndOf="@+id/iv_hiasan_home_white_square"
+        app:layout_constraintStart_toStartOf="@+id/iv_hiasan_home_white_square"
+        app:layout_constraintTop_toTopOf="@+id/iv_hiasan_home_white_square" />
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginEnd="11dp"
-            app:srcCompat="@drawable/ic_square" />
-
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginEnd="11dp"
-            app:srcCompat="@drawable/ic_square" />
-
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_gravity="center_vertical"
-            app:srcCompat="@drawable/ic_square" />
-    </TableRow>
+    <TextView
+        android:id="@+id/tv_scan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Scan"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/iv_hiasan_home_white_square"
+        app:layout_constraintStart_toStartOf="@+id/iv_hiasan_home_white_square"
+        app:layout_constraintTop_toBottomOf="@+id/iv_scan" />
 
     <TextView
         android:id="@+id/tv_storage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
         android:fontFamily="@font/montserrat_bold"
         android:text="@string/storage"
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tableRow" />
+        app:layout_constraintTop_toBottomOf="@+id/iv_hiasan_home_white_square" />
 
     <Button
         android:id="@+id/btn_storage"
@@ -215,7 +259,7 @@
             android:layout_height="wrap_content" />
     </HorizontalScrollView>
 
-<!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
+    <!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
 <!--        android:id="@+id/nav_view"-->
 <!--        android:layout_width="0dp"-->
 <!--        android:layout_height="wrap_content"-->

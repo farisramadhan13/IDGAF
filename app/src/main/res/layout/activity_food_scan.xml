@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".scan.ScanFoodActivity">
+    tools:context=".scan.FoodScanActivity">
 
     <FrameLayout
         android:id="@+id/scan_food"
@@ -52,7 +52,7 @@
 
     <Button
         android:id="@+id/btn_gallery"
-        android:layout_width="160dp"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat_bold"
         android:minWidth="0dp"
@@ -61,7 +61,7 @@
         android:layout_marginStart="24dp"
         android:text="@string/take_from_gallery"
         android:textColor="@color/white"
-        android:textSize="11sp"
+        android:textSize="14sp"
         android:backgroundTint="@color/purple"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_scan_food" />
@@ -77,7 +77,7 @@
         android:minHeight="0dp"
         android:text="@string/take_from_camera"
         android:textColor="@color/white"
-        android:textSize="11sp"
+        android:textSize="14sp"
         android:backgroundTint="@color/purple"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_scan_food" />

@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.capstoneproject.aplikasiantifoodwaste">
 
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,13 +14,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AplikasiAntiFoodWaste">
         <activity
-            android:name=".ConfirmationScanFoodActivity"
+            android:name=".scan.FoodScanActivity"
             android:exported="false" />
         <activity
-            android:name=".SearchFoodListActivity"
+            android:name=".camera.CameraActivity"
             android:exported="false" />
         <activity
-            android:name=".ScanFoodActivity"
+            android:name=".scan.ConfirmationScanFoodActivity"
+            android:exported="false" />
+        <activity
+            android:name=".searchfood.SearchFoodListActivity"
             android:exported="false" />
         <activity
             android:name=".register.RegisterActivity"

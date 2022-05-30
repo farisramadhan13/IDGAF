@@ -6,21 +6,38 @@
     android:layout_height="match_parent"
     tools:context=".profile.ProfileFragment">
 
+    <TextView
+        android:id="@+id/title_bar_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_bold"
+        android:paddingStart="24dp"
+        android:paddingTop="16dp"
+        android:paddingEnd="24dp"
+        android:paddingBottom="16dp"
+        android:text="@string/title_profile"
+        android:textColor="@color/orange"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.cardview.widget.CardView
         android:id="@+id/iv_profile"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="250dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/title_bar_profile">
+
         <androidx.cardview.widget.CardView
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_gravity="center"
             app:cardCornerRadius="250dp">
+
             <ImageView
                 android:layout_width="150dp"
                 android:layout_height="150dp"
