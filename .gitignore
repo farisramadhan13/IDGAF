@@ -13,5 +13,4 @@
 .externalNativeBuild
 .cxx
 local.properties
-fruit-veg-freshness-classification/fruitveg
-fruit-veg-freshness-classification/.ipynb_checkpoints
+models/fruit-veg-freshness-classification/fruitveg
