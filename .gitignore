@@ -14,3 +14,6 @@
 .cxx
 local.properties
 models/fruit-veg-freshness-classification/fruitveg
+models/fruitveg-2/.ipynb_checkpoints/fruitveg-2-checkpoint.ipynb
+models/fruit-veg-freshness-classification/.ipynb_checkpoints/FruitVeg Freshness Classification-checkpoint.ipynb
+deployment/.ipynb_checkpoints/Deploy Test-checkpoint.ipynb
