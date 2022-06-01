@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import com.capstoneproject.aplikasiantifoodwaste.databinding.FragmentProfileBinding
 import com.capstoneproject.aplikasiantifoodwaste.welcome.WelcomeActivity
 import com.google.firebase.auth.FirebaseAuth
+import androidx.fragment.app.FragmentManager
+import com.capstoneproject.aplikasiantifoodwaste.R
 
 class ProfileFragment : Fragment(){
 
@@ -18,9 +20,14 @@ class ProfileFragment : Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         auth = FirebaseAuth.getInstance()
+
         binding.btnProfileLogout.setOnClickListener {
             auth.signOut()
             startActivity(Intent(activity, WelcomeActivity::class.java))
+        }
+
+        binding.btnProfileChange.setOnClickListener{
+            startActivity(Intent(activity, ChangeProfileActivity::class.java))
         }
     }
 
