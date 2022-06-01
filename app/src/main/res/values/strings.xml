@@ -49,4 +49,5 @@
     <string name="id_penyimpanan">ID Penyimpanan</string>
     <string name="nama_bahan_makanan">Nama bahan makanan</string>
     <string name="status_makanan">Status makanan</string>
+    <string name="bahan_makananku">Bahan Makananku</string>
 </resources>

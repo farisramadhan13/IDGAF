@@ -19,6 +19,7 @@
         <entry key="..\:/Users/ASUS/Desktop/New folder/IDGAF/app/src/main/res/layout/activity_camera.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ASUS/Desktop/New folder/IDGAF/app/src/main/res/layout/activity_change_profile.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ASUS/Desktop/New folder/IDGAF/app/src/main/res/layout/activity_confirmation_scan_food.xml" value="0.264" />
+        <entry key="..\:/Users/ASUS/Desktop/New folder/IDGAF/app/src/main/res/layout/activity_detail_storage.xml" value="0.264" />
         <entry key="..\:/Users/ASUS/Desktop/New folder/IDGAF/app/src/main/res/layout/activity_food_scan.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ASUS/Desktop/New folder/IDGAF/app/src/main/res/layout/activity_home.xml" value="0.4742468415937804" />
         <entry key="..\:/Users/ASUS/Desktop/New folder/IDGAF/app/src/main/res/layout/activity_login.xml" value="0.21240942028985507" />
@@ -28,10 +29,10 @@
         <entry key="..\:/Users/ASUS/Desktop/New folder/IDGAF/app/src/main/res/layout/activity_splash.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ASUS/Desktop/New folder/IDGAF/app/src/main/res/layout/activity_welcome.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ASUS/Desktop/New folder/IDGAF/app/src/main/res/layout/fragment_change_profile.xml" value="0.264" />
-        <entry key="..\:/Users/ASUS/Desktop/New folder/IDGAF/app/src/main/res/layout/fragment_home.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ASUS/Desktop/New folder/IDGAF/app/src/main/res/layout/fragment_home.xml" value="0.4" />
         <entry key="..\:/Users/ASUS/Desktop/New folder/IDGAF/app/src/main/res/layout/fragment_order.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ASUS/Desktop/New folder/IDGAF/app/src/main/res/layout/fragment_profile.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/ASUS/Desktop/New folder/IDGAF/app/src/main/res/layout/fragment_storage.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ASUS/Desktop/New folder/IDGAF/app/src/main/res/layout/fragment_storage.xml" value="0.2" />
         <entry key="..\:/Users/ASUS/Desktop/New folder/IDGAF/app/src/main/res/layout/item_penyimpanan.xml" value="0.4" />
         <entry key="..\:/Users/ASUS/Desktop/New folder/IDGAF/app/src/main/res/layout/item_penyimpanan_home.xml" value="0.6" />
         <entry key="..\:/Users/ASUS/Desktop/New folder/IDGAF/app/src/main/res/layout/order_card.xml" value="0.536" />

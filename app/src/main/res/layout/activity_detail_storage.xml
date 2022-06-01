@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".storage.DetailStorageActivity">
+
+    <TextView
+        android:id="@+id/title_bar_detail_storage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_bold"
+        android:paddingStart="24dp"
+        android:paddingTop="16dp"
+        android:paddingEnd="24dp"
+        android:paddingBottom="16dp"
+        android:text="@string/bahan_makananku"
+        android:textColor="@color/orange"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_hiasan_detail_storage_white"
+        android:layout_width="0dp"
+        android:layout_height="500dp"
+        android:background="@drawable/hiasan_home_putih"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_bar_detail_storage" />
+
+    <ImageView
+        android:id="@+id/iv_penyimpanan"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/iv_hiasan_detail_storage_white"
+        app:layout_constraintStart_toStartOf="@+id/iv_hiasan_detail_storage_white"
+        app:layout_constraintTop_toTopOf="@+id/iv_hiasan_detail_storage_white"
+        tools:src="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/id_penyimpanan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="@string/id_penyimpanan"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="24dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/iv_hiasan_detail_storage_white"
+        app:layout_constraintTop_toBottomOf="@+id/iv_penyimpanan" />
+
+    <TextView
+        android:id="@+id/tv_nama_bahan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="@string/nama_bahan_makanan"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="24dp"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/iv_hiasan_detail_storage_white"
+        app:layout_constraintTop_toBottomOf="@+id/id_penyimpanan" />
+
+    <TextView
+        android:id="@+id/tv_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="@string/status_makanan"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="24dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/iv_hiasan_detail_storage_white"
+        app:layout_constraintTop_toBottomOf="@+id/tv_nama_bahan" />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/ic_delete"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_hiasan_detail_storage_white"
+        app:layout_constraintEnd_toEndOf="@+id/iv_hiasan_detail_storage_white" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
