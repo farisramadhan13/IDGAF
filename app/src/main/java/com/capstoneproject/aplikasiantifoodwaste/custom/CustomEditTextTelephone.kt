@@ -42,7 +42,6 @@ class CustomEditTextTelephone: AppCompatEditText, View.OnTouchListener {
                 if (s.toString().isNotEmpty()){
                     showClearButton()
                     when{
-                        (!s.toString().startsWith("62") || s[0]!='0' || s[0]!='8' || s[0]!='2') -> error = "Format nomor telepon salah"
                         (s.toString().length<8) -> error = "Nomor telepon kurang panjang"
                     }
                 }

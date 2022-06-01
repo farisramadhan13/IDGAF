@@ -43,7 +43,7 @@
     <string name="order_status">Status pesanan:</string>
     <string name="received">Diterima</string>
     <string name="rejected">Ditolak</string>
-    <string name="change_profile">Ubah profil</string>
+    <string name="change_profile">Ubah Profil</string>
     <string name="logout">Logout</string>
     <string name="save_change">Simpan Perubahan</string>
 </resources>
