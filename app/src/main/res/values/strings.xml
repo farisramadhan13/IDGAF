@@ -46,4 +46,7 @@
     <string name="change_profile">Ubah Profil</string>
     <string name="logout">Logout</string>
     <string name="save_change">Simpan Perubahan</string>
+    <string name="id_penyimpanan">ID Penyimpanan</string>
+    <string name="nama_bahan_makanan">Nama bahan makanan</string>
+    <string name="status_makanan">Status makanan</string>
 </resources>
