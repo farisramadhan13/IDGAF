@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:address_card="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/address_card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginLeft="8dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginRight="8dp"
+    android:layout_marginBottom="4dp"
+    address_card:cardCornerRadius="4dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/address_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="@string/name"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            address_card:layout_constraintStart_toStartOf="parent"
+            address_card:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/address_telp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="@string/telephone_number"
+            android:textColor="@color/black"
+            android:textSize="11sp"
+            android:layout_marginTop="8dp"
+            address_card:layout_constraintStart_toStartOf="parent"
+            address_card:layout_constraintTop_toBottomOf="@+id/address_name" />
+
+        <TextView
+            android:id="@+id/full_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="@string/alamat_lengkap"
+            android:textColor="@color/black"
+            android:textSize="11sp"
+            android:layout_marginTop="8dp"
+            address_card:layout_constraintStart_toStartOf="parent"
+            address_card:layout_constraintTop_toBottomOf="@+id/address_telp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_delete"
+            address_card:layout_constraintBottom_toBottomOf="parent"
+            address_card:layout_constraintEnd_toEndOf="parent"
+            address_card:layout_constraintTop_toBottomOf="@+id/full_address" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.cardview.widget.CardView>

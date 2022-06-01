@@ -50,4 +50,8 @@
     <string name="nama_bahan_makanan">Nama bahan makanan</string>
     <string name="status_makanan">Status makanan</string>
     <string name="bahan_makananku">Bahan Makananku</string>
+    <string name="alamat_saya">Alamat Saya</string>
+    <string name="tambah_alamat">Tambah Alamat</string>
+    <string name="alamat_lengkap">Alamat lengkap</string>
+    <string name="daftar_alamat_saya">Daftar alamat saya</string>
 </resources>

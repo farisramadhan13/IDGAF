@@ -127,32 +127,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_telephone" />
 
-    <TextView
-        android:id="@+id/tv_address"
-        android:layout_width="130dp"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/montserrat_bold"
-        android:text="@string/my_address"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_edit_profile_telephone" />
-
-    <android.widget.Spinner
-        android:id="@+id/spinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_address">
-
-    </android.widget.Spinner>
-
     <Button
         android:id="@+id/btn_edit_profile_save"
         android:layout_width="wrap_content"
@@ -161,11 +135,12 @@
         android:fontFamily="@font/montserrat_bold"
         android:minWidth="0dp"
         android:minHeight="0dp"
+        android:layout_marginTop="16dp"
         android:text="@string/save_change"
         android:textColor="@color/white"
         android:textSize="11sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+        app:layout_constraintTop_toBottomOf="@+id/et_edit_profile_telephone" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
