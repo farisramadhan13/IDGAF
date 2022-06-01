@@ -27,7 +27,7 @@ class ProfileFragment : Fragment(){
         }
 
         binding.btnProfileChange.setOnClickListener{
-
+            startActivity(Intent(activity, ChangeProfileActivity::class.java))
         }
     }
 

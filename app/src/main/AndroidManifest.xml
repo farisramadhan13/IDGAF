@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AplikasiAntiFoodWaste">
         <activity
-            android:name=".ChangeProfileActivity"
+            android:name=".profile.ChangeProfileActivity"
             android:exported="false" />
         <activity
             android:name=".scan.FoodScanActivity"
