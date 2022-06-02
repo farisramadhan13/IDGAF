@@ -38,6 +38,9 @@ class CustomEditTextAddress: AppCompatEditText, View.OnTouchListener {
             }
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
                 if (s.toString().isNotEmpty()) showClearButton() else hideClearButton()
+                when{
+                    (s.toString().length<30) -> error = "Minimal 30 karakter"
+                }
             }
             override fun afterTextChanged(s: Editable) {
                 // Do nothing.
