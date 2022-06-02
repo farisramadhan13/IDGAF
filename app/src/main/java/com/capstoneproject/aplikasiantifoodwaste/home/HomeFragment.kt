@@ -18,6 +18,12 @@ class HomeFragment : Fragment() {
         binding.ivScan.setOnClickListener {
             startActivity(Intent(activity, FoodScanActivity::class.java))
         }
+        binding.ivShare.setOnClickListener{
+
+        }
+        binding.ivTips.setOnClickListener{
+
+        }
     }
 
     override fun onCreateView(
@@ -28,6 +34,4 @@ class HomeFragment : Fragment() {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
-
-
 }
