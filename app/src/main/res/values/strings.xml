@@ -57,4 +57,6 @@
     <string name="scan">Scan</string>
     <string name="share">Share</string>
     <string name="tips">Tips</string>
+    <string name="tab_text_1">Ambil</string>
+    <string name="tab_text_2">Kirim</string>
 </resources>
