@@ -65,7 +65,6 @@ class RegisterActivity : AppCompatActivity() {
             //val name = binding.customEditTextNameRegister.text.toString().trim()
             val email = customEditTextEmailRegister.text.toString().trim()
             val password = customEditTextPasswordRegister.text.toString().trim()
-
             registerUser(email, password)
         }
     }
