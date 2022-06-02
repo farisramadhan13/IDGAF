@@ -54,4 +54,7 @@
     <string name="tambah_alamat">Tambah Alamat</string>
     <string name="alamat_lengkap">Alamat lengkap</string>
     <string name="daftar_alamat_saya">Daftar alamat saya</string>
+    <string name="scan">Scan</string>
+    <string name="share">Share</string>
+    <string name="tips">Tips</string>
 </resources>
