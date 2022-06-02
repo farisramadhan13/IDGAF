@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".profile.AddAddressActivity">
+
+    <TextView
+        android:id="@+id/title_bar_add_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_bold"
+        android:paddingStart="24dp"
+        android:paddingTop="16dp"
+        android:paddingEnd="24dp"
+        android:paddingBottom="16dp"
+        android:text="@string/tambah_alamat"
+        android:textColor="@color/orange"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="@string/name_label"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_bar_add_address" />
+
+    <com.capstoneproject.aplikasiantifoodwaste.custom.CustomEditTextName
+        android:id="@+id/et_edit_address_name"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_gravity="start"
+        android:fontFamily="@font/montserrat_bold"
+        android:textSize="16sp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name" />
+
+    <TextView
+        android:id="@+id/tv_telephone"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="@string/telephone_number"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_edit_address_name" />
+
+    <com.capstoneproject.aplikasiantifoodwaste.custom.CustomEditTextTelephone
+        android:id="@+id/et_edit_address_telephone"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_gravity="start"
+        android:fontFamily="@font/montserrat_bold"
+        android:textSize="16sp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_telephone" />
+
+    <TextView
+        android:id="@+id/tv_address"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="@string/alamat_lengkap"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_edit_address_telephone" />
+
+    <com.capstoneproject.aplikasiantifoodwaste.custom.CustomEditTextAddress
+        android:id="@+id/et_edit_address_address"
+        android:layout_width="0dp"
+        android:layout_height="144dp"
+        android:gravity="top|start"
+        android:fontFamily="@font/montserrat_bold"
+        android:textSize="16sp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_address"/>
+
+    <Button
+        android:id="@+id/btn_add_address"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/purple"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="@string/tambah_alamat"
+        android:textColor="@color/white"
+        android:textSize="11sp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_edit_address_address" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
