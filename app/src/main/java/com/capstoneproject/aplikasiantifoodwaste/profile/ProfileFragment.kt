@@ -29,6 +29,10 @@ class ProfileFragment : Fragment(){
         binding.btnProfileChange.setOnClickListener{
             startActivity(Intent(activity, ChangeProfileActivity::class.java))
         }
+
+        binding.btnMyAddress.setOnClickListener{
+            startActivity(Intent(activity, AddressActivity::class.java))
+        }
     }
 
     override fun onCreateView(
