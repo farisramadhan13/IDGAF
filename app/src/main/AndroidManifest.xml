@@ -15,6 +15,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AplikasiAntiFoodWaste">
         <activity
+            android:name=".ApelActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Apel"
+            android:exported="false" />
+        <activity
             android:name=".share.ShareActivity"
             android:exported="false" />
         <activity
