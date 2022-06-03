@@ -6,4 +6,196 @@
     android:layout_height="match_parent"
     tools:context=".tips.TipsActivity">
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/apel"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="64dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/gambar_apel_tips"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:srcCompat="@drawable/apel" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/teks_apel_tips"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Apel"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/apel"
+        app:layout_constraintStart_toStartOf="@+id/apel"
+        app:layout_constraintTop_toBottomOf="@+id/apel" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/pisang"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="64dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/jeruk"
+        app:layout_constraintStart_toEndOf="@+id/apel"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/gambar_pisang_tips"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:srcCompat="@drawable/pisang" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/teks_pisang_tips"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Pisang"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/pisang"
+        app:layout_constraintStart_toStartOf="@+id/pisang"
+        app:layout_constraintTop_toBottomOf="@+id/pisang" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/jeruk"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="32dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/gambar_jeruk_tips"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:srcCompat="@drawable/jeruk" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/teks_jeruk_tips"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Jeruk"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/jeruk"
+        app:layout_constraintStart_toStartOf="@+id/jeruk"
+        app:layout_constraintTop_toBottomOf="@+id/jeruk" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/tomat"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="64dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/teks_apel_tips">
+
+        <ImageView
+            android:id="@+id/gambar_tomat_tips"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:srcCompat="@drawable/tomat" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/teks_tomat_tips"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Tomat"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/tomat"
+        app:layout_constraintStart_toStartOf="@+id/tomat"
+        app:layout_constraintTop_toBottomOf="@+id/tomat" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/wortel"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="64dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/sayuran_hijau"
+        app:layout_constraintStart_toEndOf="@+id/tomat"
+        app:layout_constraintTop_toBottomOf="@+id/teks_pisang_tips">
+
+        <ImageView
+            android:id="@+id/gambar_wortel_tips"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:srcCompat="@drawable/wortel" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/teks_wortel_tips"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Wortel"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/wortel"
+        app:layout_constraintStart_toStartOf="@+id/wortel"
+        app:layout_constraintTop_toBottomOf="@+id/wortel" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/sayuran_hijau"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="32dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/teks_jeruk_tips">
+
+        <ImageView
+            android:id="@+id/gambar_sayur_hijau_tips"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:srcCompat="@drawable/sayurhijau" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/teks_sayur_hijau_tips"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Sayur Hijau"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/sayuran_hijau"
+        app:layout_constraintStart_toStartOf="@+id/sayuran_hijau"
+        app:layout_constraintTop_toBottomOf="@+id/sayuran_hijau" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import com.capstoneproject.aplikasiantifoodwaste.databinding.FragmentHomeBinding
 import com.capstoneproject.aplikasiantifoodwaste.scan.FoodScanActivity
+import com.capstoneproject.aplikasiantifoodwaste.share.ShareActivity
+import com.capstoneproject.aplikasiantifoodwaste.tips.TipsActivity
 
 class HomeFragment : Fragment() {
 
@@ -19,10 +21,10 @@ class HomeFragment : Fragment() {
             startActivity(Intent(activity, FoodScanActivity::class.java))
         }
         binding.ivShare.setOnClickListener{
-
+            startActivity(Intent(activity, ShareActivity::class.java))
         }
         binding.ivTips.setOnClickListener{
-
+            startActivity(Intent(activity, TipsActivity::class.java))
         }
     }
 
