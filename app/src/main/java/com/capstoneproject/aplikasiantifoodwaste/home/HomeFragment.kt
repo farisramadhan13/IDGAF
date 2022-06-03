@@ -16,7 +16,7 @@ class HomeFragment : Fragment() {
     private lateinit var binding : FragmentHomeBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+        super.onViewCreated(view, savedInstanceState)
         binding.ivScan.setOnClickListener {
             startActivity(Intent(activity, FoodScanActivity::class.java))
         }
@@ -31,7 +31,7 @@ class HomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View{
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
