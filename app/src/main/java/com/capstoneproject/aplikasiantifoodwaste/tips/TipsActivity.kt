@@ -19,7 +19,6 @@ class TipsActivity : AppCompatActivity() {
         supportActionBar?.hide()
 
         binding.gambarApelTips.setOnClickListener {
-            Toast.makeText(this,"Fitur belum dibuat", Toast.LENGTH_SHORT).show()
             startActivity(Intent(this, ApelActivity::class.java))
         }
         binding.gambarPisangTips.setOnClickListener {
