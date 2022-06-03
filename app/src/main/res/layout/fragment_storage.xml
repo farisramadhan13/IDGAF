@@ -6,14 +6,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".storage.StorageFragment">
 
-    <FrameLayout
+    <androidx.cardview.widget.CardView
         android:id="@+id/storage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        >
+        app:cardBackgroundColor="@color/white"
+        app:cardElevation="10dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -26,7 +27,7 @@
             android:paddingStart="24dp"
             android:paddingEnd="24dp"
             android:textSize="24sp"/>
-    </FrameLayout>
+    </androidx.cardview.widget.CardView>
 
     <FrameLayout
         android:id="@+id/frame_layout"

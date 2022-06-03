@@ -6,14 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".scan.FoodScanActivity">
 
-    <FrameLayout
+    <androidx.cardview.widget.CardView
         android:id="@+id/scan_food"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
+        app:layout_constraintTop_toTopOf="parent"
+        app:cardBackgroundColor="@color/white"
+        app:cardElevation="10dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -25,7 +26,8 @@
             android:paddingStart="24dp"
             android:paddingEnd="24dp"
             android:textSize="24sp"/>
-    </FrameLayout>
+
+    </androidx.cardview.widget.CardView>
 
     <ImageView
         android:id="@+id/iv_preview"
@@ -41,11 +43,12 @@
         android:id="@+id/tv_scan_food"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/montserrat_bold"
         android:text="@string/scan_your_food"
         android:textColor="@color/black"
         android:textSize="16sp"
-        android:layout_marginTop="16dp"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv_preview" />
@@ -54,15 +57,16 @@
         android:id="@+id/btn_gallery"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/purple"
         android:fontFamily="@font/montserrat_bold"
         android:minWidth="0dp"
         android:minHeight="0dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginStart="24dp"
         android:text="@string/take_from_gallery"
         android:textColor="@color/white"
         android:textSize="14sp"
-        android:backgroundTint="@color/purple"
+        android:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_scan_food" />
 
@@ -72,14 +76,59 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/purple"
         android:fontFamily="@font/montserrat_bold"
         android:minWidth="0dp"
         android:minHeight="0dp"
         android:text="@string/take_from_camera"
         android:textColor="@color/white"
         android:textSize="14sp"
-        android:backgroundTint="@color/purple"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_scan_food" />
+
+    <TextView
+        android:id="@+id/tv_konfirmasi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Yakin ingin menggunakan gambar ini?"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_preview" />
+
+    <Button
+        android:id="@+id/btn_konfirmasi_yes"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/purple"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Ya"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_konfirmasi" />
+
+    <Button
+        android:id="@+id/btn_konfirmasi_ulangi"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:backgroundTint="@color/purple"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Ulangi"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_konfirmasi" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,6 +8,7 @@ import android.graphics.BitmapFactory
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
@@ -66,6 +67,17 @@ class FoodScanActivity : AppCompatActivity() {
 
         binding.btnCamera.setOnClickListener { startCameraX() }
         binding.btnGallery.setOnClickListener { startGallery() }
+        binding.btnKonfirmasiYes.setOnClickListener {
+            Toast.makeText(this,"Fitur belum dibuat", Toast.LENGTH_SHORT).show()
+        }
+        binding.btnKonfirmasiUlangi.setOnClickListener {
+            binding.tvScanFood.visibility = View.VISIBLE
+            binding.btnCamera.visibility = View.VISIBLE
+            binding.btnGallery.visibility = View.VISIBLE
+            binding.tvKonfirmasi.visibility = View.GONE
+            binding.btnKonfirmasiYes.visibility = View.GONE
+            binding.btnKonfirmasiUlangi.visibility = View.GONE
+        }
     }
     private fun startCameraX() {
         val intent = Intent(this, CameraActivity::class.java)
@@ -87,6 +99,12 @@ class FoodScanActivity : AppCompatActivity() {
                 isBackCamera
             )
             binding.ivPreview.setImageBitmap(result)
+            binding.tvScanFood.visibility = View.GONE
+            binding.btnCamera.visibility = View.GONE
+            binding.btnGallery.visibility = View.GONE
+            binding.tvKonfirmasi.visibility = View.VISIBLE
+            binding.btnKonfirmasiYes.visibility = View.VISIBLE
+            binding.btnKonfirmasiUlangi.visibility = View.VISIBLE
         }
     }
     private val launcherIntentGallery = registerForActivityResult(
