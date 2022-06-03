@@ -251,7 +251,7 @@
         android:fontFamily="@font/montserrat_bold"
         android:text="@string/see_all"
         android:textColor="@color/white"
-        android:textSize="12sp"
+        android:textSize="11sp"
         android:backgroundTint="@color/purple"
         android:minHeight="0dp"
         android:minWidth="0dp"
