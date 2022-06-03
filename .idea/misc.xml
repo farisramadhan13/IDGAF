@@ -52,9 +52,11 @@
         <entry key="..\:/Users/FARIS/AndroidStudioProjects/AplikasiAntiFoodWaste/app/src/main/res/layout/activity_tips.xml" value="0.264" />
         <entry key="..\:/Users/FARIS/AndroidStudioProjects/AplikasiAntiFoodWaste/app/src/main/res/layout/activity_welcome.xml" value="0.4" />
         <entry key="..\:/Users/FARIS/AndroidStudioProjects/AplikasiAntiFoodWaste/app/src/main/res/layout/fragment_home.xml" value="0.4" />
-        <entry key="..\:/Users/FARIS/AndroidStudioProjects/AplikasiAntiFoodWaste/app/src/main/res/layout/fragment_order.xml" value="0.1125" />
+        <entry key="..\:/Users/FARIS/AndroidStudioProjects/AplikasiAntiFoodWaste/app/src/main/res/layout/fragment_order.xml" value="0.152" />
+        <entry key="..\:/Users/FARIS/AndroidStudioProjects/AplikasiAntiFoodWaste/app/src/main/res/layout/fragment_order_ambil.xml" value="0.264" />
+        <entry key="..\:/Users/FARIS/AndroidStudioProjects/AplikasiAntiFoodWaste/app/src/main/res/layout/fragment_order_kirim.xml" value="0.1" />
         <entry key="..\:/Users/FARIS/AndroidStudioProjects/AplikasiAntiFoodWaste/app/src/main/res/layout/fragment_profile.xml" value="0.264" />
-        <entry key="..\:/Users/FARIS/AndroidStudioProjects/AplikasiAntiFoodWaste/app/src/main/res/layout/fragment_storage.xml" value="0.264" />
+        <entry key="..\:/Users/FARIS/AndroidStudioProjects/AplikasiAntiFoodWaste/app/src/main/res/layout/fragment_storage.xml" value="0.2" />
         <entry key="..\:/Users/FARIS/AndroidStudioProjects/AplikasiAntiFoodWaste/app/src/main/res/layout/item_penyimpanan.xml" value="0.264" />
         <entry key="..\:/Users/FARIS/AndroidStudioProjects/AplikasiAntiFoodWaste/app/src/main/res/layout/item_penyimpanan_home.xml" value="0.536" />
         <entry key="..\:/Users/FARIS/AndroidStudioProjects/AplikasiAntiFoodWaste/app/src/main/res/layout/order_card.xml" value="0.13385416666666666" />

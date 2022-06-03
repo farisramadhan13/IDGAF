@@ -28,7 +28,7 @@ class OrderFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        val sectionsPagerAdapter = SectionsPagerAdapter(FragmentActivity().supportFragmentManager)
+//        val sectionsPagerAdapter = SectionsPagerAdapter(this)
 //        val viewPager: ViewPager2 = findViewById(R.id.view_pager)
 //        viewPager.adapter = sectionsPagerAdapter
 //        val tabs: TabLayout = findViewById(R.id.tab_layout)
