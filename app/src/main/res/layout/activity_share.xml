@@ -150,6 +150,21 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/linear_button" />
 
+
+            <com.capstoneproject.aplikasiantifoodwaste.custom.CustomEditTextName
+                android:id="@+id/ti_nama_makanan_share"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:hint="@string/masukkan_nama_makanan"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_nama_makanan_share"/>
+
+            <!--
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/ti_nama_makanan_share"
                 android:layout_width="0dp"
@@ -167,6 +182,7 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/masukkan_nama_makanan" />
             </com.google.android.material.textfield.TextInputLayout>
+            -->
 
             <TextView
                 android:id="@+id/tv_deskripsi_makanan_share"
@@ -181,6 +197,25 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/ti_nama_makanan_share" />
 
+
+            <com.capstoneproject.aplikasiantifoodwaste.custom.CustomEditTextAddress
+                android:id="@+id/ti_deskripsi_makanan_share"
+                android:layout_width="0dp"
+                android:layout_height="144dp"
+                android:gravity="top|start"
+                android:fontFamily="@font/montserrat_bold"
+                android:textSize="16sp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp"
+                android:inputType="textMultiLine"
+                android:hint="@string/deskripsi_makanan"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_deskripsi_makanan_share"
+                />
+
+            <!--
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/ti_deskripsi_makanan_share"
                 android:layout_width="0dp"
@@ -201,6 +236,7 @@
                     android:layout_height="match_parent"
                     android:hint="@string/deskripsi_makanan" />
             </com.google.android.material.textfield.TextInputLayout>
+            -->
 
             <TextView
                 android:id="@+id/tv_stok_user_share"

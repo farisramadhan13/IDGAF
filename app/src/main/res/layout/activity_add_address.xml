@@ -44,6 +44,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
+        android:hint="@string/masukkan_nama_anda"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_name" />
@@ -99,6 +100,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
         android:inputType="textMultiLine"
+        android:hint="@string/masukkan_alamat_lengkap"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_address"/>

@@ -71,4 +71,6 @@
     <string name="bagikan_makanan">Bagikan Makanan</string>
     <string name="gunakan_gambar">Gunakan gambar</string>
     <string name="ulangi_pengambilan_gambar">Ulangi pengambilan gambar</string>
+    <string name="masukkan_nama_anda">Masukkan nama Anda</string>
+    <string name="masukkan_alamat_lengkap">Masukkan alamat lengkap</string>
 </resources>

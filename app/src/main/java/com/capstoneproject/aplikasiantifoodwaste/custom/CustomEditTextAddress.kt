@@ -26,7 +26,6 @@ class CustomEditTextAddress: AppCompatEditText, View.OnTouchListener {
     }
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-        hint = "Masukkan alamat lengkap"
         textAlignment = View.TEXT_ALIGNMENT_VIEW_START
     }
     private fun init() {
@@ -39,7 +38,7 @@ class CustomEditTextAddress: AppCompatEditText, View.OnTouchListener {
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
                 if (s.toString().isNotEmpty()) showClearButton() else hideClearButton()
                 when{
-                    (s.toString().length<30) -> error = "Minimal 30 karakter"
+                    (s.toString().length<30) -> error = "Minimal 20 karakter"
                 }
             }
             override fun afterTextChanged(s: Editable) {

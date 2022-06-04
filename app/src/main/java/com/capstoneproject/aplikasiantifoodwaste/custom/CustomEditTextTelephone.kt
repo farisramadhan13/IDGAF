@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.Canvas
 import android.graphics.drawable.Drawable
 import android.text.Editable
+import android.text.InputType
 import android.text.TextWatcher
 import android.util.AttributeSet
 import android.view.MotionEvent
@@ -33,6 +34,7 @@ class CustomEditTextTelephone: AppCompatEditText, View.OnTouchListener {
 
     private fun init() {
         clearButtonImage = ContextCompat.getDrawable(context, R.drawable.ic_clear) as Drawable
+        inputType = InputType.TYPE_CLASS_NUMBER
         setOnTouchListener(this)
         addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {

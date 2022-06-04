@@ -26,7 +26,6 @@ class CustomEditTextName: AppCompatEditText, View.OnTouchListener {
     }
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-        hint = "Masukkan nama anda"
         textAlignment = View.TEXT_ALIGNMENT_VIEW_START
     }
     private fun init() {
