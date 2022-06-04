@@ -7,6 +7,29 @@
     tools:context=".tips.TipsActivity">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/tips_buah_dan_sayuran"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:cardBackgroundColor="@color/white"
+        app:cardElevation="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_bold"
+            android:textColor="@color/orange"
+            android:text="Buah dan Sayuran"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:textSize="24sp"/>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
         android:id="@+id/apel"
         android:layout_width="80dp"
         android:layout_height="80dp"
@@ -16,7 +39,7 @@
         app:cardCornerRadius="20dp"
         app:cardElevation="10dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/tips_buah_dan_sayuran">
 
         <ImageView
             android:id="@+id/gambar_apel_tips"
@@ -48,7 +71,7 @@
         app:cardElevation="10dp"
         app:layout_constraintEnd_toStartOf="@+id/jeruk"
         app:layout_constraintStart_toEndOf="@+id/apel"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/tips_buah_dan_sayuran">
 
         <ImageView
             android:id="@+id/gambar_pisang_tips"
@@ -80,7 +103,7 @@
         app:cardCornerRadius="20dp"
         app:cardElevation="10dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/tips_buah_dan_sayuran">
 
         <ImageView
             android:id="@+id/gambar_jeruk_tips"

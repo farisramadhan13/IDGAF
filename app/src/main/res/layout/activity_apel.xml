@@ -6,38 +6,60 @@
     android:layout_height="match_parent"
     tools:context=".tips.kualitas.ApelActivity">
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/tips_tingkat_kesegaran"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:cardBackgroundColor="@color/white"
+        app:cardElevation="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_bold"
+            android:textColor="@color/orange"
+            android:text="Tingkat Kesegaran"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:textSize="24sp"/>
+    </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cv_apel_sangat_segar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="20dp"
-        app:cardElevation="10dp">
+        app:cardElevation="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tips_tingkat_kesegaran">
 
         <ImageView
             android:id="@+id/iv_apel_sangat_segar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/earth"
-            android:padding="20dp"/>
+            android:padding="20dp"
+            app:srcCompat="@drawable/earth" />
 
         <TextView
             android:id="@+id/tv_apel_sangat_segar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sangat Segar"
             android:layout_marginStart="125dp"
             android:layout_marginTop="35dp"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="Sangat Segar"
             android:textColor="@color/black"
-            android:textSize="16sp"
-            android:fontFamily="@font/montserrat_bold"/>
+            android:textSize="16sp" />
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
