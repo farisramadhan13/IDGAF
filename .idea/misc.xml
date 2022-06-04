@@ -16,6 +16,7 @@
         <entry key="..\:/Users/ASUS/Desktop/New folder/IDGAF/app/src/main/res/drawable/ic_profile.xml" value="0.256" />
         <entry key="..\:/Users/ASUS/Desktop/New folder/IDGAF/app/src/main/res/drawable/ic_square.xml" value="0.2265" />
         <entry key="..\:/Users/ASUS/Desktop/New folder/IDGAF/app/src/main/res/layout-v28/activity_scan_food.xml" value="0.21240942028985507" />
+        <entry key="..\:/Users/ASUS/Desktop/New folder/IDGAF/app/src/main/res/layout-v28/fragment_storage.xml" value="0.253125" />
         <entry key="..\:/Users/ASUS/Desktop/New folder/IDGAF/app/src/main/res/layout/activity_add_address.xml" value="0.21105072463768115" />
         <entry key="..\:/Users/ASUS/Desktop/New folder/IDGAF/app/src/main/res/layout/activity_address.xml" value="0.2" />
         <entry key="..\:/Users/ASUS/Desktop/New folder/IDGAF/app/src/main/res/layout/activity_apel.xml" value="0.25416666666666665" />
@@ -37,8 +38,11 @@
         <entry key="..\:/Users/ASUS/Desktop/New folder/IDGAF/app/src/main/res/layout/address_card.xml" value="0.21105072463768115" />
         <entry key="..\:/Users/ASUS/Desktop/New folder/IDGAF/app/src/main/res/layout/fragment_home.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ASUS/Desktop/New folder/IDGAF/app/src/main/res/layout/fragment_order.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ASUS/Desktop/New folder/IDGAF/app/src/main/res/layout/fragment_order_ambil.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ASUS/Desktop/New folder/IDGAF/app/src/main/res/layout/fragment_order_kirim.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ASUS/Desktop/New folder/IDGAF/app/src/main/res/layout/fragment_profile.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ASUS/Desktop/New folder/IDGAF/app/src/main/res/layout/fragment_storage.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ASUS/Desktop/New folder/IDGAF/app/src/main/res/layout/item_penyimpanan.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ASUS/Desktop/New folder/IDGAF/app/src/main/res/layout/item_penyimpanan_home.xml" value="0.21105072463768115" />
         <entry key="..\:/Users/ASUS/Desktop/New folder/IDGAF/app/src/main/res/layout/order_card.xml" value="0.8" />
         <entry key="..\:/Users/ASUS/Desktop/New folder/IDGAF/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25416666666666665" />
