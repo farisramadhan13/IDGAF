@@ -173,7 +173,7 @@
                 android:text="@string/ambil_makanan"
                 android:textColor="@color/white"
                 android:textSize="11sp"
-                android:visibility="gone"
+                android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/iv_giver" />
@@ -189,6 +189,7 @@
                 android:text="@string/makanan_tidak_tersedia"
                 android:textColor="@color/white"
                 android:textSize="11sp"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/iv_giver" />
