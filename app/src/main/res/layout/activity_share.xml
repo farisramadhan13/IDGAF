@@ -1,102 +1,275 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".share.ShareActivity">
 
-    <ImageView
-        android:id="@+id/iv_gambar_makanan_share"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_image" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/tv_nama_makanan_share"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:text="TextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_gambar_makanan_share" />
+        <ImageView
+            android:id="@+id/iv_gambar_makanan_share"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_image" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/ti_nama_makanan_share"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_nama_makanan_share">
+        <LinearLayout
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tiet_nama_makanan_share"
+            android:id="@+id/linear_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="hint" />
-    </com.google.android.material.textfield.TextInputLayout>
+            app:layout_constraintTop_toBottomOf="@+id/iv_gambar_makanan_share"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
 
-    <TextView
-        android:id="@+id/tv_deskripsi_makanan_share"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:text="TextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ti_nama_makanan_share" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/ti_deskripsi_makanan_share"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_deskripsi_makanan_share">
+            <Button
+                android:id="@+id/btn_gallery"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"
+                android:backgroundTint="@color/purple"
+                android:fontFamily="@font/montserrat_bold"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:text="@string/take_from_gallery"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_gambar_makanan_share" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tiet_deskripsi_makanan_share"
+            <Space
+                android:id="@+id/space1"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:visibility="visible"/>
+
+            <Button
+                android:id="@+id/btn_camera"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="24dp"
+                android:backgroundTint="@color/purple"
+                android:fontFamily="@font/montserrat_bold"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:text="@string/take_from_camera"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_gambar_makanan_share" />
+
+            <Button
+                android:id="@+id/btn_konfirmasi_yes"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"
+                android:backgroundTint="@color/purple"
+                android:fontFamily="@font/montserrat_bold"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:text="@string/gunakan_gambar"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_gambar_makanan_share" />
+
+            <Space
+                android:id="@+id/space2"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:visibility="gone"/>
+
+            <Button
+                android:id="@+id/btn_konfirmasi_ulangi"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="24dp"
+                android:backgroundTint="@color/purple"
+                android:fontFamily="@font/montserrat_bold"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:text="@string/ulangi_pengambilan_gambar"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_gambar_makanan_share" />
+
+
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_nama_makanan_share"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="@string/nama_makanan"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linear_button" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ti_nama_makanan_share"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_nama_makanan_share">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tiet_nama_makanan_share"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/masukkan_nama_makanan" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/tv_deskripsi_makanan_share"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="@string/deskripsi"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ti_nama_makanan_share" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ti_deskripsi_makanan_share"
+            android:layout_width="0dp"
+            android:layout_height="144dp"
+            android:gravity="top|start"
+            android:fontFamily="@font/montserrat_bold"
+            android:textSize="16sp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_deskripsi_makanan_share">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tiet_deskripsi_makanan_share"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/deskripsi_makanan"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/tv_stok_user_share"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="@string/stok"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ti_deskripsi_makanan_share" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ti_stok_user_share"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_stok_user_share">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tiet_stok_user_share"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/stok_hint" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/tv_alamat_user_share"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="@string/alamat"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ti_stok_user_share" />
+
+        <Button
+            android:id="@+id/btn_alamat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/purple"
+            android:fontFamily="@font/montserrat_bold"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            android:text="@string/pilih_alamat"
+            android:textColor="@color/white"
+            android:textSize="11sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ti_stok_user_share" />
+
+        <FrameLayout
+            android:id="@+id/frame_alamat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="hint" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_alamat_user_share"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:visibility="visible">
+            <include
+                layout="@layout/address_card"/>
+        </FrameLayout>
 
-    <TextView
-        android:id="@+id/tv_alamat_user_share"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:text="TextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ti_deskripsi_makanan_share" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/ti_alamat_user_share"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_alamat_user_share">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tiet_alamat_user_share"
-            android:layout_width="match_parent"
+        <Button
+            android:id="@+id/btn_bagi_makanan"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:hint="hint" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:backgroundTint="@color/purple"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="@string/bagikan_makanan"
+            android:textColor="@color/white"
+            android:textSize="11sp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/frame_alamat"
+            />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

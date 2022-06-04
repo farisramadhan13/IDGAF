@@ -59,4 +59,16 @@
     <string name="tips">Tips</string>
     <string name="tab_text_1">Ambil</string>
     <string name="tab_text_2">Kirim</string>
+    <string name="nama_makanan">Nama Makanan</string>
+    <string name="masukkan_nama_makanan">Masukkan nama makanan</string>
+    <string name="deskripsi">Deskripsi</string>
+    <string name="deskripsi_makanan">Bisa ceritain rasa makanannya di sini</string>
+    <string name="stok">Stok</string>
+    <string name="stok_hint">Masukkan banyak stok yang ingin dibagi</string>
+    <string name="jam_pengambilan">Jam Pengambilan</string>
+    <string name="alamat">Alamat</string>
+    <string name="pilih_alamat">Pilih alamat</string>
+    <string name="bagikan_makanan">Bagikan Makanan</string>
+    <string name="gunakan_gambar">Gunakan gambar</string>
+    <string name="ulangi_pengambilan_gambar">Ulangi pengambilan gambar</string>
 </resources>

@@ -64,4 +64,5 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.4.1"
     implementation 'androidx.activity:activity-ktx:1.4.0'
     implementation "androidx.viewpager2:viewpager2:1.0.0"
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
 }
