@@ -26,6 +26,7 @@ import java.io.File
 class ShareActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityShareBinding
+    private var everTaken = false
 
     companion object {
         const val CAMERA_X_RESULT = 200
@@ -85,7 +86,7 @@ class ShareActivity : AppCompatActivity() {
             setButton(1)
         }
         binding.ivGambarMakananShare.setOnClickListener {
-            setButton(2)
+            if(everTaken) setButton(2)
         }
         binding.btnAlamat.setOnClickListener {
             startActivity(Intent(this@ShareActivity, AddressActivity::class.java))
@@ -120,6 +121,7 @@ class ShareActivity : AppCompatActivity() {
                 isBackCamera
             )
             binding.ivGambarMakananShare.setImageBitmap(result)
+            everTaken = true
         }
     }
     private val launcherIntentGallery = registerForActivityResult(
@@ -133,29 +135,31 @@ class ShareActivity : AppCompatActivity() {
     }
 
     private fun setButton(int: Int){
-        if(int==1){
-            binding.btnCamera.visibility = View.VISIBLE
-            binding.space1.visibility = View.VISIBLE
-            binding.btnGallery.visibility = View.VISIBLE
-            binding.btnKonfirmasiYes.visibility = View.GONE
-            binding.space2.visibility = View.GONE
-            binding.btnKonfirmasiUlangi.visibility = View.GONE
-        }
-        else if(int==2){
-            binding.btnCamera.visibility = View.GONE
-            binding.space1.visibility = View.GONE
-            binding.btnGallery.visibility = View.GONE
-            binding.btnKonfirmasiYes.visibility = View.VISIBLE
-            binding.space2.visibility = View.VISIBLE
-            binding.btnKonfirmasiUlangi.visibility = View.VISIBLE
-        }
-        else if(int==3){
-            binding.btnCamera.visibility = View.GONE
-            binding.space1.visibility = View.GONE
-            binding.btnGallery.visibility = View.GONE
-            binding.btnKonfirmasiYes.visibility = View.GONE
-            binding.space2.visibility = View.GONE
-            binding.btnKonfirmasiUlangi.visibility = View.GONE
+        when (int) {
+            1 -> {
+                binding.btnCamera.visibility = View.VISIBLE
+                binding.space1.visibility = View.VISIBLE
+                binding.btnGallery.visibility = View.VISIBLE
+                binding.btnKonfirmasiYes.visibility = View.GONE
+                binding.space2.visibility = View.GONE
+                binding.btnKonfirmasiUlangi.visibility = View.GONE
+            }
+            2 -> {
+                binding.btnCamera.visibility = View.GONE
+                binding.space1.visibility = View.GONE
+                binding.btnGallery.visibility = View.GONE
+                binding.btnKonfirmasiYes.visibility = View.VISIBLE
+                binding.space2.visibility = View.VISIBLE
+                binding.btnKonfirmasiUlangi.visibility = View.VISIBLE
+            }
+            3 -> {
+                binding.btnCamera.visibility = View.GONE
+                binding.space1.visibility = View.GONE
+                binding.btnGallery.visibility = View.GONE
+                binding.btnKonfirmasiYes.visibility = View.GONE
+                binding.space2.visibility = View.GONE
+                binding.btnKonfirmasiUlangi.visibility = View.GONE
+            }
         }
     }
 }
