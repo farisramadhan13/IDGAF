@@ -133,8 +133,6 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/purple"
         android:fontFamily="@font/montserrat_bold"
-        android:minWidth="0dp"
-        android:minHeight="0dp"
         android:layout_marginTop="16dp"
         android:text="@string/save_change"
         android:textColor="@color/white"

@@ -29,6 +29,9 @@
             android:name=".profile.AddressActivity"
             android:exported="false" />
         <activity
+            android:name=".profile.AddAddressActivity"
+            android:exported="false" />
+        <activity
             android:name=".storage.DetailStorageActivity"
             android:exported="false" />
         <activity
