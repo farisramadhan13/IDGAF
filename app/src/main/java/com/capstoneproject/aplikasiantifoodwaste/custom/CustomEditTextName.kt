@@ -12,9 +12,7 @@ import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.content.ContextCompat
 import com.capstoneproject.aplikasiantifoodwaste.R
 
-class CustomEditTextName: AppCompatEditText, View.OnTouchListener {
-    private lateinit var clearButtonImage: Drawable
-
+class CustomEditTextName: CustomEditText {
     constructor(context: Context) : super(context) {
         init()
     }
@@ -24,11 +22,9 @@ class CustomEditTextName: AppCompatEditText, View.OnTouchListener {
     constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
         init()
     }
-    override fun onDraw(canvas: Canvas) {
-        super.onDraw(canvas)
-        textAlignment = View.TEXT_ALIGNMENT_VIEW_START
-    }
-    private fun init() {
+
+    override fun init() {
+        hint = "Masukkan nama Anda"
         clearButtonImage = ContextCompat.getDrawable(context, R.drawable.ic_clear) as Drawable
         setOnTouchListener(this)
         addTextChangedListener(object : TextWatcher {
@@ -42,61 +38,5 @@ class CustomEditTextName: AppCompatEditText, View.OnTouchListener {
                 // Do nothing.
             }
         })
-    }
-    private fun showClearButton() {
-        setButtonDrawables(endOfTheText = clearButtonImage)
-    }
-    private fun hideClearButton() {
-        setButtonDrawables()
-    }
-    private fun setButtonDrawables(
-        startOfTheText: Drawable? = null,
-        topOfTheText: Drawable? = null,
-        endOfTheText: Drawable? = null,
-        bottomOfTheText: Drawable? = null
-    ){
-        setCompoundDrawablesWithIntrinsicBounds(
-            startOfTheText,
-            topOfTheText,
-            endOfTheText,
-            bottomOfTheText
-        )
-    }
-    override fun onTouch(v: View?, event: MotionEvent): Boolean {
-        if (compoundDrawables[2] != null) {
-            val clearButtonStart: Float
-            val clearButtonEnd: Float
-            var isClearButtonClicked = false
-            if (layoutDirection == View.LAYOUT_DIRECTION_RTL) {
-                clearButtonEnd = (clearButtonImage.intrinsicWidth + paddingStart).toFloat()
-                when {
-                    event.x < clearButtonEnd -> isClearButtonClicked = true
-                }
-            } else {
-                clearButtonStart = (width - paddingEnd - clearButtonImage.intrinsicWidth).toFloat()
-                when {
-                    event.x > clearButtonStart -> isClearButtonClicked = true
-                }
-            }
-            if (isClearButtonClicked) {
-                when (event.action) {
-                    MotionEvent.ACTION_DOWN -> {
-                        clearButtonImage = ContextCompat.getDrawable(context, R.drawable.ic_clear) as Drawable
-                        showClearButton()
-                        return true
-                    }
-                    MotionEvent.ACTION_UP -> {
-                        clearButtonImage = ContextCompat.getDrawable(context, R.drawable.ic_clear) as Drawable
-                        when {
-                            text != null -> text?.clear()
-                        }
-                        hideClearButton()
-                        return true
-                    }
-                    else -> return false
-                }
-            } else return false
-        }
-        return false
     }
 }
