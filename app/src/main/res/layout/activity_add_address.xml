@@ -34,7 +34,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title_bar_add_address" />
 
-    <com.capstoneproject.aplikasiantifoodwaste.custom.CustomEditTextName
+    <com.capstoneproject.aplikasiantifoodwaste.custom.CustomEditText
         android:id="@+id/et_edit_address_name"
         android:layout_width="0dp"
         android:layout_height="48dp"
@@ -89,7 +89,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_edit_address_telephone" />
 
-    <com.capstoneproject.aplikasiantifoodwaste.custom.CustomEditTextAddress
+    <com.capstoneproject.aplikasiantifoodwaste.custom.CustomEditTextLong
         android:id="@+id/et_edit_address_address"
         android:layout_width="0dp"
         android:layout_height="144dp"

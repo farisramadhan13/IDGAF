@@ -12,7 +12,7 @@ import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.content.ContextCompat
 import com.capstoneproject.aplikasiantifoodwaste.R
 
-class CustomEditTextAddress: AppCompatEditText, View.OnTouchListener {
+class CustomEditTextLong: AppCompatEditText, View.OnTouchListener {
     private lateinit var clearButtonImage: Drawable
 
     constructor(context: Context) : super(context) {

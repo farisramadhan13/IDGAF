@@ -29,7 +29,13 @@ class CustomEditTextStock: CustomEditText {
                 // Do nothing.
             }
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                if (s.toString().isNotEmpty()) showClearButton() else hideClearButton()
+                if (s.toString().isNotEmpty()){
+                    showClearButton()
+                    when{
+                        (s.toString()[0]=='0') -> error = "Jumlah tidak boleh dimulai angka 0"
+                    }
+                }
+                else hideClearButton()
             }
             override fun afterTextChanged(s: Editable) {
                 // Do nothing.

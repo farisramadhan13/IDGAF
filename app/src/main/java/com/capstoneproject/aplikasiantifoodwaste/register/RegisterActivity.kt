@@ -6,10 +6,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.Toast
-import com.capstoneproject.aplikasiantifoodwaste.custom.CustomButtonRegister
-import com.capstoneproject.aplikasiantifoodwaste.custom.CustomEditTextEmail
-import com.capstoneproject.aplikasiantifoodwaste.custom.CustomEditTextName
-import com.capstoneproject.aplikasiantifoodwaste.custom.CustomEditTextPassword
+import com.capstoneproject.aplikasiantifoodwaste.custom.*
 import com.capstoneproject.aplikasiantifoodwaste.databinding.ActivityRegisterBinding
 import com.capstoneproject.aplikasiantifoodwaste.home.HomeActivity
 import com.capstoneproject.aplikasiantifoodwaste.login.LoginActivity
@@ -21,7 +18,7 @@ class RegisterActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegisterBinding
     private lateinit var customButtonRegister: CustomButtonRegister
-    private lateinit var customEditTextNameRegister: CustomEditTextName
+    private lateinit var customEditTextNameRegister: CustomEditText
     private lateinit var customEditTextEmailRegister: CustomEditTextEmail
     private lateinit var customEditTextPasswordRegister: CustomEditTextPassword
 
