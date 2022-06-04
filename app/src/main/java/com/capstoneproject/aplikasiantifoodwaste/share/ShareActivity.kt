@@ -58,6 +58,7 @@ class ShareActivity : AppCompatActivity() {
         binding = ActivityShareBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar?.hide()
+        binding.titleBarShare.bringToFront()
 
         if (!allPermissionsGranted()) {
             ActivityCompat.requestPermissions(
