@@ -17,11 +17,11 @@
         app:cardElevation="10dp">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_bold"
             android:textColor="@color/orange"
-            android:text="@string/storage"
+            android:text="Tips Pengolahan"
             android:paddingTop="16dp"
             android:paddingBottom="16dp"
             android:paddingStart="24dp"
@@ -30,6 +30,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_list_artikel_apel_sangat_segar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"

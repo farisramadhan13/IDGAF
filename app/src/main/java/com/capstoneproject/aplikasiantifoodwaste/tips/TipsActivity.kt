@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.capstoneproject.aplikasiantifoodwaste.R
 import com.capstoneproject.aplikasiantifoodwaste.databinding.ActivityTipsBinding
 import com.capstoneproject.aplikasiantifoodwaste.tips.kualitas.ApelActivity
 
