@@ -1,13 +1,13 @@
-package com.capstoneproject.aplikasiantifoodwaste.scan
-
-import android.util.Log
-import androidx.lifecycle.ViewModel
-import com.capstoneproject.aplikasiantifoodwaste.api.ApiConfig
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-
-//class FoodScanViewModel: ViewModel() {
+//package com.capstoneproject.aplikasiantifoodwaste.scan
+//
+//import android.util.Log
+//import androidx.lifecycle.ViewModel
+//import com.capstoneproject.aplikasiantifoodwaste.api.ApiConfig
+//import retrofit2.Call
+//import retrofit2.Callback
+//import retrofit2.Response
+//
+////class FoodScanViewModel: ViewModel() {
 //    fun scan(base64: String){
 //        val service = ApiConfig.getApiService().scan(base64)
 //        service.enqueue(object: Callback<FoodScanResponse>{

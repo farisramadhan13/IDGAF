@@ -1,5 +1,6 @@
 package com.capstoneproject.aplikasiantifoodwaste.api
 
+import com.capstoneproject.aplikasiantifoodwaste.scan.FoodScanPredictionResponse
 import com.capstoneproject.aplikasiantifoodwaste.scan.FoodScanResponse
 import retrofit2.Call
 import retrofit2.http.*
@@ -12,7 +13,5 @@ interface ApiService {
     ): Call<FoodScanResponse>
 
     @GET("tes")
-    fun predict(
-        @Path("b64") b64: String
-    ): Call<FoodScanResponse>
+    fun predict(): Call<FoodScanPredictionResponse>
 }

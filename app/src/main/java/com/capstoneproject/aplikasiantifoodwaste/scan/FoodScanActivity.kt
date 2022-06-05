@@ -16,7 +16,6 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.ViewModelProvider
 import com.capstoneproject.aplikasiantifoodwaste.api.ApiConfig
 import com.capstoneproject.aplikasiantifoodwaste.camera.CameraActivity
 import com.capstoneproject.aplikasiantifoodwaste.camera.rotateBitmap
@@ -74,13 +73,33 @@ class FoodScanActivity : AppCompatActivity() {
             )
         }
 
-//        val foodScanViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(
-//            FoodScanViewModel::class.java
-//        )
-
         binding.btnCamera.setOnClickListener { startCameraX() }
         binding.btnGallery.setOnClickListener { startGallery() }
-        binding.btnKonfirmasiYes.setOnClickListener { uploadImage() }
+        binding.btnKonfirmasiYes.setOnClickListener {
+
+            uploadImage()
+
+            val service = ApiConfig.getApiService().predict()
+            service.enqueue(object: Callback<FoodScanPredictionResponse>{
+                override fun onResponse(
+                    call: Call<FoodScanPredictionResponse>,
+                    response: Response<FoodScanPredictionResponse>
+                ) {
+                    if(response.isSuccessful){
+                        val responseBody = response.body()
+                        if(responseBody != null){
+                            binding.output.text = responseBody.predict1
+                            Log.e("Food Scan Activity GET", "onSuccess")
+                        }
+                    } else{
+                        Log.e("Food Scan Activity GET", "onFailure: ${response.message()}")
+                    }
+                }
+                override fun onFailure(call: Call<FoodScanPredictionResponse>, t: Throwable) {
+                    Log.e("Food Scan Activity GET", "onFailure: ${t.message}")
+                }
+            })
+        }
 
         binding.btnKonfirmasiUlangi.setOnClickListener {
             binding.tvScanFood.visibility = View.VISIBLE
