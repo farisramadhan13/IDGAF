@@ -9,6 +9,8 @@ import android.graphics.BitmapFactory
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Base64
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
@@ -21,6 +23,7 @@ import com.capstoneproject.aplikasiantifoodwaste.databinding.ActivityFoodScanBin
 import com.capstoneproject.aplikasiantifoodwaste.ml.ConvertedModel2
 import org.tensorflow.lite.DataType
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
+import java.io.ByteArrayOutputStream
 import java.io.File
 
 class FoodScanActivity : AppCompatActivity() {
@@ -69,8 +72,35 @@ class FoodScanActivity : AppCompatActivity() {
             )
         }
 
-        binding.btnCamera.setOnClickListener { startCameraX() }
+//        binding.btnCamera.setOnClickListener { startCameraX() }
+//        binding.btnGallery.setOnClickListener { startGallery() }
+
+        binding.btnCamera.setOnClickListener {
+            val intent = Intent(this, CameraActivity::class.java)
+            val launcherIntentCameraX = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+                if (it.resultCode == CAMERA_X_RESULT) {
+                    val myFile = it.data?.getSerializableExtra("picture") as File
+                    val isBackCamera = it.data?.getBooleanExtra("isBackCamera", true) as Boolean
+                    val result = rotateBitmap(
+                        BitmapFactory.decodeFile(myFile.path),
+                        isBackCamera
+                    )
+                    binding.ivPreview.setImageBitmap(result)
+
+                    val base64String = convertBitmapToBase64(result)
+
+                    binding.tvScanFood.visibility = View.GONE
+                    binding.btnCamera.visibility = View.GONE
+                    binding.btnGallery.visibility = View.GONE
+                    binding.tvKonfirmasi.visibility = View.VISIBLE
+                    binding.btnKonfirmasiYes.visibility = View.VISIBLE
+                    binding.btnKonfirmasiUlangi.visibility = View.VISIBLE
+                }
+            }
+            launcherIntentCameraX.launch(intent)
+        }
         binding.btnGallery.setOnClickListener { startGallery() }
+
         binding.btnKonfirmasiYes.setOnClickListener {
             Toast.makeText(this,"Fitur belum dibuat", Toast.LENGTH_SHORT).show()
         }
@@ -83,10 +113,11 @@ class FoodScanActivity : AppCompatActivity() {
             binding.btnKonfirmasiUlangi.visibility = View.GONE
         }
     }
-    private fun startCameraX() {
-        val intent = Intent(this, CameraActivity::class.java)
-        launcherIntentCameraX.launch(intent)
-    }
+//    private fun startCameraX() {
+//        val intent = Intent(this, CameraActivity::class.java)
+//        launcherIntentCameraX.launch(intent)
+//    }
+
     private fun startGallery() {
         val intent = Intent()
         intent.action = ACTION_GET_CONTENT
@@ -94,27 +125,26 @@ class FoodScanActivity : AppCompatActivity() {
         val chooser = Intent.createChooser(intent, "Choose a Picture")
         launcherIntentGallery.launch(chooser)
     }
-    private val launcherIntentCameraX = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        if (it.resultCode == CAMERA_X_RESULT) {
-            val myFile = it.data?.getSerializableExtra("picture") as File
-            val isBackCamera = it.data?.getBooleanExtra("isBackCamera", true) as Boolean
-            val result = rotateBitmap(
-                BitmapFactory.decodeFile(myFile.path),
-                isBackCamera
-            )
-            val image = Bitmap.createScaledBitmap(result, 120, 120, false)
-            binding.ivPreview.setImageBitmap(image)
-
-            classifyImage(image)
-
-            binding.tvScanFood.visibility = View.GONE
-            binding.btnCamera.visibility = View.GONE
-            binding.btnGallery.visibility = View.GONE
-            binding.tvKonfirmasi.visibility = View.VISIBLE
-            binding.btnKonfirmasiYes.visibility = View.VISIBLE
-            binding.btnKonfirmasiUlangi.visibility = View.VISIBLE
-        }
-    }
+//    private val launcherIntentCameraX = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+//        if (it.resultCode == CAMERA_X_RESULT) {
+//            val myFile = it.data?.getSerializableExtra("picture") as File
+//            val isBackCamera = it.data?.getBooleanExtra("isBackCamera", true) as Boolean
+//            val result = rotateBitmap(
+//                BitmapFactory.decodeFile(myFile.path),
+//                isBackCamera
+//            )
+//            binding.ivPreview.setImageBitmap(result)
+//
+//            val base64String = convertBitmapToBase64(result)
+//
+//            binding.tvScanFood.visibility = View.GONE
+//            binding.btnCamera.visibility = View.GONE
+//            binding.btnGallery.visibility = View.GONE
+//            binding.tvKonfirmasi.visibility = View.VISIBLE
+//            binding.btnKonfirmasiYes.visibility = View.VISIBLE
+//            binding.btnKonfirmasiUlangi.visibility = View.VISIBLE
+//        }
+//    }
 
     private val launcherIntentGallery = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
@@ -126,18 +156,25 @@ class FoodScanActivity : AppCompatActivity() {
         }
     }
 
-    private fun classifyImage(bitmap: Bitmap){
-        val model = ConvertedModel2.newInstance(applicationContext)
-
-// Creates inputs for reference.
-        val inputFeature0 = TensorBuffer.createFixedSize(intArrayOf(1, 224, 224, 3), DataType.FLOAT32)
-        //inputFeature0.loadBuffer(byteBuffer)
-
-// Runs model inference and gets result.
-        val outputs = model.process(inputFeature0)
-        val outputFeature0 = outputs.outputFeature0AsTensorBuffer
-
-// Releases model resources if no longer used.
-        model.close()
+    fun convertBitmapToBase64(bitmap: Bitmap): String{
+        val stream = ByteArrayOutputStream()
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 50, stream)
+        val image = stream.toByteArray()
+        return Base64.encodeToString(image, Base64.DEFAULT)
     }
+
+//    private fun classifyImage(bitmap: Bitmap){
+//        val model = ConvertedModel2.newInstance(applicationContext)
+//
+//// Creates inputs for reference.
+//        val inputFeature0 = TensorBuffer.createFixedSize(intArrayOf(1, 224, 224, 3), DataType.FLOAT32)
+//        inputFeature0.loadBuffer(byteBuffer)
+//
+//// Runs model inference and gets result.
+//        val outputs = model.process(inputFeature0)
+//        val outputFeature0 = outputs.outputFeature0AsTensorBuffer
+//
+//// Releases model resources if no longer used.
+//        model.close()
+//    }
 }
