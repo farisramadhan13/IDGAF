@@ -16,13 +16,15 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.ViewModelProvider
+import com.capstoneproject.aplikasiantifoodwaste.api.ApiConfig
 import com.capstoneproject.aplikasiantifoodwaste.camera.CameraActivity
 import com.capstoneproject.aplikasiantifoodwaste.camera.rotateBitmap
 import com.capstoneproject.aplikasiantifoodwaste.camera.uriToFile
 import com.capstoneproject.aplikasiantifoodwaste.databinding.ActivityFoodScanBinding
-import com.capstoneproject.aplikasiantifoodwaste.ml.ConvertedModel2
-import org.tensorflow.lite.DataType
-import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.io.ByteArrayOutputStream
 import java.io.File
 
@@ -72,38 +74,14 @@ class FoodScanActivity : AppCompatActivity() {
             )
         }
 
-//        binding.btnCamera.setOnClickListener { startCameraX() }
-//        binding.btnGallery.setOnClickListener { startGallery() }
+//        val foodScanViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(
+//            FoodScanViewModel::class.java
+//        )
 
-        binding.btnCamera.setOnClickListener {
-            val intent = Intent(this, CameraActivity::class.java)
-            val launcherIntentCameraX = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-                if (it.resultCode == CAMERA_X_RESULT) {
-                    val myFile = it.data?.getSerializableExtra("picture") as File
-                    val isBackCamera = it.data?.getBooleanExtra("isBackCamera", true) as Boolean
-                    val result = rotateBitmap(
-                        BitmapFactory.decodeFile(myFile.path),
-                        isBackCamera
-                    )
-                    binding.ivPreview.setImageBitmap(result)
-
-                    val base64String = convertBitmapToBase64(result)
-
-                    binding.tvScanFood.visibility = View.GONE
-                    binding.btnCamera.visibility = View.GONE
-                    binding.btnGallery.visibility = View.GONE
-                    binding.tvKonfirmasi.visibility = View.VISIBLE
-                    binding.btnKonfirmasiYes.visibility = View.VISIBLE
-                    binding.btnKonfirmasiUlangi.visibility = View.VISIBLE
-                }
-            }
-            launcherIntentCameraX.launch(intent)
-        }
+        binding.btnCamera.setOnClickListener { startCameraX() }
         binding.btnGallery.setOnClickListener { startGallery() }
+        binding.btnKonfirmasiYes.setOnClickListener { uploadImage() }
 
-        binding.btnKonfirmasiYes.setOnClickListener {
-            Toast.makeText(this,"Fitur belum dibuat", Toast.LENGTH_SHORT).show()
-        }
         binding.btnKonfirmasiUlangi.setOnClickListener {
             binding.tvScanFood.visibility = View.VISIBLE
             binding.btnCamera.visibility = View.VISIBLE
@@ -113,10 +91,11 @@ class FoodScanActivity : AppCompatActivity() {
             binding.btnKonfirmasiUlangi.visibility = View.GONE
         }
     }
-//    private fun startCameraX() {
-//        val intent = Intent(this, CameraActivity::class.java)
-//        launcherIntentCameraX.launch(intent)
-//    }
+
+    private fun startCameraX() {
+        val intent = Intent(this, CameraActivity::class.java)
+        launcherIntentCameraX.launch(intent)
+    }
 
     private fun startGallery() {
         val intent = Intent()
@@ -125,38 +104,72 @@ class FoodScanActivity : AppCompatActivity() {
         val chooser = Intent.createChooser(intent, "Choose a Picture")
         launcherIntentGallery.launch(chooser)
     }
-//    private val launcherIntentCameraX = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-//        if (it.resultCode == CAMERA_X_RESULT) {
-//            val myFile = it.data?.getSerializableExtra("picture") as File
-//            val isBackCamera = it.data?.getBooleanExtra("isBackCamera", true) as Boolean
-//            val result = rotateBitmap(
-//                BitmapFactory.decodeFile(myFile.path),
-//                isBackCamera
-//            )
-//            binding.ivPreview.setImageBitmap(result)
-//
-//            val base64String = convertBitmapToBase64(result)
-//
-//            binding.tvScanFood.visibility = View.GONE
-//            binding.btnCamera.visibility = View.GONE
-//            binding.btnGallery.visibility = View.GONE
-//            binding.tvKonfirmasi.visibility = View.VISIBLE
-//            binding.btnKonfirmasiYes.visibility = View.VISIBLE
-//            binding.btnKonfirmasiUlangi.visibility = View.VISIBLE
-//        }
-//    }
 
-    private val launcherIntentGallery = registerForActivityResult(
-        ActivityResultContracts.StartActivityForResult()
+    private fun uploadImage(){
+        if (getFile != null) {
+            val file = getFile as File
+            val result = BitmapFactory.decodeFile(file.path)
+            val base64String = convertBitmapToBase64(result)
+
+            val service = ApiConfig.getApiService().scan(base64String)
+            service.enqueue(object: Callback<FoodScanResponse> {
+                override fun onResponse(
+                    call: Call<FoodScanResponse>,
+                    response: Response<FoodScanResponse>
+                ) {
+                    if(response.isSuccessful){
+                        val responseBody = response.body()
+                        if(responseBody != null){
+                            Log.e("Food Scan Activity", "onSuccess")
+                        }
+                    } else{
+                        Log.e("Food Scan Activity", "onFailure: ${response.message()}")
+                    }
+                }
+
+                override fun onFailure(call: Call<FoodScanResponse>, t: Throwable) {
+                    Log.e("Food Scan Activity", "onFailure: ${t.message}")
+                }
+            })
+
+        } else {
+            Toast.makeText(this@FoodScanActivity, "Silakan masukkan berkas gambar terlebih dahulu.", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private var getFile: File? = null
+
+    private val launcherIntentCameraX = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == CAMERA_X_RESULT) {
+            val myFile = it.data?.getSerializableExtra("picture") as File
+            val isBackCamera = it.data?.getBooleanExtra("isBackCamera", true) as Boolean
+            getFile = myFile
+            val result = rotateBitmap(
+                BitmapFactory.decodeFile(myFile.path),
+                isBackCamera
+            )
+            binding.ivPreview.setImageBitmap(result)
+
+            binding.tvScanFood.visibility = View.GONE
+            binding.btnCamera.visibility = View.GONE
+            binding.btnGallery.visibility = View.GONE
+            binding.tvKonfirmasi.visibility = View.VISIBLE
+            binding.btnKonfirmasiYes.visibility = View.VISIBLE
+            binding.btnKonfirmasiUlangi.visibility = View.VISIBLE
+        }
+    }
+
+    private val launcherIntentGallery = registerForActivityResult(ActivityResultContracts.StartActivityForResult()
     ) { result ->
         if (result.resultCode == RESULT_OK) {
             val selectedImg: Uri = result.data?.data as Uri
             val myFile = uriToFile(selectedImg, this@FoodScanActivity)
+            getFile = myFile
             binding.ivPreview.setImageURI(selectedImg)
         }
     }
 
-    fun convertBitmapToBase64(bitmap: Bitmap): String{
+    private fun convertBitmapToBase64(bitmap: Bitmap): String{
         val stream = ByteArrayOutputStream()
         bitmap.compress(Bitmap.CompressFormat.JPEG, 50, stream)
         val image = stream.toByteArray()
