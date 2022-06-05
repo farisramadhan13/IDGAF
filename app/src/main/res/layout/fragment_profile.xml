@@ -196,6 +196,20 @@
 
 
     <Button
+        android:id="@+id/btn_detail_food"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/purple"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="TES DETAIL FOOD"
+        android:textColor="@color/white"
+        android:textSize="11sp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_profile_logout" />
+
+    <Button
         android:id="@+id/btn_profile_logout"
         android:layout_width="150dp"
         android:layout_height="wrap_content"

@@ -15,6 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AplikasiAntiFoodWaste">
         <activity
+            android:name=".searchfood.TakeFoodActivity"
+            android:exported="false" />
+        <activity
             android:name=".searchfood.SearchFoodDetailActivity"
             android:exported="false" />
         <activity

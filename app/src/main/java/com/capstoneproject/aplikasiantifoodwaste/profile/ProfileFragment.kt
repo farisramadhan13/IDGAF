@@ -11,6 +11,7 @@ import com.capstoneproject.aplikasiantifoodwaste.welcome.WelcomeActivity
 import com.google.firebase.auth.FirebaseAuth
 import androidx.fragment.app.FragmentManager
 import com.capstoneproject.aplikasiantifoodwaste.R
+import com.capstoneproject.aplikasiantifoodwaste.searchfood.SearchFoodDetailActivity
 
 class ProfileFragment : Fragment(){
 
@@ -32,6 +33,10 @@ class ProfileFragment : Fragment(){
 
         binding.btnMyAddress.setOnClickListener{
             startActivity(Intent(activity, AddressActivity::class.java))
+        }
+
+        binding.btnDetailFood.setOnClickListener{
+            startActivity(Intent(activity, SearchFoodDetailActivity::class.java))
         }
     }
 

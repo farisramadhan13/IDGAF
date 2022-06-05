@@ -78,6 +78,14 @@
     <string name="detail_makanan">Detail Makanan</string>
     <string name="dibagikan_oleh">Dibagikan oleh:</string>
     <string name="nama_pemberi">Nama pemberi</string>
-    <string name="ambil_makanan">Ambil makanan</string>
+    <string name="ambil_makanan">Ambil Makanan</string>
     <string name="makanan_tidak_tersedia">Makanan tidak tersedia</string>
+    <string name="metode_pengambilan">Metode Pengambilan</string>
+    <string name="waktu_pengambilan">Waktu Pengambilan</string>
+    <string name="belum_dipilih">Belum Dipilih</string>
+    <string name="pilih_waktu_ambil">Pilih waktu ambil</string>
+    <string-array name="metode_ambil">
+        <item>Ambil Sendiri</item>
+        <item>Gosend</item>
+    </string-array>
 </resources>
