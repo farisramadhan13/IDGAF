@@ -2,14 +2,17 @@ package com.capstoneproject.aplikasiantifoodwaste.api
 
 import com.capstoneproject.aplikasiantifoodwaste.scan.FoodScanResponse
 import retrofit2.Call
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface ApiService {
     @FormUrlEncoded
-    @POST("test")
+    @POST("tes")
     fun scan(
-        @Field("base64") base64: String
+        @Field("b64") b64: String
+    ): Call<FoodScanResponse>
+
+    @GET("tes")
+    fun predict(
+        @Path("b64") b64: String
     ): Call<FoodScanResponse>
 }

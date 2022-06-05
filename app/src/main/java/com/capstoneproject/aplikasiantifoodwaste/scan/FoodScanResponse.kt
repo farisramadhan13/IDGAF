@@ -8,3 +8,8 @@ data class FoodScanResponse(
     val msg: String
 
 )
+
+data class FoodScanPredictionResponse(
+    @field:SerializedName("predict1")
+    val predict1: String
+)
