@@ -4,6 +4,7 @@ import android.Manifest
 import android.content.Intent
 import android.content.Intent.ACTION_GET_CONTENT
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -17,6 +18,9 @@ import com.capstoneproject.aplikasiantifoodwaste.camera.CameraActivity
 import com.capstoneproject.aplikasiantifoodwaste.camera.rotateBitmap
 import com.capstoneproject.aplikasiantifoodwaste.camera.uriToFile
 import com.capstoneproject.aplikasiantifoodwaste.databinding.ActivityFoodScanBinding
+import com.capstoneproject.aplikasiantifoodwaste.ml.ConvertedModel2
+import org.tensorflow.lite.DataType
+import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
 import java.io.File
 
 class FoodScanActivity : AppCompatActivity() {
@@ -98,7 +102,11 @@ class FoodScanActivity : AppCompatActivity() {
                 BitmapFactory.decodeFile(myFile.path),
                 isBackCamera
             )
-            binding.ivPreview.setImageBitmap(result)
+            val image = Bitmap.createScaledBitmap(result, 120, 120, false)
+            binding.ivPreview.setImageBitmap(image)
+
+            classifyImage(image)
+
             binding.tvScanFood.visibility = View.GONE
             binding.btnCamera.visibility = View.GONE
             binding.btnGallery.visibility = View.GONE
@@ -107,6 +115,7 @@ class FoodScanActivity : AppCompatActivity() {
             binding.btnKonfirmasiUlangi.visibility = View.VISIBLE
         }
     }
+
     private val launcherIntentGallery = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) { result ->
@@ -115,5 +124,20 @@ class FoodScanActivity : AppCompatActivity() {
             val myFile = uriToFile(selectedImg, this@FoodScanActivity)
             binding.ivPreview.setImageURI(selectedImg)
         }
+    }
+
+    private fun classifyImage(bitmap: Bitmap){
+        val model = ConvertedModel2.newInstance(applicationContext)
+
+// Creates inputs for reference.
+        val inputFeature0 = TensorBuffer.createFixedSize(intArrayOf(1, 224, 224, 3), DataType.FLOAT32)
+        //inputFeature0.loadBuffer(byteBuffer)
+
+// Runs model inference and gets result.
+        val outputs = model.process(inputFeature0)
+        val outputFeature0 = outputs.outputFeature0AsTensorBuffer
+
+// Releases model resources if no longer used.
+        model.close()
     }
 }
