@@ -84,6 +84,8 @@
     <string name="waktu_pengambilan">Waktu Pengambilan</string>
     <string name="belum_dipilih">Belum Dipilih</string>
     <string name="pilih_waktu_ambil">Pilih waktu ambil</string>
+    <string name="silakan_ambil_makanan">Silakan ambil makanan di alamat berikut:</string>
+    <string name="selamat">Selamat!</string>
     <string-array name="metode_ambil">
         <item>Ambil Sendiri</item>
         <item>Gosend</item>

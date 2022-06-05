@@ -2,11 +2,14 @@ package com.capstoneproject.aplikasiantifoodwaste.searchfood
 
 import android.R
 import android.app.TimePickerDialog
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.*
 import com.capstoneproject.aplikasiantifoodwaste.databinding.ActivityTakeFoodBinding
+import com.capstoneproject.aplikasiantifoodwaste.home.HomeActivity
+import com.capstoneproject.aplikasiantifoodwaste.profile.AddAddressActivity
 
 class TakeFoodActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener{
 
@@ -75,6 +78,10 @@ class TakeFoodActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner!!.adapter = adapter
 
+        binding.btnAmbilMakanan.setOnClickListener {
+            startActivity(Intent(this@TakeFoodActivity, TakeFoodConfirmationActivity::class.java))
+            finish()
+        }
     }
 
     override fun onItemSelected(arg0: AdapterView<*>, arg1: View, position: Int, id: Long) {

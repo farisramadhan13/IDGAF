@@ -17,6 +17,7 @@ class SearchFoodDetailActivity : AppCompatActivity() {
 
         binding.btnAmbilMakananAvailable.setOnClickListener{
             startActivity(Intent(this@SearchFoodDetailActivity, TakeFoodActivity::class.java))
+            finish()
         }
     }
 }
