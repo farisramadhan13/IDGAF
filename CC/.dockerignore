@@ -1,0 +1,7 @@
+Dockerfile
+*.pyc
+*.pyo
+*.pyd
+pycache
+.pytest_cache
+CloudModel
