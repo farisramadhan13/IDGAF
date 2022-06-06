@@ -7,15 +7,15 @@ import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import android.os.Looper
+import android.os.Parcelable
 import android.util.Base64
 import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.capstoneproject.aplikasiantifoodwaste.api.ApiConfig
@@ -23,8 +23,6 @@ import com.capstoneproject.aplikasiantifoodwaste.camera.CameraActivity
 import com.capstoneproject.aplikasiantifoodwaste.camera.rotateBitmap
 import com.capstoneproject.aplikasiantifoodwaste.camera.uriToFile
 import com.capstoneproject.aplikasiantifoodwaste.databinding.ActivityFoodScanBinding
-import com.capstoneproject.aplikasiantifoodwaste.welcome.WelcomeActivity
-import kotlinx.coroutines.delay
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -34,6 +32,7 @@ import java.io.File
 class FoodScanActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityFoodScanBinding
+    var b64: String = ""
 
     companion object {
         const val CAMERA_X_RESULT = 200
@@ -63,13 +62,12 @@ class FoodScanActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityFoodScanBinding.inflate(layoutInflater)
-        var fruitName: String
-        var fruitMaturity: String
-
         setContentView(binding.root)
         supportActionBar?.hide()
+
+        var fruitName: String
+        var fruitMaturity: String
 
         if (!allPermissionsGranted()) {
             ActivityCompat.requestPermissions(
@@ -126,6 +124,13 @@ class FoodScanActivity : AppCompatActivity() {
         binding.btnSimpanNo.setOnClickListener {
             setButton(1)
         }
+        binding.btnSimpanYes.setOnClickListener {
+            val intent = Intent(this, SaveFoodScanActivity::class.java)
+            intent.putExtra("EXTRA_IMAGE", b64 )
+            intent.putExtra("EXTRA_NAME", binding.outputFruit.text)
+            intent.putExtra("EXTRA_MATURITY", binding.outputMaturity.text)
+            startActivity(intent)
+        }
     }
 
     private fun startCameraX() {
@@ -146,6 +151,7 @@ class FoodScanActivity : AppCompatActivity() {
             val file = getFile as File
             val result = BitmapFactory.decodeFile(file.path)
             val base64String = convertBitmapToBase64(result)
+            b64 = base64String
 
             val service = ApiConfig.getApiService().scan(base64String)
             service.enqueue(object: Callback<FoodScanResponse> {

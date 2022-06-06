@@ -15,6 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AplikasiAntiFoodWaste">
         <activity
+            android:name=".scan.SaveFoodScanActivity"
+            android:exported="false" />
+        <activity
             android:name=".searchfood.TakeFoodConfirmationActivity"
             android:exported="false" />
         <activity

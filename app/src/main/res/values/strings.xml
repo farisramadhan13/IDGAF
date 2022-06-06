@@ -87,6 +87,7 @@
     <string name="silakan_ambil_makanan">Silakan ambil makanan di alamat berikut:</string>
     <string name="selamat">Selamat!</string>
     <string name="tunggu_sebentar_ya">Tunggu sebentar ya</string>
+    <string name="tingkat_kematangan">Tingkat kematangan</string>
     <string-array name="metode_ambil">
         <item>Ambil Sendiri</item>
         <item>Gosend</item>
