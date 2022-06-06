@@ -74,7 +74,15 @@ class FoodScanActivity : AppCompatActivity() {
         }
 
         binding.btnCamera.setOnClickListener { startCameraX() }
-        binding.btnGallery.setOnClickListener { startGallery() }
+        binding.btnGallery.setOnClickListener {
+            startGallery()
+            binding.tvScanFood.visibility = View.GONE
+            binding.btnCamera.visibility = View.GONE
+            binding.btnGallery.visibility = View.GONE
+            binding.tvKonfirmasi.visibility = View.VISIBLE
+            binding.btnKonfirmasiYes.visibility = View.VISIBLE
+            binding.btnKonfirmasiUlangi.visibility = View.VISIBLE
+        }
         binding.btnKonfirmasiYes.setOnClickListener {
 
             uploadImage()
