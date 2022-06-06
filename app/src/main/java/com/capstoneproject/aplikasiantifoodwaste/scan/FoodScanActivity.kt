@@ -9,6 +9,8 @@ import android.graphics.BitmapFactory
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Base64
 import android.util.Log
 import android.view.View
@@ -21,6 +23,8 @@ import com.capstoneproject.aplikasiantifoodwaste.camera.CameraActivity
 import com.capstoneproject.aplikasiantifoodwaste.camera.rotateBitmap
 import com.capstoneproject.aplikasiantifoodwaste.camera.uriToFile
 import com.capstoneproject.aplikasiantifoodwaste.databinding.ActivityFoodScanBinding
+import com.capstoneproject.aplikasiantifoodwaste.welcome.WelcomeActivity
+import kotlinx.coroutines.delay
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -61,6 +65,8 @@ class FoodScanActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = ActivityFoodScanBinding.inflate(layoutInflater)
+        var fruitName: String
+        var fruitMaturity: String
 
         setContentView(binding.root)
         supportActionBar?.hide()
@@ -73,49 +79,52 @@ class FoodScanActivity : AppCompatActivity() {
             )
         }
 
-        binding.btnCamera.setOnClickListener { startCameraX() }
+        binding.btnCamera.setOnClickListener {
+            startCameraX()
+            setButton(2)
+        }
         binding.btnGallery.setOnClickListener {
             startGallery()
-            binding.tvScanFood.visibility = View.GONE
-            binding.btnCamera.visibility = View.GONE
-            binding.btnGallery.visibility = View.GONE
-            binding.tvKonfirmasi.visibility = View.VISIBLE
-            binding.btnKonfirmasiYes.visibility = View.VISIBLE
-            binding.btnKonfirmasiUlangi.visibility = View.VISIBLE
+            setButton(2)
         }
         binding.btnKonfirmasiYes.setOnClickListener {
-
             uploadImage()
-
-            val service = ApiConfig.getApiService().predict()
-            service.enqueue(object: Callback<FoodScanPredictionResponse>{
-                override fun onResponse(
-                    call: Call<FoodScanPredictionResponse>,
-                    response: Response<FoodScanPredictionResponse>
-                ) {
-                    if(response.isSuccessful){
-                        val responseBody = response.body()
-                        if(responseBody != null){
-                            binding.output.text = responseBody.predict1
-                            Log.e("Food Scan Activity GET", "onSuccess")
+            setButton(3)
+            Handler().postDelayed({
+                val service = ApiConfig.getApiService().predict()
+                service.enqueue(object: Callback<FoodScanPredictionResponse>{
+                    override fun onResponse(
+                        call: Call<FoodScanPredictionResponse>,
+                        response: Response<FoodScanPredictionResponse>
+                    ) {
+                        if(response.isSuccessful){
+                            val responseBody = response.body()
+                            if(responseBody != null){
+                                fruitName = setNameFruit(responseBody.predict1)
+                                fruitMaturity = setMaturityFruit(responseBody.predict1)
+                                binding.outputFruit.text = fruitName
+                                binding.outputMaturity.text = fruitMaturity
+                                //binding.output.text = responseBody.predict1
+                                Log.e("Food Scan Activity GET", "onSuccess")
+                            }
+                        } else{
+                            Log.e("Food Scan Activity GET", "onFailure: ${response.message()}")
                         }
-                    } else{
-                        Log.e("Food Scan Activity GET", "onFailure: ${response.message()}")
                     }
-                }
-                override fun onFailure(call: Call<FoodScanPredictionResponse>, t: Throwable) {
-                    Log.e("Food Scan Activity GET", "onFailure: ${t.message}")
-                }
-            })
+                    override fun onFailure(call: Call<FoodScanPredictionResponse>, t: Throwable) {
+                        Log.e("Food Scan Activity GET", "onFailure: ${t.message}")
+                    }
+                })
+                setButton(4)
+            }, 2000)
         }
 
         binding.btnKonfirmasiUlangi.setOnClickListener {
-            binding.tvScanFood.visibility = View.VISIBLE
-            binding.btnCamera.visibility = View.VISIBLE
-            binding.btnGallery.visibility = View.VISIBLE
-            binding.tvKonfirmasi.visibility = View.GONE
-            binding.btnKonfirmasiYes.visibility = View.GONE
-            binding.btnKonfirmasiUlangi.visibility = View.GONE
+            setButton(1)
+        }
+
+        binding.btnSimpanNo.setOnClickListener {
+            setButton(1)
         }
     }
 
@@ -176,13 +185,6 @@ class FoodScanActivity : AppCompatActivity() {
                 isBackCamera
             )
             binding.ivPreview.setImageBitmap(result)
-
-            binding.tvScanFood.visibility = View.GONE
-            binding.btnCamera.visibility = View.GONE
-            binding.btnGallery.visibility = View.GONE
-            binding.tvKonfirmasi.visibility = View.VISIBLE
-            binding.btnKonfirmasiYes.visibility = View.VISIBLE
-            binding.btnKonfirmasiUlangi.visibility = View.VISIBLE
         }
     }
 
@@ -217,4 +219,130 @@ class FoodScanActivity : AppCompatActivity() {
 //// Releases model resources if no longer used.
 //        model.close()
 //    }
+
+    private fun setButton(int: Int){
+        when (int) {
+            //Scan bahan makananmu
+            1 -> {
+                binding.tvScanFood.visibility = View.VISIBLE
+                binding.btnCamera.visibility = View.VISIBLE
+                binding.btnGallery.visibility = View.VISIBLE
+
+                binding.tvKonfirmasi.visibility = View.GONE
+                binding.btnKonfirmasiYes.visibility = View.GONE
+                binding.btnKonfirmasiUlangi.visibility = View.GONE
+
+                binding.progressCircular.visibility = View.GONE
+                binding.tvLoading.visibility = View.GONE
+
+                binding.tvOutput.visibility = View.GONE
+                binding.outputFruit.visibility = View.GONE
+                binding.tvOutputMaturity.visibility = View.GONE
+                binding.outputMaturity.visibility = View.GONE
+                binding.btnSimpanYes.visibility = View.GONE
+                binding.btnSimpanNo.visibility = View.GONE
+            }
+
+            //Yakin menggunakan gambar ini?
+            2 -> {
+                binding.tvScanFood.visibility = View.GONE
+                binding.btnCamera.visibility = View.GONE
+                binding.btnGallery.visibility = View.GONE
+
+                binding.tvKonfirmasi.visibility = View.VISIBLE
+                binding.btnKonfirmasiYes.visibility = View.VISIBLE
+                binding.btnKonfirmasiUlangi.visibility = View.VISIBLE
+
+                binding.progressCircular.visibility = View.GONE
+                binding.tvLoading.visibility = View.GONE
+
+                binding.tvOutput.visibility = View.GONE
+                binding.outputFruit.visibility = View.GONE
+                binding.tvOutputMaturity.visibility = View.GONE
+                binding.outputMaturity.visibility = View.GONE
+                binding.btnSimpanYes.visibility = View.GONE
+                binding.btnSimpanNo.visibility = View.GONE
+            }
+
+            //Loading
+            3 -> {
+                binding.tvScanFood.visibility = View.GONE
+                binding.btnCamera.visibility = View.GONE
+                binding.btnGallery.visibility = View.GONE
+
+                binding.tvKonfirmasi.visibility = View.GONE
+                binding.btnKonfirmasiYes.visibility = View.GONE
+                binding.btnKonfirmasiUlangi.visibility = View.GONE
+
+                binding.progressCircular.visibility = View.VISIBLE
+                binding.tvLoading.visibility = View.VISIBLE
+
+                binding.tvOutput.visibility = View.GONE
+                binding.outputFruit.visibility = View.GONE
+                binding.tvOutputMaturity.visibility = View.GONE
+                binding.outputMaturity.visibility = View.GONE
+                binding.btnSimpanYes.visibility = View.GONE
+                binding.btnSimpanNo.visibility = View.GONE
+            }
+
+            //Hasil
+            4 -> {
+                binding.tvScanFood.visibility = View.GONE
+                binding.btnCamera.visibility = View.GONE
+                binding.btnGallery.visibility = View.GONE
+
+                binding.tvKonfirmasi.visibility = View.GONE
+                binding.btnKonfirmasiYes.visibility = View.GONE
+                binding.btnKonfirmasiUlangi.visibility = View.GONE
+
+                binding.progressCircular.visibility = View.GONE
+                binding.tvLoading.visibility = View.GONE
+
+                binding.tvOutput.visibility = View.VISIBLE
+                binding.outputFruit.visibility = View.VISIBLE
+                binding.tvOutputMaturity.visibility = View.VISIBLE
+                binding.outputMaturity.visibility = View.VISIBLE
+                binding.btnSimpanYes.visibility = View.VISIBLE
+                binding.btnSimpanNo.visibility = View.VISIBLE
+            }
+        }
+    }
+
+    private fun setNameFruit(s: String): String{
+        val name = s.substring(2,s.length)
+        if(name.equals("banana",true)){
+            return "Pisang"
+        }
+        else if(name.equals("apple",true)){
+            return "Apel"
+        }
+        else if(name.equals("carrot",true)){
+            return "Wortel"
+        }
+        else if(name.equals("greens",true)){
+            return "Sayuran Hijau"
+        }
+        else if(name.equals("orange",true)){
+            return "Jeruk"
+        }
+        else if(name.equals("tomato",true)){
+            return "Tomat"
+        }
+        else{
+            return s
+        }
+    }
+
+    private fun setMaturityFruit(s: String): String{
+        val char = s[0]
+        return if(char == 'f'){
+            "Masih segar"
+        } else if(char == 'm'){
+            "Sedang"
+        } else if(char == 'r'){
+            "Sudah busuk"
+        } else{
+            "Tidak diketahui"
+        }
+    }
 }
