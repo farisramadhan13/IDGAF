@@ -28,6 +28,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.io.ByteArrayOutputStream
 import java.io.File
+import java.io.FileOutputStream
 
 class FoodScanActivity : AppCompatActivity() {
 
@@ -148,7 +149,7 @@ class FoodScanActivity : AppCompatActivity() {
 
     private fun uploadImage(){
         if (getFile != null) {
-            val file = getFile as File
+            val file = reduceFileImage(getFile as File)
             val result = BitmapFactory.decodeFile(file.path)
             val base64String = convertBitmapToBase64(result)
             b64 = base64String
@@ -162,15 +163,15 @@ class FoodScanActivity : AppCompatActivity() {
                     if(response.isSuccessful){
                         val responseBody = response.body()
                         if(responseBody != null){
-                            Log.e("Food Scan Activity", "onSuccess")
+                            Log.e("Food Scan Activity POST", "onSuccess")
                         }
                     } else{
-                        Log.e("Food Scan Activity", "onFailure: ${response.message()}")
+                        Log.e("Food Scan Activity POST", "onFailure: ${response.message()}")
                     }
                 }
 
                 override fun onFailure(call: Call<FoodScanResponse>, t: Throwable) {
-                    Log.e("Food Scan Activity", "onFailure: ${t.message}")
+                    Log.e("Food Scan Activity POST", "onFailure: ${t.message}")
                 }
             })
 
@@ -225,6 +226,21 @@ class FoodScanActivity : AppCompatActivity() {
 //// Releases model resources if no longer used.
 //        model.close()
 //    }
+
+    private fun reduceFileImage(file: File): File {
+        val bitmap = BitmapFactory.decodeFile(file.path)
+        var compressQuality = 100
+        var streamLength: Int
+        do {
+            val bmpStream = ByteArrayOutputStream()
+            bitmap.compress(Bitmap.CompressFormat.JPEG, compressQuality, bmpStream)
+            val bmpPicByteArray = bmpStream.toByteArray()
+            streamLength = bmpPicByteArray.size
+            compressQuality -= 5
+        } while (streamLength > 1000000)
+        bitmap.compress(Bitmap.CompressFormat.JPEG, compressQuality, FileOutputStream(file))
+        return file
+    }
 
     private fun setButton(int: Int){
         when (int) {

@@ -24,8 +24,6 @@ class SaveFoodScanActivity : AppCompatActivity() {
         binding.etName.setText(name)
         var maturity = intent.getStringExtra("EXTRA_MATURITY")
         binding.etMaturity.setText(maturity)
-
-
     }
 
     private fun base64ToBitmap(b64: String?): Bitmap {
