@@ -14,4 +14,12 @@ interface ApiService {
 
     @GET("tes")
     fun predict(): Call<FoodScanPredictionResponse>
+
+    /*
+    @POST("tes")
+    fun sharefood(
+        @Field(
+    )
+
+     */
 }

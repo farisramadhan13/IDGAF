@@ -115,7 +115,7 @@ class FoodScanActivity : AppCompatActivity() {
                     }
                 })
                 setButton(4)
-            }, 60000)
+            }, 6000)
         }
 
         binding.btnKonfirmasiUlangi.setOnClickListener {
@@ -149,10 +149,10 @@ class FoodScanActivity : AppCompatActivity() {
 
     private fun uploadImage(){
         if (getFile != null) {
-            val file = reduceFileImage(getFile as File)
+            val file = getFile as File
             val result = BitmapFactory.decodeFile(file.path)
             val base64String = convertBitmapToBase64(result)
-            b64 = base64String
+            b64 = convertBitmapToBase64(BitmapFactory.decodeFile(reduceFileImage(getFile as File).path))
 
             val service = ApiConfig.getApiService().scan(base64String)
             service.enqueue(object: Callback<FoodScanResponse> {
@@ -237,7 +237,7 @@ class FoodScanActivity : AppCompatActivity() {
             val bmpPicByteArray = bmpStream.toByteArray()
             streamLength = bmpPicByteArray.size
             compressQuality -= 5
-        } while (streamLength > 1000000)
+        } while (streamLength > 100000)
         bitmap.compress(Bitmap.CompressFormat.JPEG, compressQuality, FileOutputStream(file))
         return file
     }

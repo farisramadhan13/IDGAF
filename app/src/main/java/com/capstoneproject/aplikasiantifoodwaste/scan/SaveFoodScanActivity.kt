@@ -4,9 +4,9 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.util.Base64
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.capstoneproject.aplikasiantifoodwaste.databinding.ActivitySaveFoodScanBinding
-
 
 class SaveFoodScanActivity : AppCompatActivity() {
 
@@ -24,6 +24,12 @@ class SaveFoodScanActivity : AppCompatActivity() {
         binding.etName.setText(name)
         var maturity = intent.getStringExtra("EXTRA_MATURITY")
         binding.etMaturity.setText(maturity)
+
+        binding.btnSave.setOnClickListener {
+            //SIMPAN KE API
+            Toast.makeText(this, "Berhasil simpan makanan", Toast.LENGTH_SHORT).show()
+            finish()
+        }
     }
 
     private fun base64ToBitmap(b64: String?): Bitmap {
