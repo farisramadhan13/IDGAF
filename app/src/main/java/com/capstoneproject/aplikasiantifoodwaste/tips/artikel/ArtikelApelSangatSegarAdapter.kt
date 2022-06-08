@@ -22,17 +22,11 @@ class ArtikelApelSangatSegarAdapter(private val listArtikelApelSangatSegar: Arra
         parent: ViewGroup,
         viewType: Int
     ): ArtikelApelSangatSegarViewHolder {
-//        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_artikel_apel_sangat_segar, parent, false)
         val itemView = ItemArtikelApelSangatSegarBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         return ArtikelApelSangatSegarViewHolder(itemView)
     }
 
     override fun onBindViewHolder(holder: ArtikelApelSangatSegarViewHolder, position: Int) {
-//        val currentitem = listArtikelApelSangatSegar[position]
-//
-//        holder.judul.text = currentitem.judul
-//        holder.deskripsi.text = currentitem.deskripsi
-//        holder.gambar.text = currentitem.gambar
         holder.bind(listArtikelApelSangatSegar[position])
     }
 
@@ -54,12 +48,6 @@ class ArtikelApelSangatSegarAdapter(private val listArtikelApelSangatSegar: Arra
             }
         }
     }
-//    class ArtikelApelSangatSegarViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-
-//        val judul: TextView = itemView.findViewById(R.id.tv_judul_list_artikel_apel_sangat_segar)
-//        val deskripsi: TextView = itemView.findViewById(R.id.tv_deskripsi_list_artikel_apel_sangat_segar)
-//        val gambar: ImageView = itemView.findViewById(R.id.iv_gambar_list_artikel_apel_sangat_segar)
-//    }
     interface OnItemClickCallback{
         fun onItemClicked(data: ArtikelApelSangatSegar)
     }

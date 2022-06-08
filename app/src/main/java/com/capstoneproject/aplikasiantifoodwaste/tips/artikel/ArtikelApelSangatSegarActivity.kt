@@ -23,10 +23,10 @@ class ArtikelApelSangatSegarActivity : AppCompatActivity() {
         artikelApelSangatSegarRecyclerView.setHasFixedSize(true)
 
         artikelApelSangatSegarArrayList = arrayListOf<ArtikelApelSangatSegar>()
-        getUserData()
+        getArtikelData()
     }
 
-    private fun getUserData(){
+    private fun getArtikelData(){
         dbref = FirebaseDatabase.getInstance().getReference("Artikel")
         dbref.addValueEventListener(object: ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {

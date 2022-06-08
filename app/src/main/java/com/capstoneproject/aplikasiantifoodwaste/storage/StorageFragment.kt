@@ -5,21 +5,54 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.capstoneproject.aplikasiantifoodwaste.R
 import com.capstoneproject.aplikasiantifoodwaste.databinding.FragmentStorageBinding
+import com.capstoneproject.aplikasiantifoodwaste.scan.Storage
+import com.capstoneproject.aplikasiantifoodwaste.tips.artikel.ArtikelApelSangatSegar
+import com.capstoneproject.aplikasiantifoodwaste.tips.artikel.ArtikelApelSangatSegarAdapter
+import com.google.firebase.database.*
 
 class StorageFragment : Fragment() {
 
-    private lateinit var binding : FragmentStorageBinding
+    private lateinit var database : DatabaseReference
+    private lateinit var storageRecyclerView: RecyclerView
+    private lateinit var storageArrayList: ArrayList<Storage>
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        storageRecyclerView = view.findViewById(R.id.rv_list_penyimpanan)
+        storageRecyclerView.layoutManager = LinearLayoutManager(activity)
+        storageRecyclerView.setHasFixedSize(true)
+
+        storageArrayList = arrayListOf<Storage>()
+        getStorageData()
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentStorageBinding.inflate(inflater, container, false)
-        return binding.root
+        return inflater.inflate(R.layout.fragment_storage, container, false)
+    }
+
+    private fun getStorageData(){
+        database = FirebaseDatabase.getInstance().getReference("Storage")
+        database.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if(snapshot.exists()){
+                    for(idSnapshot in snapshot.children){
+                        val storage = idSnapshot.getValue(Storage::class.java)
+                        storageArrayList.add(storage!!)
+                    }
+                    storageRecyclerView.adapter = StorageAdapter(storageArrayList)
+                }
+            }
+            override fun onCancelled(error: DatabaseError) {
+//
+            }
+        })
     }
 }

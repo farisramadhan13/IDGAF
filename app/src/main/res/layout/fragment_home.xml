@@ -35,76 +35,6 @@
         />
 
     <ImageView
-        android:id="@+id/iv_search"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/ic_search"
-        app:layout_constraintBottom_toBottomOf="@+id/et_search_home"
-        app:layout_constraintEnd_toEndOf="@+id/et_search_home"
-        app:layout_constraintTop_toTopOf="@+id/et_search_home"
-        android:visibility="gone"/>
-
-
-
-    <!--
-    <FrameLayout
-        android:id="@+id/frame_layout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toStartOf="@+id/iv_notification"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/tiet_search"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:hint="@string/search"
-                android:inputType="text"
-                android:maxLines="1"
-                android:background="@color/white"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <ImageView
-            android:id="@+id/btn_search"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end|center_vertical"
-            android:layout_marginEnd="16dp"
-            android:src="@drawable/ic_search"
-            tools:ignore="ContentDescription" />
-    </FrameLayout>
-
-    -->
-
-<!--    <androidx.cardview.widget.CardView-->
-<!--        android:id="@+id/iv_notification"-->
-<!--        android:layout_width="48dp"-->
-<!--        android:layout_height="48dp"-->
-<!--        android:layout_marginTop="16dp"-->
-<!--        android:layout_marginEnd="16dp"-->
-<!--        app:cardBackgroundColor="@android:color/transparent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent">-->
-<!--        <androidx.cardview.widget.CardView-->
-<!--            android:layout_width="48dp"-->
-<!--            android:layout_height="48dp"-->
-<!--            android:layout_gravity="center"-->
-<!--            app:cardBackgroundColor="@android:color/transparent">-->
-    <!--        </androidx.cardview.widget.CardView>-->
-<!--    </androidx.cardview.widget.CardView>-->
-
-    <ImageView
         android:id="@+id/iv_notification"
         android:layout_width="48dp"
         android:layout_height="48dp"
@@ -126,50 +56,6 @@
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_search_home" />
-
-    <!--    <TableRow-->
-<!--        android:id="@+id/tableRow"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="128dp"-->
-<!--        android:layout_marginStart="16dp"-->
-<!--        android:layout_marginTop="16dp"-->
-<!--        android:layout_marginEnd="16dp"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/tv_welcome_home">-->
-
-<!--        <ImageView-->
-<!--            android:id="@+id/imageView"-->
-<!--            android:layout_width="80dp"-->
-<!--            android:layout_height="80dp"-->
-<!--            android:layout_gravity="center_vertical"-->
-<!--            android:layout_marginStart="13dp"-->
-<!--            android:layout_marginEnd="11dp"-->
-<!--            app:srcCompat="@drawable/ic_square" />-->
-
-<!--        <ImageView-->
-<!--            android:id="@+id/imageView2"-->
-<!--            android:layout_width="80dp"-->
-<!--            android:layout_height="80dp"-->
-<!--            android:layout_gravity="center_vertical"-->
-<!--            android:layout_marginEnd="11dp"-->
-<!--            app:srcCompat="@drawable/ic_square" />-->
-
-<!--        <ImageView-->
-<!--            android:id="@+id/imageView3"-->
-<!--            android:layout_width="80dp"-->
-<!--            android:layout_height="80dp"-->
-<!--            android:layout_gravity="center_vertical"-->
-<!--            android:layout_marginEnd="11dp"-->
-<!--            app:srcCompat="@drawable/ic_square" />-->
-
-<!--        <ImageView-->
-<!--            android:id="@+id/imageView4"-->
-<!--            android:layout_width="80dp"-->
-<!--            android:layout_height="80dp"-->
-<!--            android:layout_gravity="center_vertical"-->
-<!--            app:srcCompat="@drawable/ic_square" />-->
-<!--    </TableRow>-->
 
     <ImageView
         android:id="@+id/iv_hiasan_home_white_square"
