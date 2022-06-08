@@ -237,7 +237,7 @@ class FoodScanActivity : AppCompatActivity() {
             val bmpPicByteArray = bmpStream.toByteArray()
             streamLength = bmpPicByteArray.size
             compressQuality -= 5
-        } while (streamLength > 100000)
+        } while (streamLength > 300000)
         bitmap.compress(Bitmap.CompressFormat.JPEG, compressQuality, FileOutputStream(file))
         return file
     }

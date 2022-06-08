@@ -7,10 +7,13 @@ import android.util.Base64
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.capstoneproject.aplikasiantifoodwaste.databinding.ActivitySaveFoodScanBinding
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 class SaveFoodScanActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySaveFoodScanBinding
+    private lateinit var database: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,22 +21,36 @@ class SaveFoodScanActivity : AppCompatActivity() {
         setContentView(binding.root)
         supportActionBar?.hide()
 
-        var b64image: String? = intent.getStringExtra("EXTRA_IMAGE")
+        val b64image: String? = intent.getStringExtra("EXTRA_IMAGE")
         binding.ivFood.setImageBitmap(base64ToBitmap(b64image))
-        var name = intent.getStringExtra("EXTRA_NAME")
+        val name = intent.getStringExtra("EXTRA_NAME")
         binding.etName.setText(name)
-        var maturity = intent.getStringExtra("EXTRA_MATURITY")
+        val maturity = intent.getStringExtra("EXTRA_MATURITY")
         binding.etMaturity.setText(maturity)
 
         binding.btnSave.setOnClickListener {
             //SIMPAN KE API
-            Toast.makeText(this, "Berhasil simpan makanan", Toast.LENGTH_SHORT).show()
-            finish()
+
+            val gambar = b64image
+            val namaBahan = binding.etName.text.toString()
+            val kualitas = binding.etMaturity.text.toString()
+            val catatan = binding.etNote.text.toString()
+
+            database = FirebaseDatabase.getInstance().getReference("Storage")
+            val Storage =Storage(gambar, namaBahan, kualitas, catatan)
+            database.child(namaBahan).setValue(Storage).addOnSuccessListener {
+                Toast.makeText(this, "Berhasil simpan makanan", Toast.LENGTH_SHORT).show()
+            }.addOnFailureListener {
+                Toast.makeText(this, "Gagal", Toast.LENGTH_SHORT).show()
+            }
+
+//            Toast.makeText(this, "Berhasil simpan makanan", Toast.LENGTH_SHORT).show()
+//            finish()
         }
     }
 
     private fun base64ToBitmap(b64: String?): Bitmap {
-        var base64 = Base64.decode(b64, Base64.DEFAULT)
+        val base64 = Base64.decode(b64, Base64.DEFAULT)
         return BitmapFactory.decodeByteArray(base64, 0, base64.size)
     }
 }
