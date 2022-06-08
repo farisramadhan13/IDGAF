@@ -13,16 +13,24 @@ import com.capstoneproject.aplikasiantifoodwaste.R
 
 class SearchFoodAdapter(private val searchFoodList: ArrayList<SearchFood>): RecyclerView.Adapter<SearchFoodAdapter.SearchFoodViewHolder>() {
 
-    class SearchFoodViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
+    private lateinit var mListener: onItemClickListener
+
+    class SearchFoodViewHolder(itemView: View, listener: onItemClickListener): RecyclerView.ViewHolder(itemView) {
         val namaMakanan: TextView = itemView.findViewById(R.id.food_name)
-        val deskripsi : TextView = itemView.findViewById(R.id.food_desc)
-        val stok: TextView= itemView.findViewById(R.id.food_stock)
+        val deskripsi: TextView = itemView.findViewById(R.id.food_desc)
+        val stok: TextView = itemView.findViewById(R.id.food_stock)
         val foto: ImageView = itemView.findViewById(R.id.food_photo)
+
+        init {
+            itemView.setOnClickListener {
+                listener.onItemClick(adapterPosition)
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchFoodViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.search_food_card, parent,false)
-        return SearchFoodViewHolder(itemView)
+        return SearchFoodViewHolder(itemView,mListener)
     }
 
     override fun onBindViewHolder(holder: SearchFoodViewHolder, position: Int) {
@@ -36,6 +44,14 @@ class SearchFoodAdapter(private val searchFoodList: ArrayList<SearchFood>): Recy
 
     override fun getItemCount(): Int {
         return searchFoodList.size
+    }
+
+    interface onItemClickListener{
+        fun onItemClick(position: Int)
+    }
+
+    fun setOnItemClickListener(listener: onItemClickListener){
+        mListener = listener
     }
 
     private fun base64ToBitmap(b64: String?): Bitmap {
