@@ -21,12 +21,15 @@ import com.capstoneproject.aplikasiantifoodwaste.databinding.ActivityShareBindin
 import com.capstoneproject.aplikasiantifoodwaste.profile.AddAddressActivity
 import com.capstoneproject.aplikasiantifoodwaste.profile.AddressActivity
 import com.capstoneproject.aplikasiantifoodwaste.scan.FoodScanActivity
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import java.io.File
 
 class ShareActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityShareBinding
     private var everTaken = false
+    private lateinit var database : DatabaseReference
 
     companion object {
         const val CAMERA_X_RESULT = 200
@@ -93,10 +96,28 @@ class ShareActivity : AppCompatActivity() {
         }
         binding.btnBagiMakanan.setOnClickListener {
             //kirim data makanan
+            //val gambarMakanan = binding.ivGambarMakananShare.text.toString()
+            val namaMakanan = binding.tiNamaMakananShare.text.toString()
+            val deskripsi = binding.tiDeskripsiMakananShare.text.toString()
+            val stok = binding.tiStokUserShare.text.toString()
 
+            database = FirebaseDatabase.getInstance().getReference("Share")
+            val Share = Share(namaMakanan, deskripsi, stok)
+            database.child(namaMakanan).setValue(Share).addOnSuccessListener {
+                binding.tiNamaMakananShare.text?.clear()
+                binding.tiDeskripsiMakananShare.text?.clear()
+                binding.tiStokUserShare.text?.clear()
+                Toast.makeText(this, "Makanan berhasil dibagikan", Toast.LENGTH_SHORT).show()
+            }.addOnFailureListener {
+                Toast.makeText(this, "Gagal", Toast.LENGTH_SHORT).show()
+            }
+
+//            val nama = binding.tv
+//            val nomorTelepon
+//            val alamatLengkap
             //Bisa toast, bisa bikin halaman lagi
-            Toast.makeText(this, "Makanan berhasil dibagikan", Toast.LENGTH_SHORT).show()
-            finish()
+            //Toast.makeText(this, "Makanan berhasil dibagikan", Toast.LENGTH_SHORT).show()
+            //finish()
         }
     }
 
