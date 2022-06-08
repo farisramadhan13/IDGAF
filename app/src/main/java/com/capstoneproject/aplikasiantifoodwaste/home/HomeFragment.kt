@@ -10,15 +10,22 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
+import androidx.recyclerview.widget.RecyclerView
 import com.capstoneproject.aplikasiantifoodwaste.databinding.FragmentHomeBinding
 import com.capstoneproject.aplikasiantifoodwaste.scan.FoodScanActivity
+import com.capstoneproject.aplikasiantifoodwaste.scan.Storage
 import com.capstoneproject.aplikasiantifoodwaste.searchfood.SearchFoodListActivity
 import com.capstoneproject.aplikasiantifoodwaste.share.ShareActivity
+import com.capstoneproject.aplikasiantifoodwaste.storage.StorageAdapter
 import com.capstoneproject.aplikasiantifoodwaste.tips.TipsActivity
+import com.google.firebase.database.*
 
 class HomeFragment : Fragment() {
 
     private lateinit var binding : FragmentHomeBinding
+    private lateinit var database : DatabaseReference
+    private lateinit var listPenyimpananHomeRecyclerView: RecyclerView
+    private lateinit var listPenyimpananHomeArrayList: ArrayList<Storage>
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -64,5 +71,22 @@ class HomeFragment : Fragment() {
         else{
             binding.ivSearch.visibility = View.GONE
         }
+    }
+    private fun getStorageData(){
+        database = FirebaseDatabase.getInstance().getReference("Storage")
+        database.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if(snapshot.exists()){
+                    for(idSnapshot in snapshot.children){
+                        val storage = idSnapshot.getValue(Storage::class.java)
+                        listPenyimpananHomeArrayList.add(storage!!)
+                    }
+                    listPenyimpananHomeRecyclerView.adapter = StorageAdapter(listPenyimpananHomeArrayList)
+                }
+            }
+            override fun onCancelled(error: DatabaseError) {
+//
+            }
+        })
     }
 }
