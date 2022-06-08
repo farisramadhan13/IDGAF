@@ -1,12 +1,14 @@
-package com.capstoneproject.aplikasiantifoodwaste.share
+package com.capstoneproject.aplikasiantifoodwaste. share
 
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Base64
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
@@ -23,13 +25,17 @@ import com.capstoneproject.aplikasiantifoodwaste.profile.AddressActivity
 import com.capstoneproject.aplikasiantifoodwaste.scan.FoodScanActivity
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import java.io.ByteArrayOutputStream
 import java.io.File
+import java.io.FileOutputStream
 
 class ShareActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityShareBinding
     private var everTaken = false
     private lateinit var database : DatabaseReference
+    private var b64 = ""
+    private var getFile: File? = null
 
     companion object {
         const val CAMERA_X_RESULT = 200
@@ -97,19 +103,26 @@ class ShareActivity : AppCompatActivity() {
         binding.btnBagiMakanan.setOnClickListener {
             //kirim data makanan
             //val gambarMakanan = binding.ivGambarMakananShare.text.toString()
-            val namaMakanan = binding.tiNamaMakananShare.text.toString()
-            val deskripsi = binding.tiDeskripsiMakananShare.text.toString()
-            val stok = binding.tiStokUserShare.text.toString()
+            if(binding.tiNamaMakananShare.text?.trim()?.length != 0 && binding.tiDeskripsiMakananShare.text?.trim()?.length != 0 && binding.tiStokUserShare.text?.trim()?.length != 0 && getFile!=null){
+                val namaMakanan = binding.tiNamaMakananShare.text.toString()
+                val deskripsi = binding.tiDeskripsiMakananShare.text.toString()
+                val stok = binding.tiStokUserShare.text.toString()
+                b64 = convertBitmapToBase64(BitmapFactory.decodeFile(reduceFileImage(getFile as File).path))
 
-            database = FirebaseDatabase.getInstance().getReference("Share")
-            val Share = Share(namaMakanan, deskripsi, stok)
-            database.child(namaMakanan).setValue(Share).addOnSuccessListener {
-                binding.tiNamaMakananShare.text?.clear()
-                binding.tiDeskripsiMakananShare.text?.clear()
-                binding.tiStokUserShare.text?.clear()
-                Toast.makeText(this, "Makanan berhasil dibagikan", Toast.LENGTH_SHORT).show()
-            }.addOnFailureListener {
-                Toast.makeText(this, "Gagal", Toast.LENGTH_SHORT).show()
+                database = FirebaseDatabase.getInstance().getReference("Share")
+                val Share = Share(namaMakanan, deskripsi, stok, b64)
+                database.child(namaMakanan).setValue(Share).addOnSuccessListener {
+                    binding.tiNamaMakananShare.text?.clear()
+                    binding.tiDeskripsiMakananShare.text?.clear()
+                    binding.tiStokUserShare.text?.clear()
+                    getFile = null
+                    Toast.makeText(this, "Makanan berhasil dibagikan", Toast.LENGTH_SHORT).show()
+                }.addOnFailureListener {
+                    Toast.makeText(this, "Gagal", Toast.LENGTH_SHORT).show()
+                }
+            }
+            else{
+                Toast.makeText(this, "Data Belum Lengkap", Toast.LENGTH_SHORT).show()
             }
 
 //            val nama = binding.tv
@@ -141,6 +154,7 @@ class ShareActivity : AppCompatActivity() {
                 BitmapFactory.decodeFile(myFile.path),
                 isBackCamera
             )
+            getFile = myFile
             binding.ivGambarMakananShare.setImageBitmap(result)
             everTaken = true
         }
@@ -151,9 +165,39 @@ class ShareActivity : AppCompatActivity() {
         if (result.resultCode == RESULT_OK) {
             val selectedImg: Uri = result.data?.data as Uri
             val myFile = uriToFile(selectedImg, this@ShareActivity)
+            getFile = myFile
             binding.ivGambarMakananShare.setImageURI(selectedImg)
         }
     }
+
+    private fun reduceFileImage(file: File): File {
+        val bitmap = BitmapFactory.decodeFile(file.path)
+        var compressQuality = 100
+        var streamLength: Int
+        do {
+            val bmpStream = ByteArrayOutputStream()
+            bitmap.compress(Bitmap.CompressFormat.JPEG, compressQuality, bmpStream)
+            val bmpPicByteArray = bmpStream.toByteArray()
+            streamLength = bmpPicByteArray.size
+            compressQuality -= 5
+        } while (streamLength > 300000)
+        bitmap.compress(Bitmap.CompressFormat.JPEG, compressQuality, FileOutputStream(file))
+        return file
+    }
+
+    private fun convertBitmapToBase64(bitmap: Bitmap): String{
+        val stream = ByteArrayOutputStream()
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 50, stream)
+        val image = stream.toByteArray()
+        return Base64.encodeToString(image, Base64.DEFAULT)
+    }
+
+
+
+
+
+
+
 
     private fun setButton(int: Int){
         when (int) {

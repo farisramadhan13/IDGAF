@@ -2,6 +2,7 @@ package com.capstoneproject.aplikasiantifoodwaste.api
 
 import com.capstoneproject.aplikasiantifoodwaste.scan.FoodScanPredictionResponse
 import com.capstoneproject.aplikasiantifoodwaste.scan.FoodScanResponse
+import com.capstoneproject.aplikasiantifoodwaste.share.ShareFoodResponse
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -17,9 +18,6 @@ interface ApiService {
 
     /*
     @POST("tes")
-    fun sharefood(
-        @Field(
-    )
-
+    fun sharefood(): Call<ShareFoodResponse>
      */
 }
