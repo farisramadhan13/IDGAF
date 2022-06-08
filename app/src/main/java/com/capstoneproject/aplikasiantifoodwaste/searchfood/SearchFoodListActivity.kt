@@ -20,6 +20,7 @@ class SearchFoodListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySearchFoodListBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.hide()
 
         searchFoodRecyclerView = findViewById(R.id.searchFoodList)
         searchFoodRecyclerView.layoutManager = LinearLayoutManager(this)
