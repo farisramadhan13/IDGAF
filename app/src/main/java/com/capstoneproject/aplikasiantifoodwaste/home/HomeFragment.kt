@@ -26,6 +26,8 @@ class HomeFragment : Fragment() {
         binding.ivTips.setOnClickListener{
             startActivity(Intent(activity, TipsActivity::class.java))
         }
+
+        //binding.etSearchHome.searchButtonImage.
     }
 
     override fun onCreateView(

@@ -12,6 +12,7 @@ import com.google.firebase.auth.FirebaseAuth
 import androidx.fragment.app.FragmentManager
 import com.capstoneproject.aplikasiantifoodwaste.R
 import com.capstoneproject.aplikasiantifoodwaste.searchfood.SearchFoodDetailActivity
+import com.capstoneproject.aplikasiantifoodwaste.searchfood.SearchFoodListActivity
 
 class ProfileFragment : Fragment(){
 
@@ -36,7 +37,7 @@ class ProfileFragment : Fragment(){
         }
 
         binding.btnDetailFood.setOnClickListener{
-            startActivity(Intent(activity, SearchFoodDetailActivity::class.java))
+            startActivity(Intent(activity, SearchFoodListActivity::class.java))
         }
     }
 

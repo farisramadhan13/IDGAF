@@ -75,7 +75,7 @@
     -->
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_list_food"
+        android:id="@+id/searchFoodList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="8dp"
@@ -83,6 +83,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_search_food_list"
-        tools:listitem="@layout/order_card" />
+        tools:listitem="@layout/search_food_card" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

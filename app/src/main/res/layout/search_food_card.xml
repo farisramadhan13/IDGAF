@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:order_card="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/search_food_card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginLeft="8dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginRight="8dp"
+    android:layout_marginBottom="4dp"
+    order_card:cardCornerRadius="4dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <ImageView
+            android:id="@+id/food_photo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="8dp"
+            order_card:layout_constraintStart_toStartOf="parent"
+            order_card:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/food_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="Nama makanan"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            order_card:layout_constraintStart_toEndOf="@+id/food_photo"
+            order_card:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/food_stock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="Stok"
+            android:textColor="@color/black"
+            android:textSize="11sp"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            order_card:layout_constraintStart_toEndOf="@+id/food_photo"
+            order_card:layout_constraintTop_toBottomOf="@+id/food_name" />
+
+        <TextView
+            android:id="@+id/food_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="Deskripsi"
+            android:textColor="@color/black"
+            android:textSize="11sp"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            order_card:layout_constraintStart_toEndOf="@+id/food_photo"
+            order_card:layout_constraintTop_toBottomOf="@+id/food_stock" />
+
+        <TextView
+            android:id="@+id/food_b64"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="B64"
+            android:textColor="@color/black"
+            android:textSize="11sp"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            order_card:layout_constraintStart_toEndOf="@+id/food_photo"
+            order_card:layout_constraintTop_toBottomOf="@+id/food_desc"
+            android:visibility="gone"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.cardview.widget.CardView>

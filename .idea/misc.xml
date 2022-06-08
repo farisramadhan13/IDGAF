@@ -13,8 +13,14 @@
         <entry key="..\:/Users/ASUS/Desktop/New folder (2)/IDGAF/app/src/main/res/layout/activity_food_scan.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ASUS/Desktop/New folder (2)/IDGAF/app/src/main/res/layout/activity_login.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ASUS/Desktop/New folder (2)/IDGAF/app/src/main/res/layout/activity_save_food_scan.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ASUS/Desktop/New folder (2)/IDGAF/app/src/main/res/layout/activity_search_food_list.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ASUS/Desktop/New folder (2)/IDGAF/app/src/main/res/layout/activity_share.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ASUS/Desktop/New folder (2)/IDGAF/app/src/main/res/layout/activity_welcome.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ASUS/Desktop/New folder (2)/IDGAF/app/src/main/res/layout/item_artikel_apel_sangat_segar.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ASUS/Desktop/New folder (2)/IDGAF/app/src/main/res/layout/item_penyimpanan.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ASUS/Desktop/New folder (2)/IDGAF/app/src/main/res/layout/item_penyimpanan_home.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ASUS/Desktop/New folder (2)/IDGAF/app/src/main/res/layout/order_card.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ASUS/Desktop/New folder (2)/IDGAF/app/src/main/res/layout/search_food_card.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ASUS/Desktop/New folder (2)/IDGAF/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.248" />
         <entry key="..\:/Users/ASUS/Desktop/New folder/IDGAF/app/src/main/res/drawable/ic_home.xml" value="0.2265" />
         <entry key="..\:/Users/ASUS/Desktop/New folder/IDGAF/app/src/main/res/drawable/ic_order.xml" value="0.2385" />
@@ -74,7 +80,6 @@
         <entry key="..\:/Users/FARIS/AndroidStudioProjects/AplikasiAntiFoodWaste/app/src/main/res/layout/activity_login.xml" value="0.4" />
         <entry key="..\:/Users/FARIS/AndroidStudioProjects/AplikasiAntiFoodWaste/app/src/main/res/layout/activity_main.xml" value="0.23958333333333334" />
         <entry key="..\:/Users/FARIS/AndroidStudioProjects/AplikasiAntiFoodWaste/app/src/main/res/layout/activity_register.xml" value="0.2" />
-        <entry key="..\:/Users/FARIS/AndroidStudioProjects/AplikasiAntiFoodWaste/app/src/main/res/layout/activity_save_food_scan.xml" value="0.264" />
         <entry key="..\:/Users/FARIS/AndroidStudioProjects/AplikasiAntiFoodWaste/app/src/main/res/layout/activity_scan_food.xml" value="0.1" />
         <entry key="..\:/Users/FARIS/AndroidStudioProjects/AplikasiAntiFoodWaste/app/src/main/res/layout/activity_search_food_list.xml" value="0.4" />
         <entry key="..\:/Users/FARIS/AndroidStudioProjects/AplikasiAntiFoodWaste/app/src/main/res/layout/activity_share.xml" value="0.264" />
