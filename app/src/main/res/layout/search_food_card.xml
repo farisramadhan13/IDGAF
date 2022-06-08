@@ -52,6 +52,21 @@
             order_card:layout_constraintStart_toEndOf="@+id/food_photo"
             order_card:layout_constraintTop_toBottomOf="@+id/food_name" />
 
+        <!--
+        <TextView
+            android:id="@+id/desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="Deskripsi"
+            android:textColor="@color/black"
+            android:textSize="11sp"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            order_card:layout_constraintStart_toEndOf="@+id/food_photo"
+            order_card:layout_constraintTop_toBottomOf="@+id/food_stock" />
+            -->
+
         <TextView
             android:id="@+id/food_desc"
             android:layout_width="wrap_content"
@@ -64,20 +79,6 @@
             android:layout_marginStart="8dp"
             order_card:layout_constraintStart_toEndOf="@+id/food_photo"
             order_card:layout_constraintTop_toBottomOf="@+id/food_stock" />
-
-        <TextView
-            android:id="@+id/food_b64"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat_regular"
-            android:text="B64"
-            android:textColor="@color/black"
-            android:textSize="11sp"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="8dp"
-            order_card:layout_constraintStart_toEndOf="@+id/food_photo"
-            order_card:layout_constraintTop_toBottomOf="@+id/food_desc"
-            android:visibility="gone"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
