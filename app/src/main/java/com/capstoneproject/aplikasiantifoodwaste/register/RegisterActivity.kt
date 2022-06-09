@@ -10,7 +10,11 @@ import com.capstoneproject.aplikasiantifoodwaste.custom.*
 import com.capstoneproject.aplikasiantifoodwaste.databinding.ActivityRegisterBinding
 import com.capstoneproject.aplikasiantifoodwaste.home.HomeActivity
 import com.capstoneproject.aplikasiantifoodwaste.login.LoginActivity
+import com.capstoneproject.aplikasiantifoodwaste.profile.Users
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -62,7 +66,8 @@ class RegisterActivity : AppCompatActivity() {
             //val name = binding.customEditTextNameRegister.text.toString().trim()
             val email = customEditTextEmailRegister.text.toString().trim()
             val password = customEditTextPasswordRegister.text.toString().trim()
-            registerUser(email, password)
+            val name = customEditTextNameRegister.text.toString().trim()
+            registerUser(email, password, name)
         }
     }
     private fun setMyButtonEnable() {
@@ -70,12 +75,21 @@ class RegisterActivity : AppCompatActivity() {
         val resultPassword = customEditTextPasswordRegister.text
         customButtonRegister.isEnabled = (resultEmail != null && resultEmail.toString().isNotEmpty()) && (resultPassword != null && resultPassword.toString().isNotEmpty())
     }
-    private fun registerUser(email: String, password: String){
+    private fun registerUser(email: String, password: String, name: String){
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this){
                 if(it.isSuccessful){
                     startActivity(Intent(this@RegisterActivity, LoginActivity::class.java))
                     finish()
+
+                    val user = FirebaseAuth.getInstance().currentUser
+                    val uid = user?.uid
+                    val userDetail = Users(name, email, "-")
+
+                    var database = Firebase.database.reference
+                    if (uid != null) {
+                        database.child("Users").child(uid).setValue(userDetail)
+                    }
                 }else{
                     Toast.makeText(this, it.exception?.message, Toast.LENGTH_SHORT).show()
                 }
