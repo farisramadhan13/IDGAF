@@ -11,8 +11,7 @@ import com.capstoneproject.aplikasiantifoodwaste.databinding.ActivitySplashBindi
 import com.capstoneproject.aplikasiantifoodwaste.scan.SaveFoodScanActivity
 import com.google.firebase.database.*
 
-class SearchFoodListActivity : AppCompatActivity() {
-
+class SearchFoodListActivity : AppCompatActivity(){
     private lateinit var binding : ActivitySearchFoodListBinding
     private lateinit var dbref: DatabaseReference
     private lateinit var searchFoodRecyclerView: RecyclerView
@@ -47,6 +46,7 @@ class SearchFoodListActivity : AppCompatActivity() {
                     var adapter = SearchFoodAdapter(searchFoodArrayList)
                     searchFoodRecyclerView.adapter = SearchFoodAdapter(searchFoodArrayList)
 
+                    /*
                     adapter.setOnItemClickListener(object: SearchFoodAdapter.onItemClickListener{
                         override fun onItemClick(position: Int) {
 
@@ -64,6 +64,8 @@ class SearchFoodListActivity : AppCompatActivity() {
                         }
 
                     })
+
+                     */
                 }
             }
 
