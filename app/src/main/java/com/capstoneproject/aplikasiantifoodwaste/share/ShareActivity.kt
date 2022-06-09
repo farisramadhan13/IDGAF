@@ -191,14 +191,6 @@ class ShareActivity : AppCompatActivity() {
         val image = stream.toByteArray()
         return Base64.encodeToString(image, Base64.DEFAULT)
     }
-
-
-
-
-
-
-
-
     private fun setButton(int: Int){
         when (int) {
             1 -> {
