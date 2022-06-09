@@ -10,7 +10,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.capstoneproject.aplikasiantifoodwaste.R
 import com.capstoneproject.aplikasiantifoodwaste.databinding.FragmentHomeBinding
 import com.capstoneproject.aplikasiantifoodwaste.scan.FoodScanActivity
 import com.capstoneproject.aplikasiantifoodwaste.scan.Storage
@@ -29,6 +31,14 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        listPenyimpananHomeRecyclerView = view.findViewById(R.id.horizontal_rv)
+        listPenyimpananHomeRecyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+        listPenyimpananHomeRecyclerView.setHasFixedSize(true)
+
+        listPenyimpananHomeArrayList = arrayListOf<Storage>()
+        getStorageData()
+
         binding.ivScan.setOnClickListener {
             startActivity(Intent(activity, FoodScanActivity::class.java))
         }
@@ -81,7 +91,7 @@ class HomeFragment : Fragment() {
                         val storage = idSnapshot.getValue(Storage::class.java)
                         listPenyimpananHomeArrayList.add(storage!!)
                     }
-                    listPenyimpananHomeRecyclerView.adapter = StorageAdapter(listPenyimpananHomeArrayList)
+                    listPenyimpananHomeRecyclerView.adapter = ListPenyimpananHomeAdapter(listPenyimpananHomeArrayList)
                 }
             }
             override fun onCancelled(error: DatabaseError) {
