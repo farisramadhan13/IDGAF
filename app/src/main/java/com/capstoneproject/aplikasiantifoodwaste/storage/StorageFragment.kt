@@ -1,5 +1,6 @@
 package com.capstoneproject.aplikasiantifoodwaste.storage
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -47,7 +48,19 @@ class StorageFragment : Fragment() {
                         val storage = idSnapshot.getValue(Storage::class.java)
                         storageArrayList.add(storage!!)
                     }
-                    storageRecyclerView.adapter = StorageAdapter(storageArrayList)
+                    val adapter = StorageAdapter(storageArrayList)
+                    storageRecyclerView.adapter = adapter
+                    adapter.setOnItemClickCallback(object: StorageAdapter.OnItemClickCallback{
+                        override fun onItemClicked(data: Storage) {
+                            Intent(activity, DetailStorageActivity::class.java).also {
+                                it.putExtra(DetailStorageActivity.Extra_Gambar, data.gambar)
+                                it.putExtra(DetailStorageActivity.Extra_Bahan, data.namaBahan)
+                                it.putExtra(DetailStorageActivity.Extra_Kualitas, data.kualitas)
+                                it.putExtra(DetailStorageActivity.Extra_Catatan, data.catatan)
+                                startActivity(it)
+                            }
+                        }
+                    })
                 }
             }
             override fun onCancelled(error: DatabaseError) {

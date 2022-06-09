@@ -18,6 +18,7 @@ import com.capstoneproject.aplikasiantifoodwaste.scan.FoodScanActivity
 import com.capstoneproject.aplikasiantifoodwaste.scan.Storage
 import com.capstoneproject.aplikasiantifoodwaste.searchfood.SearchFoodListActivity
 import com.capstoneproject.aplikasiantifoodwaste.share.ShareActivity
+import com.capstoneproject.aplikasiantifoodwaste.storage.DetailStorageActivity
 import com.capstoneproject.aplikasiantifoodwaste.storage.StorageAdapter
 import com.capstoneproject.aplikasiantifoodwaste.tips.TipsActivity
 import com.google.firebase.database.*
@@ -91,7 +92,19 @@ class HomeFragment : Fragment() {
                         val storage = idSnapshot.getValue(Storage::class.java)
                         listPenyimpananHomeArrayList.add(storage!!)
                     }
-                    listPenyimpananHomeRecyclerView.adapter = ListPenyimpananHomeAdapter(listPenyimpananHomeArrayList)
+                    val adapter = ListPenyimpananHomeAdapter(listPenyimpananHomeArrayList)
+                    listPenyimpananHomeRecyclerView.adapter = adapter
+                    adapter.setOnItemClickCallback(object: ListPenyimpananHomeAdapter.OnItemClickCallback{
+                        override fun onItemClicked(data: Storage) {
+                            Intent(activity, DetailStorageActivity::class.java).also {
+                                it.putExtra(DetailStorageActivity.Extra_Gambar, data.gambar)
+                                it.putExtra(DetailStorageActivity.Extra_Bahan, data.namaBahan)
+                                it.putExtra(DetailStorageActivity.Extra_Kualitas, data.kualitas)
+                                it.putExtra(DetailStorageActivity.Extra_Catatan, data.catatan)
+                                startActivity(it)
+                            }
+                        }
+                    })
                 }
             }
             override fun onCancelled(error: DatabaseError) {
