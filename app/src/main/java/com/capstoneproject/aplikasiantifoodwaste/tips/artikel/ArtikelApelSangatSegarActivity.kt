@@ -1,5 +1,6 @@
 package com.capstoneproject.aplikasiantifoodwaste.tips.artikel
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -35,7 +36,20 @@ class ArtikelApelSangatSegarActivity : AppCompatActivity() {
                         val artikel = idSnapshot.getValue(ArtikelApelSangatSegar::class.java)
                         artikelApelSangatSegarArrayList.add(artikel!!)
                     }
-                    artikelApelSangatSegarRecyclerView.adapter = ArtikelApelSangatSegarAdapter(artikelApelSangatSegarArrayList)
+
+                    val adapter = ArtikelApelSangatSegarAdapter(artikelApelSangatSegarArrayList)
+                    artikelApelSangatSegarRecyclerView.adapter = adapter
+                    adapter.setOnItemClickCallback(object: ArtikelApelSangatSegarAdapter.OnItemClickCallback{
+                        override fun onItemClicked(data: ArtikelApelSangatSegar) {
+                            Intent(this@ArtikelApelSangatSegarActivity, ArtikelApelSangatSegarDetailActivity::class.java).also {
+                                it.putExtra(ArtikelApelSangatSegarDetailActivity.Extra_Gambar, data.gambar)
+                                it.putExtra(ArtikelApelSangatSegarDetailActivity.Extra_Judul, data.judul)
+                                it.putExtra(ArtikelApelSangatSegarDetailActivity.Extra_Deskripsi, data.deskripsi)
+                                it.putExtra(ArtikelApelSangatSegarDetailActivity.Extra_Sumber, data.sumber)
+                                startActivity(it)
+                            }
+                        }
+                    })
                 }
             }
             override fun onCancelled(error: DatabaseError) {
