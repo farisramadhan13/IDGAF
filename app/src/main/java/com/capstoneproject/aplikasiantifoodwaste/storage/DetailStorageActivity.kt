@@ -39,8 +39,8 @@ class DetailStorageActivity : AppCompatActivity() {
 
     companion object{
         const val Extra_Bahan = "extra_bahan"
-        const val Extra_Kualitas = "extra_kualitas"
         const val Extra_Gambar = "extra_gambar"
+        const val Extra_Kualitas = "extra_kualitas"
         const val Extra_Catatan = "extra_catatan"
     }
 }
