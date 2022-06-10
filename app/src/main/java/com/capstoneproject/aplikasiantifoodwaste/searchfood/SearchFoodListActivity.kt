@@ -42,7 +42,7 @@ class SearchFoodListActivity : AppCompatActivity(){
                     }
 
                     val adapter = SearchFoodAdapter(searchFoodArrayList)
-                    searchFoodRecyclerView.adapter = SearchFoodAdapter(searchFoodArrayList)
+                    searchFoodRecyclerView.adapter = adapter
                     adapter.setOnItemClickCallback(object: SearchFoodAdapter.OnItemClickCallback{
                         override fun onItemClicked(data: SearchFood) {
                             Intent(this@SearchFoodListActivity, SearchFoodDetailActivity::class.java).also{
