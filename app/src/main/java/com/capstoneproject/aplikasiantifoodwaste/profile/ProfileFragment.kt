@@ -15,6 +15,7 @@ import com.capstoneproject.aplikasiantifoodwaste.R
 import com.capstoneproject.aplikasiantifoodwaste.scan.SaveFoodScanActivity
 import com.capstoneproject.aplikasiantifoodwaste.searchfood.SearchFoodDetailActivity
 import com.capstoneproject.aplikasiantifoodwaste.searchfood.SearchFoodListActivity
+import com.capstoneproject.aplikasiantifoodwaste.tips.UploadArtikelActivity
 import com.google.firebase.database.*
 
 class ProfileFragment : Fragment(){
@@ -76,7 +77,7 @@ class ProfileFragment : Fragment(){
         }
 
         binding.btnDetailFood.setOnClickListener{
-            startActivity(Intent(activity, SearchFoodListActivity::class.java))
+            startActivity(Intent(activity, UploadArtikelActivity::class.java))
         }
     }
 
