@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -91,6 +92,7 @@ class HomeFragment : Fragment() {
                     for(idSnapshot in snapshot.children){
                         val storage = idSnapshot.getValue(Storage::class.java)
                         listPenyimpananHomeArrayList.add(storage!!)
+                        //Log.e("Isi Array List", storage.toString())
                     }
                     val adapter = ListPenyimpananHomeAdapter(listPenyimpananHomeArrayList)
                     listPenyimpananHomeRecyclerView.adapter = adapter
