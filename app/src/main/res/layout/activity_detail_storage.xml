@@ -47,12 +47,13 @@
         android:id="@+id/id_penyimpanan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/montserrat_regular"
         android:text="@string/id_penyimpanan"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="24dp"
         android:textColor="@color/black"
         android:textSize="16sp"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="@+id/iv_hiasan_detail_storage_white"
         app:layout_constraintTop_toBottomOf="@+id/iv_penyimpanan" />
 
