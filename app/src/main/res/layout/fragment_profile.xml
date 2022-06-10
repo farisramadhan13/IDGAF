@@ -228,7 +228,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/purple"
         android:fontFamily="@font/montserrat_bold"
-        android:text="TES DETAIL FOOD"
+        android:text="TES TAMBAH ARTIKEL"
         android:textColor="@color/white"
         android:textSize="11sp"
         android:layout_marginTop="16dp"

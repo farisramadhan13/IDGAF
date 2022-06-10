@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".tips.UploadArtikelActivity">
+
+    <TextView
+        android:id="@+id/title_bar_share"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:fontFamily="@font/montserrat_bold"
+        android:paddingStart="24dp"
+        android:paddingTop="16dp"
+        android:paddingEnd="24dp"
+        android:paddingBottom="16dp"
+        android:text="Upload Artikel"
+        android:textColor="@color/orange"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/title_bar_share"
+        tools:context=".tips.UploadArtikelActivity">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_nama_buah"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="Nama Buah"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <com.capstoneproject.aplikasiantifoodwaste.custom.CustomEditText
+                android:id="@+id/ti_nama_buah"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp"
+                android:textSize="16sp"
+                android:fontFamily="@font/montserrat_bold"
+                android:hint="Masukkan nama buah"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_nama_buah"/>
+
+
+            <TextView
+                android:id="@+id/tv_kematangan"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="Kematangan"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ti_nama_buah" />
+
+
+            <com.capstoneproject.aplikasiantifoodwaste.custom.CustomEditText
+                android:id="@+id/ti_kematangan"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp"
+                android:textSize="16sp"
+                android:fontFamily="@font/montserrat_bold"
+                android:hint="F/M/R"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_kematangan"/>
+
+            <TextView
+                android:id="@+id/tv_id_artikel"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="ID Artikel"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ti_kematangan" />
+
+
+            <com.capstoneproject.aplikasiantifoodwaste.custom.CustomEditText
+                android:id="@+id/ti_id_artikel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp"
+                android:textSize="16sp"
+                android:fontFamily="@font/montserrat_bold"
+                android:hint="Masukkan ID artikel"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_id_artikel"/>
+
+
+            <TextView
+                android:id="@+id/tv_judul_artikel"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="Judul Artikel"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ti_id_artikel" />
+
+
+            <com.capstoneproject.aplikasiantifoodwaste.custom.CustomEditText
+                android:id="@+id/ti_judul_artikel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp"
+                android:textSize="16sp"
+                android:fontFamily="@font/montserrat_bold"
+                android:hint="Masukkan judul artikel"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_judul_artikel"/>
+
+            <TextView
+                android:id="@+id/tv_foto_artikel"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="Foto Artikel"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ti_judul_artikel" />
+
+
+            <com.capstoneproject.aplikasiantifoodwaste.custom.CustomEditText
+                android:id="@+id/ti_foto_artikel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp"
+                android:textSize="16sp"
+                android:fontFamily="@font/montserrat_bold"
+                android:hint="Masukkan link foto artikel"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_foto_artikel"/>
+
+
+            <TextView
+                android:id="@+id/tv_deskripsi_artikel"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="Deskripsi Artikel"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ti_foto_artikel" />
+
+
+            <com.capstoneproject.aplikasiantifoodwaste.custom.CustomEditTextLong
+                android:id="@+id/ti_deskripsi_artikel"
+                android:layout_width="0dp"
+                android:layout_height="144dp"
+                android:gravity="top|start"
+                android:fontFamily="@font/montserrat_bold"
+                android:textSize="16sp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp"
+                android:inputType="textMultiLine"
+                android:hint="Masukkan deskripsi artikel"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_deskripsi_artikel"
+                />
+
+            <TextView
+                android:id="@+id/tv_sumber_artikel"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="Sumber"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ti_deskripsi_artikel" />
+
+            <com.capstoneproject.aplikasiantifoodwaste.custom.CustomEditTextLong
+                android:id="@+id/ti_sumber_artikel"
+                android:layout_width="0dp"
+                android:layout_height="144dp"
+                android:gravity="top|start"
+                android:fontFamily="@font/montserrat_bold"
+                android:textSize="16sp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp"
+                android:inputType="textMultiLine"
+                android:hint="Masukkan sumber artikel"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_sumber_artikel"
+                />
+            <Button
+                android:id="@+id/btn_upload_artikel"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="@color/purple"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="Tambah Artikel"
+                android:textColor="@color/white"
+                android:textSize="11sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ti_sumber_artikel" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</RelativeLayout>
