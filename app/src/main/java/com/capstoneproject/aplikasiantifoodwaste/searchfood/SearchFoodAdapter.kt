@@ -4,55 +4,53 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.util.Base64
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.capstoneproject.aplikasiantifoodwaste.R
-import com.capstoneproject.aplikasiantifoodwaste.storage.StorageAdapter
+import com.bumptech.glide.Glide
+import com.capstoneproject.aplikasiantifoodwaste.databinding.SearchFoodCardBinding
 
-class SearchFoodAdapter (private val searchFoodList: ArrayList<SearchFood>): RecyclerView.Adapter<SearchFoodAdapter.SearchFoodViewHolder>() {
+class SearchFoodAdapter (private val listSearchFood: ArrayList<SearchFood>) : RecyclerView.Adapter<SearchFoodAdapter.SearchFoodViewHolder>(){
 
-    //private lateinit var mListener: onItemClickListener
+    private var onItemClickCallback: SearchFoodAdapter.OnItemClickCallback? = null
 
-//    private var onItemClickCallback: SearchFoodAdapter.OnItemClickCallback? = null
-
-
-    class SearchFoodViewHolder(itemView: View, /*listener: onItemClickListener*/): RecyclerView.ViewHolder(itemView) {
-        val namaMakanan: TextView = itemView.findViewById(R.id.food_name)
-        val deskripsi: TextView = itemView.findViewById(R.id.food_desc)
-        val stok: TextView = itemView.findViewById(R.id.food_stock)
-        val foto: ImageView = itemView.findViewById(R.id.food_photo)
+    fun setOnItemClickCallback(onItemClickCallback: SearchFoodAdapter.OnItemClickCallback){
+        this.onItemClickCallback = onItemClickCallback
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchFoodViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.search_food_card, parent,false)
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): SearchFoodAdapter.SearchFoodViewHolder {
+        val itemView = SearchFoodCardBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         return SearchFoodViewHolder(itemView)
     }
-
-    override fun onBindViewHolder(holder: SearchFoodViewHolder, position: Int) {
-        val currentItem = searchFoodList[position]
-
-        holder.namaMakanan.text = currentItem.namaMakanan
-        holder.deskripsi.text = currentItem.deskripsi
-        holder.stok.text = "Stok: ${currentItem.stok}"
-        holder.foto.setImageBitmap(base64ToBitmap(currentItem.b64))
+    override fun onBindViewHolder(holder: SearchFoodAdapter.SearchFoodViewHolder, position: Int) {
+        holder.bind(listSearchFood[position])
     }
-
     override fun getItemCount(): Int {
-        return searchFoodList.size
+        return listSearchFood.size
     }
+    inner class SearchFoodViewHolder(private val binding: SearchFoodCardBinding): RecyclerView.ViewHolder(binding.root){
+        fun bind(searchFood: SearchFood){
 
-    interface onItemClickListener{
-        fun onItemClick(position: Int)
-    }
+            val gambar = base64ToBitmap(searchFood.b64)
 
-    /*
-    fun setOnItemClickListener(listener: onItemClickListener){
-        mListener = listener
+            binding.root.setOnClickListener{
+                onItemClickCallback?.onItemClicked(searchFood)
+            }
+            binding.apply {
+                Glide.with(itemView)
+                    .load(gambar)
+                    .into(foodPhoto)
+                foodName.text = searchFood.namaMakanan
+                foodStock.text = "Stok: ${searchFood.stok}"
+                foodDesc.text = searchFood.deskripsi
+            }
+        }
     }
-    */
+    interface OnItemClickCallback{
+        fun onItemClicked(data: SearchFood)
+    }
 
     private fun base64ToBitmap(b64: String?): Bitmap {
         val base64 = Base64.decode(b64, Base64.DEFAULT)

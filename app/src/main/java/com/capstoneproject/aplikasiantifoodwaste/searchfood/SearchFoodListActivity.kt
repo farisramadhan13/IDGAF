@@ -7,11 +7,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.capstoneproject.aplikasiantifoodwaste.R
 import com.capstoneproject.aplikasiantifoodwaste.databinding.ActivitySearchFoodListBinding
-import com.capstoneproject.aplikasiantifoodwaste.databinding.ActivitySplashBinding
-import com.capstoneproject.aplikasiantifoodwaste.home.ListPenyimpananHomeAdapter
-import com.capstoneproject.aplikasiantifoodwaste.scan.SaveFoodScanActivity
-import com.capstoneproject.aplikasiantifoodwaste.scan.Storage
-import com.capstoneproject.aplikasiantifoodwaste.storage.DetailStorageActivity
 import com.google.firebase.database.*
 
 class SearchFoodListActivity : AppCompatActivity(){
@@ -27,7 +22,7 @@ class SearchFoodListActivity : AppCompatActivity(){
         supportActionBar?.hide()
 
         searchFoodRecyclerView = findViewById(R.id.searchFoodList)
-        searchFoodRecyclerView.layoutManager = LinearLayoutManager(this)
+        searchFoodRecyclerView.layoutManager = LinearLayoutManager(this@SearchFoodListActivity)
         searchFoodRecyclerView.setHasFixedSize(true)
 
         searchFoodArrayList = arrayListOf<SearchFood>()
@@ -48,48 +43,24 @@ class SearchFoodListActivity : AppCompatActivity(){
 
                     val adapter = SearchFoodAdapter(searchFoodArrayList)
                     searchFoodRecyclerView.adapter = SearchFoodAdapter(searchFoodArrayList)
-
                     adapter.setOnItemClickCallback(object: SearchFoodAdapter.OnItemClickCallback{
                         override fun onItemClicked(data: SearchFood) {
-                            val intent = Intent(this@SearchFoodListActivity, SearchFoodDetailActivity::class.java)
-
-                            intent.putExtra("EXTRA_IMAGE", data.b64 )
-                            intent.putExtra("EXTRA_FOOD_NAME", data.namaMakanan)
-                            intent.putExtra("EXTRA_STOCK", data.stok)
-                            intent.putExtra("EXTRA_DESCRIPTION", data.deskripsi)
-                            startActivity(intent)
+                            Intent(this@SearchFoodListActivity, SearchFoodDetailActivity::class.java).also{
+                                it.putExtra(SearchFoodDetailActivity.Extra_Image, data.b64 )
+                                it.putExtra(SearchFoodDetailActivity.Extra_FoodName, data.namaMakanan)
+                                it.putExtra(SearchFoodDetailActivity.Extra_Stock, data.stok)
+                                it.putExtra(SearchFoodDetailActivity.Extra_Description, data.deskripsi)
+                                startActivity(it)
+                            }
                         }
                     })
-
-                    /*
-                    adapter.setOnItemClickListener(object: SearchFoodAdapter.onItemClickListener{
-                        override fun onItemClick(position: Int) {
-
-                            var namaMakanan = searchFoodArrayList[position].namaMakanan
-                            var stok = searchFoodArrayList[position].stok
-                            var deskripsi = searchFoodArrayList[position].deskripsi
-                            var b64 = searchFoodArrayList[position].b64
-
-                            val intent = Intent(this@SearchFoodListActivity, SearchFoodDetailActivity::class.java)
-                            intent.putExtra("EXTRA_IMAGE", b64 )
-                            intent.putExtra("EXTRA_FOOD_NAME", namaMakanan)
-                            intent.putExtra("EXTRA_STOCK", stok)
-                            intent.putExtra("EXTRA_DESCRIPTION", deskripsi)
-                            startActivity(intent)
-                        }
-
-                    })
-
-                     */
                 }
             }
 
             override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
+ //
             }
 
         })
     }
-
-
 }
