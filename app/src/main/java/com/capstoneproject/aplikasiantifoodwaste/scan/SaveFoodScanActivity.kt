@@ -53,8 +53,6 @@ class SaveFoodScanActivity : AppCompatActivity() {
                 Toast.makeText(this, "Gagal", Toast.LENGTH_SHORT).show()
             }
 
-//            Toast.makeText(this, "Berhasil simpan makanan", Toast.LENGTH_SHORT).show()
-//            finish()
         }
     }
 
