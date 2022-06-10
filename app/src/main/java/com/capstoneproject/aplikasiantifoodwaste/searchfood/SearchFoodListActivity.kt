@@ -43,7 +43,7 @@ class SearchFoodListActivity : AppCompatActivity(){
                         searchFoodArrayList.add(food!!)
                     }
 
-                    var adapter = SearchFoodAdapter(searchFoodArrayList)
+                    val adapter = SearchFoodAdapter(searchFoodArrayList)
                     searchFoodRecyclerView.adapter = SearchFoodAdapter(searchFoodArrayList)
 
                     /*
