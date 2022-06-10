@@ -50,6 +50,7 @@ class ProfileFragment : Fragment(){
                     var users: Users? = snapshot.getValue(Users::class.java)
                     binding.tvNameProfile.text = users?.name
                     binding.tvTelephoneProfile.text = users?.telp
+                    binding.tvAddressProfile.text = users?.address
                 }
 
                 override fun onCancelled(error: DatabaseError) {

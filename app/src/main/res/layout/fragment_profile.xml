@@ -138,6 +138,32 @@
         app:layout_constraintStart_toEndOf="@+id/tv_telephone"
         app:layout_constraintTop_toBottomOf="@+id/tv_email_profile" />
 
+    <TextView
+        android:id="@+id/tv_address"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="@string/alamat"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_telephone" />
+
+    <TextView
+        android:id="@+id/tv_address_profile"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="-"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toEndOf="@+id/tv_address"
+        app:layout_constraintTop_toBottomOf="@+id/tv_telephone_profile" />
+
     <!--
 
     <TextView
@@ -177,7 +203,8 @@
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_telephone"
+        app:layout_constraintTop_toBottomOf="@+id/tv_address_profile"
+        android:visibility="gone"
         />
 
     <Button
@@ -192,7 +219,7 @@
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_my_address" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_address_profile" />
 
 
     <Button

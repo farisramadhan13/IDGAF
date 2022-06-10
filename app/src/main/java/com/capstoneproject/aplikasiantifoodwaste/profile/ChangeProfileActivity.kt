@@ -32,11 +32,12 @@ class ChangeProfileActivity : AppCompatActivity() {
         if (userRef != null) {
             userRef.addValueEventListener(object: ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
-                    Log.e("first_name", snapshot.getValue(Users::class.java).toString())
+                    Log.e("detail user", snapshot.getValue(Users::class.java).toString())
 
                     var users: Users? = snapshot.getValue(Users::class.java)
                     binding.etEditProfileName.setText(users?.name)
                     binding.etEditProfileTelephone.setText(users?.telp)
+                    binding.etEditProfileAddress.setText(users?.address)
                 }
 
                 override fun onCancelled(error: DatabaseError) {
@@ -50,10 +51,14 @@ class ChangeProfileActivity : AppCompatActivity() {
         binding.btnEditProfileSave.setOnClickListener {
             //kirim data profile
 
-            if(binding.etEditProfileName.text?.trim()?.length != 0 && binding.etEditProfileEmail.text?.trim()?.length != 0 && binding.etEditProfileTelephone.text?.trim()?.length != 0){
+            if(binding.etEditProfileName.text?.trim()?.length != 0
+                && binding.etEditProfileEmail.text?.trim()?.length != 0
+                && binding.etEditProfileTelephone.text?.trim()?.length != 0
+                && binding.etEditProfileAddress.text?.trim()?.length!! > 20
+            ){
                 val user = FirebaseAuth.getInstance().currentUser
                 val uid = user?.uid
-                val userDetail = Users(binding.etEditProfileName.text.toString(), email, binding.etEditProfileTelephone.text.toString())
+                val userDetail = Users(binding.etEditProfileName.text.toString(), email, binding.etEditProfileTelephone.text.toString(), binding.etEditProfileAddress.text.toString())
 
                 var database = Firebase.database.reference
                 if (uid != null) {
