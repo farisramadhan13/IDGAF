@@ -1,4 +1,4 @@
-package com.capstoneproject.aplikasiantifoodwaste. share
+package com.capstoneproject.aplikasiantifoodwaste.share
 
 import android.Manifest
 import android.content.Intent
@@ -14,15 +14,12 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.core.view.marginTop
-import com.capstoneproject.aplikasiantifoodwaste.R
 import com.capstoneproject.aplikasiantifoodwaste.camera.CameraActivity
 import com.capstoneproject.aplikasiantifoodwaste.camera.rotateBitmap
 import com.capstoneproject.aplikasiantifoodwaste.camera.uriToFile
 import com.capstoneproject.aplikasiantifoodwaste.databinding.ActivityShareBinding
-import com.capstoneproject.aplikasiantifoodwaste.profile.AddAddressActivity
 import com.capstoneproject.aplikasiantifoodwaste.profile.AddressActivity
-import com.capstoneproject.aplikasiantifoodwaste.scan.FoodScanActivity
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import java.io.ByteArrayOutputStream
@@ -36,6 +33,7 @@ class ShareActivity : AppCompatActivity() {
     private lateinit var database : DatabaseReference
     private var b64 = ""
     private var getFile: File? = null
+    private lateinit var uid: String
 
     companion object {
         const val CAMERA_X_RESULT = 200
@@ -110,8 +108,14 @@ class ShareActivity : AppCompatActivity() {
                 b64 = convertBitmapToBase64(BitmapFactory.decodeFile(reduceFileImage(getFile as File).path))
 
                 database = FirebaseDatabase.getInstance().getReference("Share")
-                val Share = Share(namaMakanan, deskripsi, stok, b64)
-                database.child(namaMakanan).setValue(Share).addOnSuccessListener {
+
+                val user = FirebaseAuth.getInstance().currentUser
+                user?.let{
+                    uid = user.uid
+                }
+
+                val share = Share(uid, namaMakanan, deskripsi, stok, b64)
+                database.child(namaMakanan).setValue(share).addOnSuccessListener {
                     binding.tiNamaMakananShare.text?.clear()
                     binding.tiDeskripsiMakananShare.text?.clear()
                     binding.tiStokUserShare.text?.clear()
@@ -125,12 +129,6 @@ class ShareActivity : AppCompatActivity() {
                 Toast.makeText(this, "Data Belum Lengkap", Toast.LENGTH_SHORT).show()
             }
 
-//            val nama = binding.tv
-//            val nomorTelepon
-//            val alamatLengkap
-            //Bisa toast, bisa bikin halaman lagi
-            //Toast.makeText(this, "Makanan berhasil dibagikan", Toast.LENGTH_SHORT).show()
-            //finish()
         }
     }
 

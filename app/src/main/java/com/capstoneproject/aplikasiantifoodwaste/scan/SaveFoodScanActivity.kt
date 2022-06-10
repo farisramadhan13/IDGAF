@@ -7,6 +7,7 @@ import android.util.Base64
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.capstoneproject.aplikasiantifoodwaste.databinding.ActivitySaveFoodScanBinding
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
@@ -14,6 +15,7 @@ class SaveFoodScanActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySaveFoodScanBinding
     private lateinit var database: DatabaseReference
+    private lateinit var uid: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,12 +34,19 @@ class SaveFoodScanActivity : AppCompatActivity() {
             //SIMPAN KE API
 
             val gambar = b64image
+            //val id =
             val namaBahan = binding.etName.text.toString()
             val kualitas = binding.etMaturity.text.toString()
             val catatan = binding.etNote.text.toString()
 
             database = FirebaseDatabase.getInstance().getReference("Storage")
-            val Storage =Storage(gambar, namaBahan, kualitas, catatan)
+
+            val user = FirebaseAuth.getInstance().currentUser
+            user?.let{
+                uid = user.uid
+            }
+
+            val Storage =Storage(uid, gambar, namaBahan, kualitas, catatan)
             database.child(namaBahan).setValue(Storage).addOnSuccessListener {
                 Toast.makeText(this, "Berhasil simpan makanan", Toast.LENGTH_SHORT).show()
             }.addOnFailureListener {
