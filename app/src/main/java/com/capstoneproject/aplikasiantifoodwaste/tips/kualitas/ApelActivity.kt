@@ -16,14 +16,25 @@ class ApelActivity : AppCompatActivity() {
         setContentView(binding.root)
         supportActionBar?.hide()
 
+        val namaBuah = intent.getStringExtra("EXTRA_NAME")
+
         binding.cvApelSangatSegar.setOnClickListener {
-            startActivity(Intent(this, ArtikelApelSangatSegarActivity::class.java))
+            val intent = Intent(this, ArtikelApelSangatSegarActivity::class.java)
+            intent.putExtra("EXTRA_NAME", namaBuah )
+            intent.putExtra("EXTRA_MATURITY", "F" )
+            startActivity(intent)
         }
         binding.cvApelSegar.setOnClickListener {
-            Toast.makeText(this,"Fitur belum dibuat", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, ArtikelApelSangatSegarActivity::class.java)
+            intent.putExtra("EXTRA_NAME", namaBuah )
+            intent.putExtra("EXTRA_MATURITY", "M" )
+            startActivity(intent)
         }
         binding.cvApelBasi.setOnClickListener {
-            Toast.makeText(this,"Fitur belum dibuat", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, ArtikelApelSangatSegarActivity::class.java)
+            intent.putExtra("EXTRA_NAME", namaBuah )
+            intent.putExtra("EXTRA_MATURITY", "R" )
+            startActivity(intent)
         }
     }
 }

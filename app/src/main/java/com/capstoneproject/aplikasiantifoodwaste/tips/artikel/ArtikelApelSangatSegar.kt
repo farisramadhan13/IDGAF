@@ -4,5 +4,5 @@ data class ArtikelApelSangatSegar(
     var judul: String ?= null,
     var deskripsi: String?=null,
     var sumber: String?=null,
-    var gambar: String?=null
+    var foto: String?=null
 )

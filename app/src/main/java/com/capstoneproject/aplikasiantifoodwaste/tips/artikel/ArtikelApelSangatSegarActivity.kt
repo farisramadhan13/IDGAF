@@ -23,12 +23,20 @@ class ArtikelApelSangatSegarActivity : AppCompatActivity() {
         artikelApelSangatSegarRecyclerView.layoutManager = LinearLayoutManager(this)
         artikelApelSangatSegarRecyclerView.setHasFixedSize(true)
 
+        val namaBuah = intent.getStringExtra("EXTRA_NAME")
+        val kematangan = intent.getStringExtra("EXTRA_MATURITY")
+
         artikelApelSangatSegarArrayList = arrayListOf<ArtikelApelSangatSegar>()
-        getArtikelData()
+        if (namaBuah != null) {
+            if (kematangan != null) {
+                getArtikelData(namaBuah,kematangan)
+            }
+        }
     }
 
-    private fun getArtikelData(){
-        dbref = FirebaseDatabase.getInstance().getReference("Artikel")
+    private fun getArtikelData(namaBuah: String, kematangan: String){
+        dbref = FirebaseDatabase.getInstance().getReference("ArtikelBaru").child(namaBuah).child(kematangan)
+
         dbref.addValueEventListener(object: ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 if(snapshot.exists()){
@@ -42,7 +50,7 @@ class ArtikelApelSangatSegarActivity : AppCompatActivity() {
                     adapter.setOnItemClickCallback(object: ArtikelApelSangatSegarAdapter.OnItemClickCallback{
                         override fun onItemClicked(data: ArtikelApelSangatSegar) {
                             Intent(this@ArtikelApelSangatSegarActivity, ArtikelApelSangatSegarDetailActivity::class.java).also {
-                                it.putExtra(ArtikelApelSangatSegarDetailActivity.Extra_Gambar, data.gambar)
+                                it.putExtra(ArtikelApelSangatSegarDetailActivity.Extra_Gambar, data.foto)
                                 it.putExtra(ArtikelApelSangatSegarDetailActivity.Extra_Judul, data.judul)
                                 it.putExtra(ArtikelApelSangatSegarDetailActivity.Extra_Deskripsi, data.deskripsi)
                                 it.putExtra(ArtikelApelSangatSegarDetailActivity.Extra_Sumber, data.sumber)

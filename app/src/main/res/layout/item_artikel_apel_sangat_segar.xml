@@ -1,4 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:order_card="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cv_list_artikel_apel_sangat_segar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginLeft="8dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginRight="8dp"
+    android:layout_marginBottom="4dp"
+    order_card:cardCornerRadius="4dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <ImageView
+            android:id="@+id/iv_gambar_list_artikel_apel_sangat_segar"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="8dp"
+            order_card:layout_constraintStart_toStartOf="parent"
+            order_card:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/tv_judul_list_artikel_apel_sangat_segar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="Judul"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            order_card:layout_constraintStart_toEndOf="@+id/iv_gambar_list_artikel_apel_sangat_segar"
+            order_card:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_deskripsi_list_artikel_apel_sangat_segar"
+            android:layout_width="wrap_content"
+            android:layout_height="75dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="Deskripsi"
+            android:textColor="@color/black"
+            android:textSize="11sp"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            order_card:layout_constraintStart_toEndOf="@+id/iv_gambar_list_artikel_apel_sangat_segar"
+            order_card:layout_constraintTop_toBottomOf="@+id/tv_judul_list_artikel_apel_sangat_segar" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.cardview.widget.CardView>
+<!--
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -40,7 +99,7 @@
         <TextView
             android:id="@+id/tv_deskripsi_list_artikel_apel_sangat_segar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="65dp"
             android:layout_marginStart="150dp"
             android:layout_marginTop="50dp"
             android:layout_marginEnd="32dp"
@@ -51,3 +110,5 @@
 
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+-->

@@ -41,7 +41,7 @@ class ArtikelApelSangatSegarAdapter(private val listArtikelApelSangatSegar: Arra
             }
             binding.apply {
                 Glide.with(itemView)
-                    .load(artikel.gambar)
+                    .load(artikel.foto)
                     .into(ivGambarListArtikelApelSangatSegar)
                 tvJudulListArtikelApelSangatSegar.text = artikel.judul
                 tvDeskripsiListArtikelApelSangatSegar.text = artikel.deskripsi
