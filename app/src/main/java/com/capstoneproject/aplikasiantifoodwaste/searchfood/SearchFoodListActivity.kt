@@ -8,7 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.capstoneproject.aplikasiantifoodwaste.R
 import com.capstoneproject.aplikasiantifoodwaste.databinding.ActivitySearchFoodListBinding
 import com.capstoneproject.aplikasiantifoodwaste.databinding.ActivitySplashBinding
+import com.capstoneproject.aplikasiantifoodwaste.home.ListPenyimpananHomeAdapter
 import com.capstoneproject.aplikasiantifoodwaste.scan.SaveFoodScanActivity
+import com.capstoneproject.aplikasiantifoodwaste.scan.Storage
+import com.capstoneproject.aplikasiantifoodwaste.storage.DetailStorageActivity
 import com.google.firebase.database.*
 
 class SearchFoodListActivity : AppCompatActivity(){
@@ -45,6 +48,18 @@ class SearchFoodListActivity : AppCompatActivity(){
 
                     val adapter = SearchFoodAdapter(searchFoodArrayList)
                     searchFoodRecyclerView.adapter = SearchFoodAdapter(searchFoodArrayList)
+
+                    adapter.setOnItemClickCallback(object: SearchFoodAdapter.OnItemClickCallback{
+                        override fun onItemClicked(data: SearchFood) {
+                            val intent = Intent(this@SearchFoodListActivity, SearchFoodDetailActivity::class.java)
+
+                            intent.putExtra("EXTRA_IMAGE", data.b64 )
+                            intent.putExtra("EXTRA_FOOD_NAME", data.namaMakanan)
+                            intent.putExtra("EXTRA_STOCK", data.stok)
+                            intent.putExtra("EXTRA_DESCRIPTION", data.deskripsi)
+                            startActivity(intent)
+                        }
+                    })
 
                     /*
                     adapter.setOnItemClickListener(object: SearchFoodAdapter.onItemClickListener{

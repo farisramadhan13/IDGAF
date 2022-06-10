@@ -10,6 +10,7 @@ import com.capstoneproject.aplikasiantifoodwaste.databinding.ActivitySaveFoodSca
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import java.util.*
 
 class SaveFoodScanActivity : AppCompatActivity() {
 
@@ -39,16 +40,18 @@ class SaveFoodScanActivity : AppCompatActivity() {
             val kualitas = binding.etMaturity.text.toString()
             val catatan = binding.etNote.text.toString()
 
-            database = FirebaseDatabase.getInstance().getReference("Storage")
+            database = FirebaseDatabase.getInstance().getReference("Users")
 
             val user = FirebaseAuth.getInstance().currentUser
             user?.let{
                 uid = user.uid
             }
 
-            val Storage =Storage(uid, gambar, namaBahan, kualitas, catatan)
-            database.child(namaBahan).setValue(Storage).addOnSuccessListener {
+            var uniqueID = UUID.randomUUID().toString()
+            val Storage =Storage(uniqueID,gambar, namaBahan, kualitas, catatan)
+            database.child(uid).child("Storage").child(uniqueID).setValue(Storage).addOnSuccessListener {
                 Toast.makeText(this, "Berhasil simpan makanan", Toast.LENGTH_SHORT).show()
+                finish()
             }.addOnFailureListener {
                 Toast.makeText(this, "Gagal", Toast.LENGTH_SHORT).show()
             }
@@ -60,4 +63,6 @@ class SaveFoodScanActivity : AppCompatActivity() {
         val base64 = Base64.decode(b64, Base64.DEFAULT)
         return BitmapFactory.decodeByteArray(base64, 0, base64.size)
     }
+
+
 }

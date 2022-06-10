@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.capstoneproject.aplikasiantifoodwaste.R
 import com.capstoneproject.aplikasiantifoodwaste.databinding.FragmentHomeBinding
+import com.capstoneproject.aplikasiantifoodwaste.profile.Users
 import com.capstoneproject.aplikasiantifoodwaste.scan.FoodScanActivity
 import com.capstoneproject.aplikasiantifoodwaste.scan.Storage
 import com.capstoneproject.aplikasiantifoodwaste.searchfood.SearchFoodListActivity
@@ -22,6 +23,7 @@ import com.capstoneproject.aplikasiantifoodwaste.share.ShareActivity
 import com.capstoneproject.aplikasiantifoodwaste.storage.DetailStorageActivity
 import com.capstoneproject.aplikasiantifoodwaste.storage.StorageAdapter
 import com.capstoneproject.aplikasiantifoodwaste.tips.TipsActivity
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
 class HomeFragment : Fragment() {
@@ -30,16 +32,24 @@ class HomeFragment : Fragment() {
     private lateinit var database : DatabaseReference
     private lateinit var listPenyimpananHomeRecyclerView: RecyclerView
     private lateinit var listPenyimpananHomeArrayList: ArrayList<Storage>
+    private lateinit var email: String
+    private lateinit var uid: String
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val user = FirebaseAuth.getInstance().currentUser
+        user?.let {
+            email = user.email.toString()
+            uid = user.uid
+        }
 
         listPenyimpananHomeRecyclerView = view.findViewById(R.id.horizontal_rv)
         listPenyimpananHomeRecyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
         listPenyimpananHomeRecyclerView.setHasFixedSize(true)
 
         listPenyimpananHomeArrayList = arrayListOf<Storage>()
-        getStorageData()
+
+        getStorageData(uid)
 
         binding.ivScan.setOnClickListener {
             startActivity(Intent(activity, FoodScanActivity::class.java))
@@ -84,9 +94,11 @@ class HomeFragment : Fragment() {
             binding.ivSearch.visibility = View.GONE
         }
     }
-    private fun getStorageData(){
-        database = FirebaseDatabase.getInstance().getReference("Storage")
-        database.addValueEventListener(object : ValueEventListener {
+    private fun getStorageData(uid: String){
+        database = FirebaseDatabase.getInstance().getReference("Users")
+        var userRef = uid?.let { database.child(it).child("Storage") }
+
+        userRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if(snapshot.exists()){
                     for(idSnapshot in snapshot.children){
