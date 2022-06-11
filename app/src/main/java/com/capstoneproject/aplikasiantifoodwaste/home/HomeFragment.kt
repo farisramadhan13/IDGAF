@@ -25,6 +25,7 @@ import com.capstoneproject.aplikasiantifoodwaste.searchfood.SearchFoodListActivi
 import com.capstoneproject.aplikasiantifoodwaste.share.ShareActivity
 import com.capstoneproject.aplikasiantifoodwaste.storage.DetailStorageActivity
 import com.capstoneproject.aplikasiantifoodwaste.storage.StorageAdapter
+import com.capstoneproject.aplikasiantifoodwaste.storage.StorageFragment
 import com.capstoneproject.aplikasiantifoodwaste.tips.TipsActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
@@ -86,6 +87,12 @@ class HomeFragment : Fragment() {
             if(binding.etSearchHome.text?.trim()?.length != 0){
                 startActivity(Intent(activity, SearchFoodListActivity::class.java))
             }
+        }
+        binding.btnStorage.setOnClickListener {
+            //startActivity(Intent(activity, StorageFragment::class.java))
+        }
+        binding.btnFoodNearby.setOnClickListener {
+            startActivity(Intent(activity, SearchFoodListActivity::class.java))
         }
     }
 
