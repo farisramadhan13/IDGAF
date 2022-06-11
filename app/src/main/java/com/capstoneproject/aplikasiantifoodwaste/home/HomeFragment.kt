@@ -127,6 +127,7 @@ class HomeFragment : Fragment() {
                                 it.putExtra(DetailStorageActivity.Extra_Bahan, data.namaBahan)
                                 it.putExtra(DetailStorageActivity.Extra_Kualitas, data.kualitas)
                                 it.putExtra(DetailStorageActivity.Extra_Catatan, data.catatan)
+                                it.putExtra(DetailStorageActivity.Extra_Id, data.id)
                                 startActivity(it)
                             }
                         }

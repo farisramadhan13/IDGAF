@@ -1,7 +1,10 @@
 package com.capstoneproject.aplikasiantifoodwaste.profile
 
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Base64
 import android.util.Log
 import android.widget.Toast
 import com.capstoneproject.aplikasiantifoodwaste.databinding.ActivityChangeProfileBinding
@@ -38,6 +41,7 @@ class ChangeProfileActivity : AppCompatActivity() {
                     binding.etEditProfileName.setText(users?.name)
                     binding.etEditProfileTelephone.setText(users?.telp)
                     binding.etEditProfileAddress.setText(users?.address)
+                    binding.ivProfilePhoto.setImageBitmap(base64ToBitmap(users?.photo))
                 }
 
                 override fun onCancelled(error: DatabaseError) {
@@ -73,5 +77,10 @@ class ChangeProfileActivity : AppCompatActivity() {
             }
 
         }
+    }
+
+    private fun base64ToBitmap(b64: String?): Bitmap {
+        val base64 = Base64.decode(b64, Base64.DEFAULT)
+        return BitmapFactory.decodeByteArray(base64, 0, base64.size)
     }
 }
