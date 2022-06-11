@@ -96,7 +96,7 @@ class HomeFragment : Fragment() {
     }
     private fun getStorageData(uid: String){
         database = FirebaseDatabase.getInstance().getReference("Users").child(uid)
-        var userRef = uid?.let { database.child(it).child("Storage") }
+        var userRef = uid?.let { FirebaseDatabase.getInstance().getReference("Users").child(uid).child("Storage") }
 
         database.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
