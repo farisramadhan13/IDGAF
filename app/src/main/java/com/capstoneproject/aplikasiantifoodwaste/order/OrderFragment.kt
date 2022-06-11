@@ -101,14 +101,14 @@ class OrderFragment : Fragment() {
                     listAmbilRecyclerView.adapter = adapter
                     adapter.setOnItemClickCallback(object: OrderAdapter.OnItemClickCallback{
                         override fun onItemClicked(data: Order) {
-//                            Intent(activity, DetailOrderActivity::class.java).also {
-//                                it.putExtra(DetailOrderActivity.Extra_, data.idOrder)
-//                                it.putExtra(DetailOrderActivity.Extra_, data.gambarO)
-//                                it.putExtra(DetailOrderActivity.Extra_, data.namaMakananO)
-//                                it.putExtra(DetailOrderActivity.Extra_, data.jam)
-//                                it.putExtra(DetailOrderActivity.Extra_, data.jumlah)
-//                                startActivity(it)
-//                            }
+                            Intent(activity, DetailOrderActivity::class.java).also {
+                                it.putExtra(DetailOrderActivity.Extra_Id, data.idOrder)
+                                it.putExtra(DetailOrderActivity.Extra_Gambar, data.gambarO)
+                                it.putExtra(DetailOrderActivity.Extra_NamaMakanan, data.namaMakananO)
+                                it.putExtra(DetailOrderActivity.Extra_Jam, data.jam)
+                                it.putExtra(DetailOrderActivity.Extra_Jumlah, data.jumlah)
+                                startActivity(it)
+                            }
                         }
                     })
                 }
