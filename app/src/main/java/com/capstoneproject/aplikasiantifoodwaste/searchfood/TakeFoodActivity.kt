@@ -1,17 +1,13 @@
 package com.capstoneproject.aplikasiantifoodwaste.searchfood
 
-import android.R
+import android.R.layout
 import android.app.TimePickerDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.*
 import com.capstoneproject.aplikasiantifoodwaste.databinding.ActivityTakeFoodBinding
-import com.capstoneproject.aplikasiantifoodwaste.home.HomeActivity
-import com.capstoneproject.aplikasiantifoodwaste.profile.AddAddressActivity
-import com.capstoneproject.aplikasiantifoodwaste.profile.Users
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
@@ -68,7 +64,7 @@ class TakeFoodActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener
 
         val uidUser = FirebaseAuth.getInstance().currentUser?.uid
         var searchFood: SearchFood? = null
-        var stok: String = ""
+        var stok = ""
         val idMakanan = intent.getStringExtra("EXTRA_ID_MAKANAN")!!
 
         databaseRef = FirebaseDatabase.getInstance().getReference("Share").child(idMakanan)
@@ -88,7 +84,7 @@ class TakeFoodActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener
         previewSelectedTimeTextView = binding.tvWaktuAmbil
 
         buttonPickTime.setOnClickListener {
-            val timePicker: TimePickerDialog = TimePickerDialog(
+            val timePicker = TimePickerDialog(
                 this, timePickerDialogListener, 12, 10, false
             )
             timePicker.show()
@@ -97,8 +93,8 @@ class TakeFoodActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener
         spinner = this.binding.spinnerMetode
         spinner!!.setOnItemSelectedListener(this)
 
-        val adapter = ArrayAdapter(this, R.layout.simple_spinner_item, metode)
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        val adapter = ArrayAdapter(this, layout.simple_spinner_item, metode)
+        adapter.setDropDownViewResource(layout.simple_spinner_dropdown_item)
         spinner!!.adapter = adapter
 
         binding.btnAmbilMakanan.setOnClickListener {
@@ -123,7 +119,12 @@ class TakeFoodActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener
 
                         databaseRef.setValue(updateFood).addOnSuccessListener {
                             Toast.makeText(this, "Permintaan Pengambilan Makanan Berhasil", Toast.LENGTH_SHORT).show()
-                            startActivity(Intent(this@TakeFoodActivity, TakeFoodConfirmationActivity::class.java))
+                            Intent(this@TakeFoodActivity, TakeFoodConfirmationActivity::class.java).also{
+                                it.putExtra("EXTRA_ID_MAKANAN", idMakanan )
+                                it.putExtra("EXTRA_JAM", previewSelectedTimeTextView.text.toString())
+                                it.putExtra("EXTRA_ID_PEMBAGI", searchFood?.id)
+                                startActivity(it)
+                            }
                             finish()
                         }.addOnFailureListener {
                             Toast.makeText(this, "Gagal", Toast.LENGTH_SHORT).show()
