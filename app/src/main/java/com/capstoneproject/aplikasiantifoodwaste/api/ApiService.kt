@@ -8,12 +8,12 @@ import retrofit2.http.*
 
 interface ApiService {
     @FormUrlEncoded
-    @POST("tes")
+    @POST("predict")
     fun scan(
         @Field("b64") b64: String
     ): Call<FoodScanResponse>
 
-    @GET("tes")
+    @GET("predict")
     fun predict(): Call<FoodScanPredictionResponse>
 
     /*

@@ -115,7 +115,7 @@ class FoodScanActivity : AppCompatActivity() {
                     }
                 })
                 setButton(4)
-            }, 6000)
+            }, 10000)
         }
 
         binding.btnKonfirmasiUlangi.setOnClickListener {
