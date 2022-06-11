@@ -73,6 +73,9 @@ class HomeFragment : Fragment() {
         binding.ivTips.setOnClickListener{
             startActivity(Intent(activity, TipsActivity::class.java))
         }
+        binding.ivNotification.setOnClickListener {
+            Toast.makeText(activity, "fitur notifikasi masih dikembangkan", Toast.LENGTH_SHORT).show()
+        }
         binding.etSearchHome.addTextChangedListener (object : TextWatcher{
             override fun afterTextChanged(s: Editable) {
                 hideOrShowSearchBtn()
