@@ -18,6 +18,9 @@ import com.capstoneproject.aplikasiantifoodwaste.databinding.FragmentHomeBinding
 import com.capstoneproject.aplikasiantifoodwaste.profile.Users
 import com.capstoneproject.aplikasiantifoodwaste.scan.FoodScanActivity
 import com.capstoneproject.aplikasiantifoodwaste.scan.Storage
+import com.capstoneproject.aplikasiantifoodwaste.searchfood.SearchFood
+import com.capstoneproject.aplikasiantifoodwaste.searchfood.SearchFoodAdapter
+import com.capstoneproject.aplikasiantifoodwaste.searchfood.SearchFoodDetailActivity
 import com.capstoneproject.aplikasiantifoodwaste.searchfood.SearchFoodListActivity
 import com.capstoneproject.aplikasiantifoodwaste.share.ShareActivity
 import com.capstoneproject.aplikasiantifoodwaste.storage.DetailStorageActivity
@@ -30,8 +33,11 @@ class HomeFragment : Fragment() {
 
     private lateinit var binding : FragmentHomeBinding
     private lateinit var database : DatabaseReference
+    private lateinit var database2: DatabaseReference
     private lateinit var listPenyimpananHomeRecyclerView: RecyclerView
+    private lateinit var listMakananSekitarRecycleView: RecyclerView
     private lateinit var listPenyimpananHomeArrayList: ArrayList<Storage>
+    private lateinit var listMakananSekitarArrayList: ArrayList<SearchFood>
     private lateinit var email: String
     private lateinit var uid: String
 
@@ -47,7 +53,12 @@ class HomeFragment : Fragment() {
         listPenyimpananHomeRecyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
         listPenyimpananHomeRecyclerView.setHasFixedSize(true)
 
+        listMakananSekitarRecycleView = view.findViewById(R.id.horizontal_rv2)
+        listMakananSekitarRecycleView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+        listMakananSekitarRecycleView.setHasFixedSize(true)
+
         listPenyimpananHomeArrayList = arrayListOf<Storage>()
+        listMakananSekitarArrayList = arrayListOf<SearchFood>()
 
         getStorageData(uid)
 
@@ -136,6 +147,37 @@ class HomeFragment : Fragment() {
             }
             override fun onCancelled(error: DatabaseError) {
 //
+            }
+        })
+
+        database2 = FirebaseDatabase.getInstance().getReference("Share")
+        database2.addValueEventListener(object: ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()) {
+                    for (shareSnapshot in snapshot.children) {
+                        val food = shareSnapshot.getValue(SearchFood::class.java)
+                        listMakananSekitarArrayList.add(food!!)
+                    }
+
+                    val adapter = ListMakananSekitarAdapter(listMakananSekitarArrayList)
+                    listMakananSekitarRecycleView.adapter = adapter
+                    adapter.setOnItemClickCallback(object : ListMakananSekitarAdapter.OnItemClickCallback {
+                        override fun onItemClicked(data: SearchFood) {
+                            Intent(activity, SearchFoodDetailActivity::class.java).also {
+                                it.putExtra(SearchFoodDetailActivity.Extra_Image, data.b64)
+                                it.putExtra(SearchFoodDetailActivity.Extra_FoodName, data.namaMakanan)
+                                it.putExtra(SearchFoodDetailActivity.Extra_Stock, data.stok)
+                                it.putExtra(SearchFoodDetailActivity.Extra_Description, data.deskripsi)
+                                it.putExtra(SearchFoodDetailActivity.Extra_Id, data.id)
+                                it.putExtra(SearchFoodDetailActivity.Extra_Id_Makanan, data.idMakanan)
+                                startActivity(it)
+                            }
+                        }
+                    })
+                }
+            }
+            override fun onCancelled(error: DatabaseError) {
+                //
             }
         })
     }

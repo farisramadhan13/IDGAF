@@ -34,7 +34,7 @@ class OrderFragment : Fragment() {
 //        val tabs: TabLayout = findViewById(R.id.tab_layout)
 //        TabLayoutMediator(tabs, viewPager) { tab, position ->
 //            tab.text = resources.getString(TAB_TITLES[position])
-//        }.attach()
+////        }.attach()
     }
 
     override fun onCreateView(
