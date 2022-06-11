@@ -7,10 +7,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.capstoneproject.aplikasiantifoodwaste.databinding.ItemPenyimpananBinding
 import com.capstoneproject.aplikasiantifoodwaste.databinding.ItemPenyimpananHomeBinding
 import com.capstoneproject.aplikasiantifoodwaste.scan.Storage
-import com.capstoneproject.aplikasiantifoodwaste.storage.StorageAdapter
 
 class ListPenyimpananHomeAdapter(private val listStorage: ArrayList<Storage>) : RecyclerView.Adapter<ListPenyimpananHomeAdapter.ListPenyimpananHomeViewHolder>() {
     private var onItemClickCallback: ListPenyimpananHomeAdapter.OnItemClickCallback? = null

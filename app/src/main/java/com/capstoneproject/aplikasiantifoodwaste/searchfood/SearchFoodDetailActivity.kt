@@ -10,7 +10,6 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import com.capstoneproject.aplikasiantifoodwaste.databinding.ActivitySearchFoodDetailBinding
-import com.capstoneproject.aplikasiantifoodwaste.profile.AddAddressActivity
 import com.capstoneproject.aplikasiantifoodwaste.profile.Users
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*

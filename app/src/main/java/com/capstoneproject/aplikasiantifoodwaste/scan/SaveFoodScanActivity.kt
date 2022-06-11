@@ -48,8 +48,8 @@ class SaveFoodScanActivity : AppCompatActivity() {
             }
 
             var uniqueID = UUID.randomUUID().toString()
-            val Storage =Storage(uniqueID,gambar, namaBahan, kualitas, catatan)
-            database.child(uid).child("Storage").child(uniqueID).setValue(Storage).addOnSuccessListener {
+            val storage =Storage(uniqueID,gambar, namaBahan, kualitas, catatan)
+            database.child(uid).child("Storage").child(uniqueID).setValue(storage).addOnSuccessListener {
                 Toast.makeText(this, "Berhasil simpan makanan", Toast.LENGTH_SHORT).show()
                 finish()
             }.addOnFailureListener {

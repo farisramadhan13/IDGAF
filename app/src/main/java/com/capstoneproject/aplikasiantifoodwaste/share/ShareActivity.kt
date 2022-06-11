@@ -8,7 +8,6 @@ import android.graphics.BitmapFactory
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.ContactsContract
 import android.util.Base64
 import android.util.Log
 import android.view.View
@@ -20,7 +19,6 @@ import com.capstoneproject.aplikasiantifoodwaste.camera.CameraActivity
 import com.capstoneproject.aplikasiantifoodwaste.camera.rotateBitmap
 import com.capstoneproject.aplikasiantifoodwaste.camera.uriToFile
 import com.capstoneproject.aplikasiantifoodwaste.databinding.ActivityShareBinding
-import com.capstoneproject.aplikasiantifoodwaste.profile.AddressActivity
 import com.capstoneproject.aplikasiantifoodwaste.profile.Users
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*

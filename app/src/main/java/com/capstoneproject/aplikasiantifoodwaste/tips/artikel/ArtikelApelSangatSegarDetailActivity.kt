@@ -3,7 +3,6 @@ package com.capstoneproject.aplikasiantifoodwaste.tips.artikel
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.bumptech.glide.Glide
-import com.capstoneproject.aplikasiantifoodwaste.R
 import com.capstoneproject.aplikasiantifoodwaste.databinding.ActivityArtikelApelSangatSegarDetailBinding
 
 class ArtikelApelSangatSegarDetailActivity : AppCompatActivity() {

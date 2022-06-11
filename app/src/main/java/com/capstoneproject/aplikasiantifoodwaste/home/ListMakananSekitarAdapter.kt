@@ -7,10 +7,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.capstoneproject.aplikasiantifoodwaste.databinding.ItemPenyimpananHomeBinding
 import com.capstoneproject.aplikasiantifoodwaste.databinding.MakananSekitarkuBinding
-import com.capstoneproject.aplikasiantifoodwaste.databinding.SearchFoodCardBinding
-import com.capstoneproject.aplikasiantifoodwaste.scan.Storage
 import com.capstoneproject.aplikasiantifoodwaste.searchfood.SearchFood
 
 class ListMakananSekitarAdapter(private val listMakananSekitar: ArrayList<SearchFood>) : RecyclerView.Adapter<ListMakananSekitarAdapter.ListMakananSekitarViewHolder>(){

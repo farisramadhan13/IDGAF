@@ -7,11 +7,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.capstoneproject.aplikasiantifoodwaste.databinding.ItemArtikelApelSangatSegarBinding
 import com.capstoneproject.aplikasiantifoodwaste.databinding.ItemPenyimpananBinding
 import com.capstoneproject.aplikasiantifoodwaste.scan.Storage
-import com.capstoneproject.aplikasiantifoodwaste.tips.artikel.ArtikelApelSangatSegar
-import com.capstoneproject.aplikasiantifoodwaste.tips.artikel.ArtikelApelSangatSegarAdapter
 
 class StorageAdapter (private val listStorage: ArrayList<Storage>) : RecyclerView.Adapter<StorageAdapter.StorageViewHolder>(){
 

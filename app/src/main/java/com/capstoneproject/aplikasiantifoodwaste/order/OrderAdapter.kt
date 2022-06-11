@@ -7,10 +7,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.capstoneproject.aplikasiantifoodwaste.databinding.ItemPenyimpananBinding
 import com.capstoneproject.aplikasiantifoodwaste.databinding.OrderCardBinding
-import com.capstoneproject.aplikasiantifoodwaste.scan.Storage
-import com.capstoneproject.aplikasiantifoodwaste.storage.StorageAdapter
 
 class OrderAdapter (private val listOrder: ArrayList<Order>) : RecyclerView.Adapter<OrderAdapter.OrderViewHolder>(){
 

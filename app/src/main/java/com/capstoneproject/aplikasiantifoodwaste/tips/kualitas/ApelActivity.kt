@@ -3,7 +3,6 @@ package com.capstoneproject.aplikasiantifoodwaste.tips.kualitas
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import com.capstoneproject.aplikasiantifoodwaste.databinding.ActivityApelBinding
 import com.capstoneproject.aplikasiantifoodwaste.tips.artikel.ArtikelApelSangatSegarActivity
 

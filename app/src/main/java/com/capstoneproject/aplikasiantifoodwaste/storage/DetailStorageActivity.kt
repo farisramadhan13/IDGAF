@@ -6,9 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Base64
 import android.widget.Toast
-import com.bumptech.glide.Glide
 import com.capstoneproject.aplikasiantifoodwaste.databinding.ActivityDetailStorageBinding
-import com.capstoneproject.aplikasiantifoodwaste.tips.artikel.ArtikelApelSangatSegarDetailActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 

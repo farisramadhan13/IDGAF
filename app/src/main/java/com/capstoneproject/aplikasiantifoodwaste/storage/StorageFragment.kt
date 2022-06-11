@@ -11,12 +11,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.capstoneproject.aplikasiantifoodwaste.R
-import com.capstoneproject.aplikasiantifoodwaste.databinding.FragmentHomeBinding
 import com.capstoneproject.aplikasiantifoodwaste.databinding.FragmentStorageBinding
 import com.capstoneproject.aplikasiantifoodwaste.scan.Storage
-import com.capstoneproject.aplikasiantifoodwaste.searchfood.SearchFoodListActivity
-import com.capstoneproject.aplikasiantifoodwaste.tips.artikel.ArtikelApelSangatSegar
-import com.capstoneproject.aplikasiantifoodwaste.tips.artikel.ArtikelApelSangatSegarAdapter
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 

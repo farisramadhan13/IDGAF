@@ -13,12 +13,6 @@ import android.view.ViewGroup
 import com.capstoneproject.aplikasiantifoodwaste.databinding.FragmentProfileBinding
 import com.capstoneproject.aplikasiantifoodwaste.welcome.WelcomeActivity
 import com.google.firebase.auth.FirebaseAuth
-import androidx.fragment.app.FragmentManager
-import com.capstoneproject.aplikasiantifoodwaste.R
-import com.capstoneproject.aplikasiantifoodwaste.scan.SaveFoodScanActivity
-import com.capstoneproject.aplikasiantifoodwaste.searchfood.SearchFoodDetailActivity
-import com.capstoneproject.aplikasiantifoodwaste.searchfood.SearchFoodListActivity
-import com.capstoneproject.aplikasiantifoodwaste.tips.UploadArtikelActivity
 import com.google.firebase.database.*
 
 class ProfileFragment : Fragment(){

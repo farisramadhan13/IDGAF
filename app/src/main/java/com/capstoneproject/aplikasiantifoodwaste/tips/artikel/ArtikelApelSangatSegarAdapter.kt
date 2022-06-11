@@ -1,13 +1,9 @@
 package com.capstoneproject.aplikasiantifoodwaste.tips.artikel
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.capstoneproject.aplikasiantifoodwaste.R
 import com.capstoneproject.aplikasiantifoodwaste.databinding.ItemArtikelApelSangatSegarBinding
 
 class ArtikelApelSangatSegarAdapter(private val listArtikelApelSangatSegar: ArrayList<ArtikelApelSangatSegar>) : RecyclerView.Adapter<ArtikelApelSangatSegarAdapter.ArtikelApelSangatSegarViewHolder>() {
