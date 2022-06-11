@@ -127,7 +127,14 @@ class TakeFoodActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener
 
                         //Buat order
                         var uniqueID = UUID.randomUUID().toString()
-                        val order = Order(uniqueID,uidUser, idPembagi,binding.tiStokUserShare.text.toString(),previewSelectedTimeTextView.text.toString())
+                        val order = Order(uniqueID,
+                            searchFood?.b64,
+                            searchFood?.namaMakanan,
+                            previewSelectedTimeTextView.text.toString(),
+                            binding.tiStokUserShare.text.toString(),
+                            uidUser,
+                            idPembagi
+                        )
                         simpanOrder.child(uniqueID).setValue(order).addOnSuccessListener {
                             Log.e("berhasil"," berhasil simpan order")
                         }.addOnFailureListener {

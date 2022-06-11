@@ -6,7 +6,6 @@ data class Order(
     val namaMakananO: String? = null,
     val jam : String? = null,
     val jumlah : String? = null,
-    val status : String? =null,
     val idPenerima: String? = null,
     val idPemberi : String? = null
 )

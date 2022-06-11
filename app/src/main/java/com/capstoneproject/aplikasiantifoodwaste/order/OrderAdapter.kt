@@ -49,7 +49,7 @@ class OrderAdapter (private val listOrder: ArrayList<Order>) : RecyclerView.Adap
                 orderName.text = order.namaMakananO
                 orderTime.text = order.jam
                 orderQuantity.text = order.jumlah
-                orderStatus.text = order.status
+                //orderStatus.text = order.status
             }
         }
     }
