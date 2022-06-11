@@ -45,7 +45,7 @@ class TipsActivity : AppCompatActivity() {
         }
         binding.gambarSayurHijauTips.setOnClickListener {
             val intent = Intent(this, ApelActivity::class.java)
-            intent.putExtra("EXTRA_NAME", "SayurHijau" )
+            intent.putExtra("EXTRA_NAME", "SayuranHijau" )
             startActivity(intent)
         }
         binding.gambarTambahArtikel.setOnClickListener {
