@@ -200,7 +200,7 @@ class ShareActivity : AppCompatActivity() {
             val bmpPicByteArray = bmpStream.toByteArray()
             streamLength = bmpPicByteArray.size
             compressQuality -= 5
-        } while (streamLength > 50000)
+        } while (streamLength > 750000)
         bitmap.compress(Bitmap.CompressFormat.JPEG, compressQuality, FileOutputStream(file))
         return file
     }
