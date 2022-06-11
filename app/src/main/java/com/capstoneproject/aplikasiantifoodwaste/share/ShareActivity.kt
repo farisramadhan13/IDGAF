@@ -25,6 +25,7 @@ import com.google.firebase.database.FirebaseDatabase
 import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileOutputStream
+import java.util.*
 
 class ShareActivity : AppCompatActivity() {
 
@@ -114,8 +115,10 @@ class ShareActivity : AppCompatActivity() {
                     uid = user.uid
                 }
 
-                val share = Share(uid, namaMakanan, deskripsi, stok, b64)
-                database.child(namaMakanan).setValue(share).addOnSuccessListener {
+                var uniqueID = UUID.randomUUID().toString()
+                val share = Share(uniqueID, uid, namaMakanan, deskripsi, stok, b64)
+
+                database.child(uniqueID).setValue(share).addOnSuccessListener {
                     binding.tiNamaMakananShare.text?.clear()
                     binding.tiDeskripsiMakananShare.text?.clear()
                     binding.tiStokUserShare.text?.clear()

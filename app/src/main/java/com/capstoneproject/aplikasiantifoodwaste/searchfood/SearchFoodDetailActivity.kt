@@ -6,11 +6,15 @@ import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Base64
+import android.util.Log
 import com.capstoneproject.aplikasiantifoodwaste.databinding.ActivitySearchFoodDetailBinding
 import com.capstoneproject.aplikasiantifoodwaste.profile.AddAddressActivity
+import com.capstoneproject.aplikasiantifoodwaste.profile.Users
+import com.google.firebase.database.*
 
 class SearchFoodDetailActivity : AppCompatActivity() {
     private lateinit var binding : ActivitySearchFoodDetailBinding
+    private lateinit var userRef : DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,7 +26,22 @@ class SearchFoodDetailActivity : AppCompatActivity() {
         val foodName = intent.getStringExtra(Extra_FoodName)
         val stock = intent.getStringExtra(Extra_Stock)
         val desc = intent.getStringExtra(Extra_Description)
+        val idPembagi = intent.getStringExtra(Extra_Id)!!
+        val idMakanan = intent.getStringExtra(Extra_Id_Makanan)
 
+        userRef = FirebaseDatabase.getInstance().getReference("Users").child(idPembagi)
+        userRef.addValueEventListener(object: ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                Log.e("User", snapshot.getValue(Users::class.java).toString())
+
+                var users: Users? = snapshot.getValue(Users::class.java)
+                binding.tvGiverName.text = users?.name
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+        })
 
         binding.apply {
             ivMakanan.setImageBitmap(base64ToBitmap(b64image))
@@ -32,10 +51,10 @@ class SearchFoodDetailActivity : AppCompatActivity() {
         }
 
 
-//        binding.btnAmbilMakananAvailable.setOnClickListener{
-//            startActivity(Intent(this@SearchFoodDetailActivity, TakeFoodActivity::class.java))
-//            finish()
-//        }
+        binding.btnAmbilMakananAvailable.setOnClickListener{
+            startActivity(Intent(this@SearchFoodDetailActivity, TakeFoodActivity::class.java))
+            finish()
+        }
     }
 
     private fun base64ToBitmap(b64: String?): Bitmap {
@@ -48,5 +67,7 @@ class SearchFoodDetailActivity : AppCompatActivity() {
         const val Extra_FoodName = "extra_foodname"
         const val Extra_Stock = "extra_stock"
         const val Extra_Description = "extra_description"
+        const val Extra_Id = "extra_id"
+        const val Extra_Id_Makanan = "extra_id_makanan"
     }
 }

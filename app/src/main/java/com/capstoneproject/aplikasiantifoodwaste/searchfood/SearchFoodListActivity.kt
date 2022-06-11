@@ -50,6 +50,8 @@ class SearchFoodListActivity : AppCompatActivity(){
                                 it.putExtra(SearchFoodDetailActivity.Extra_FoodName, data.namaMakanan)
                                 it.putExtra(SearchFoodDetailActivity.Extra_Stock, data.stok)
                                 it.putExtra(SearchFoodDetailActivity.Extra_Description, data.deskripsi)
+                                it.putExtra(SearchFoodDetailActivity.Extra_Id, data.id)
+                                it.putExtra(SearchFoodDetailActivity.Extra_Id_Makanan, data.idMakanan)
                                 startActivity(it)
                             }
                         }

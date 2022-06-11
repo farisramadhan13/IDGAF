@@ -1,104 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".searchfood.SearchFoodDetailActivity">
-
-    <TextView
-        android:id="@+id/title_bar_detail_search_food"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/montserrat_bold"
-        android:paddingStart="24dp"
-        android:paddingTop="16dp"
-        android:paddingEnd="24dp"
-        android:paddingBottom="16dp"
-        android:text="@string/bahan_makananku"
-        android:textColor="@color/orange"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/iv_hiasan_detail_search_white"
-        android:layout_width="0dp"
-        android:layout_height="500dp"
-        android:background="@drawable/hiasan_home_putih"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_bar_detail_search_food" />
-
-    <ImageView
-        android:id="@+id/iv_makanan"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="@+id/iv_hiasan_detail_search_white"
-        app:layout_constraintStart_toStartOf="@+id/iv_hiasan_detail_search_white"
-        app:layout_constraintTop_toTopOf="@+id/iv_hiasan_detail_search_white"
-        tools:src="@tools:sample/avatars" />
-
-    <TextView
-        android:id="@+id/id_penyimpanan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/montserrat_regular"
-        android:text="@string/id_penyimpanan"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:visibility="gone"
-        app:layout_constraintStart_toStartOf="@+id/iv_hiasan_detail_search_white"
-        app:layout_constraintTop_toBottomOf="@+id/iv_makanan" />
-
-    <TextView
-        android:id="@+id/tv_nama_makanan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/montserrat_bold"
-        android:text="@string/nama_bahan_makanan"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="24dp"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/iv_hiasan_detail_search_white"
-        app:layout_constraintTop_toBottomOf="@+id/id_penyimpanan" />
-
-    <TextView
-        android:id="@+id/tv_stok"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/montserrat_regular"
-        android:text="@string/status_makanan"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="24dp"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/iv_hiasan_detail_search_white"
-        app:layout_constraintTop_toBottomOf="@+id/tv_nama_makanan" />
-
-    <TextView
-        android:id="@+id/tv_deskripsi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/montserrat_regular"
-        android:text="catatan makanan"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="24dp"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/iv_hiasan_detail_search_white"
-        app:layout_constraintTop_toBottomOf="@+id/tv_stok" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
-
-<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
 <!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
 <!--    xmlns:tools="http://schemas.android.com/tools"-->
 <!--    android:layout_width="match_parent"-->
@@ -106,196 +7,295 @@
 <!--    tools:context=".searchfood.SearchFoodDetailActivity">-->
 
 <!--    <TextView-->
-<!--        android:id="@+id/title_bar_detail_food"-->
-<!--        android:layout_width="match_parent"-->
+<!--        android:id="@+id/title_bar_detail_search_food"-->
+<!--        android:layout_width="wrap_content"-->
 <!--        android:layout_height="wrap_content"-->
-<!--        android:layout_alignParentStart="true"-->
-<!--        android:layout_alignParentTop="true"-->
-<!--        android:layout_marginStart="0dp"-->
-<!--        android:layout_marginTop="0dp"-->
-<!--        android:background="@color/white"-->
 <!--        android:fontFamily="@font/montserrat_bold"-->
 <!--        android:paddingStart="24dp"-->
 <!--        android:paddingTop="16dp"-->
 <!--        android:paddingEnd="24dp"-->
 <!--        android:paddingBottom="16dp"-->
-<!--        android:text="@string/detail_makanan"-->
+<!--        android:text="@string/bahan_makananku"-->
 <!--        android:textColor="@color/orange"-->
 <!--        android:textSize="24sp"-->
 <!--        app:layout_constraintStart_toStartOf="parent"-->
 <!--        app:layout_constraintTop_toTopOf="parent" />-->
 
-<!--&lt;!&ndash;    <ScrollView&ndash;&gt;-->
-<!--&lt;!&ndash;        android:id="@+id/scroll_view"&ndash;&gt;-->
-<!--&lt;!&ndash;        android:layout_width="match_parent"&ndash;&gt;-->
-<!--&lt;!&ndash;        android:layout_height="match_parent"&ndash;&gt;-->
-<!--&lt;!&ndash;        android:layout_below="@+id/title_bar_detail_food"&ndash;&gt;-->
-<!--&lt;!&ndash;        tools:context=".searchfood.SearchFoodDetailActivity">&ndash;&gt;-->
+<!--    <ImageView-->
+<!--        android:id="@+id/iv_hiasan_detail_search_white"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="500dp"-->
+<!--        android:background="@drawable/hiasan_home_putih"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_marginEnd="16dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/title_bar_detail_search_food" />-->
 
-<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content">-->
+<!--    <ImageView-->
+<!--        android:id="@+id/iv_makanan"-->
+<!--        android:layout_width="300dp"-->
+<!--        android:layout_height="300dp"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/iv_hiasan_detail_search_white"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/iv_hiasan_detail_search_white"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/iv_hiasan_detail_search_white"-->
+<!--        tools:src="@tools:sample/avatars" />-->
 
-<!--            <ImageView-->
-<!--                android:id="@+id/iv_makanan"-->
-<!--                android:layout_width="300dp"-->
-<!--                android:layout_height="300dp"-->
-<!--                android:layout_marginTop="16dp"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toTopOf="parent"-->
-<!--                tools:src="@tools:sample/avatars" />-->
+<!--    <TextView-->
+<!--        android:id="@+id/id_penyimpanan"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="24dp"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:fontFamily="@font/montserrat_regular"-->
+<!--        android:text="@string/id_penyimpanan"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textSize="16sp"-->
+<!--        android:visibility="gone"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/iv_hiasan_detail_search_white"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/iv_makanan" />-->
 
-<!--            <TextView-->
-<!--                android:id="@+id/text_nama_makanan"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginStart="32dp"-->
-<!--                android:layout_marginTop="16dp"-->
-<!--                android:fontFamily="@font/montserrat_regular"-->
-<!--                android:text="@string/nama_makanan"-->
-<!--                android:textColor="@color/black"-->
-<!--                android:textSize="14sp"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/iv_makanan" />-->
+<!--    <TextView-->
+<!--        android:id="@+id/tv_nama_makanan"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:fontFamily="@font/montserrat_bold"-->
+<!--        android:text="@string/nama_bahan_makanan"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:layout_marginStart="24dp"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textSize="18sp"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/iv_hiasan_detail_search_white"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/id_penyimpanan" />-->
 
-<!--            <TextView-->
-<!--                android:id="@+id/tv_nama_makanan"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginStart="32dp"-->
-<!--                android:layout_marginTop="8dp"-->
-<!--                android:fontFamily="@font/montserrat_bold"-->
-<!--                android:text="@string/nama_makanan"-->
-<!--                android:textColor="@color/black"-->
-<!--                android:textSize="24sp"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/text_nama_makanan" />-->
+<!--    <TextView-->
+<!--        android:id="@+id/tv_stok"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:fontFamily="@font/montserrat_regular"-->
+<!--        android:text="@string/status_makanan"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:layout_marginStart="24dp"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textSize="16sp"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/iv_hiasan_detail_search_white"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/tv_nama_makanan" />-->
 
-<!--            <TextView-->
-<!--                android:id="@+id/text_stok"-->
-<!--                android:layout_width="60dp"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginStart="32dp"-->
-<!--                android:layout_marginTop="16dp"-->
-<!--                android:fontFamily="@font/montserrat_regular"-->
-<!--                android:text="@string/stok"-->
-<!--                android:textColor="@color/black"-->
-<!--                android:textSize="16sp"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/tv_nama_makanan" />-->
+<!--    <TextView-->
+<!--        android:id="@+id/tv_deskripsi"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:fontFamily="@font/montserrat_regular"-->
+<!--        android:text="catatan makanan"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:layout_marginStart="24dp"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textSize="16sp"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/iv_hiasan_detail_search_white"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/tv_stok" />-->
 
-<!--            <TextView-->
-<!--                android:id="@+id/tv_stok"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="16dp"-->
-<!--                android:fontFamily="@font/montserrat_bold"-->
-<!--                android:text="@string/stok"-->
-<!--                android:textColor="@color/black"-->
-<!--                android:textSize="16sp"-->
-<!--                app:layout_constraintStart_toEndOf="@+id/text_stok"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/tv_nama_makanan" />-->
+<!--</androidx.constraintlayout.widget.ConstraintLayout>-->
 
-<!--            <TextView-->
-<!--                android:id="@+id/text_deskripsi"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginStart="32dp"-->
-<!--                android:layout_marginTop="16dp"-->
-<!--                android:fontFamily="@font/montserrat_regular"-->
-<!--                android:text="@string/deskripsi"-->
-<!--                android:textColor="@color/black"-->
-<!--                android:textSize="14sp"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@id/text_stok" />-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".searchfood.SearchFoodDetailActivity">
 
-<!--            <TextView-->
-<!--                android:id="@+id/tv_deskripsi"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:paddingLeft="32dp"-->
-<!--                android:paddingRight="32dp"-->
-<!--                android:layout_marginTop="8dp"-->
-<!--                android:fontFamily="@font/montserrat_bold"-->
-<!--                android:text="@string/lorem_ipsum"-->
-<!--                android:textColor="@color/black"-->
-<!--                android:textSize="16sp"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/text_deskripsi" />-->
+    <TextView
+        android:id="@+id/title_bar_detail_food"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:background="@color/white"
+        android:fontFamily="@font/montserrat_bold"
+        android:paddingStart="24dp"
+        android:paddingTop="16dp"
+        android:paddingEnd="24dp"
+        android:paddingBottom="16dp"
+        android:text="@string/detail_makanan"
+        android:textColor="@color/orange"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-<!--            <TextView-->
-<!--                android:id="@+id/text_dibagikan_oleh"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginStart="32dp"-->
-<!--                android:layout_marginTop="16dp"-->
-<!--                android:fontFamily="@font/montserrat_regular"-->
-<!--                android:text="@string/dibagikan_oleh"-->
-<!--                android:textColor="@color/black"-->
-<!--                android:textSize="16sp"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/tv_deskripsi" />-->
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/title_bar_detail_food"
+        tools:context=".searchfood.SearchFoodDetailActivity">
 
-<!--            <ImageView-->
-<!--                android:id="@+id/iv_giver"-->
-<!--                android:layout_width="100dp"-->
-<!--                android:layout_height="100dp"-->
-<!--                android:layout_marginTop="8dp"-->
-<!--                android:layout_marginStart="32dp"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/text_dibagikan_oleh"-->
-<!--                tools:src="@tools:sample/avatars" />-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-<!--            <TextView-->
-<!--                android:id="@+id/tv_giver_name"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:fontFamily="@font/montserrat_bold"-->
-<!--                android:text="@string/nama_pemberi"-->
-<!--                android:textColor="@color/black"-->
-<!--                android:layout_marginStart="8dp"-->
-<!--                android:textSize="16sp"-->
-<!--                app:layout_constraintTop_toTopOf="@+id/iv_giver"-->
-<!--                app:layout_constraintBottom_toBottomOf="@+id/iv_giver"-->
-<!--                app:layout_constraintStart_toEndOf="@+id/iv_giver"/>-->
+            <ImageView
+                android:id="@+id/iv_makanan"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/text_nama_makanan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="@string/nama_makanan"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_makanan" />
+
+            <TextView
+                android:id="@+id/tv_nama_makanan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="@string/nama_makanan"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_nama_makanan" />
+
+            <TextView
+                android:id="@+id/text_stok"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="@string/stok"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_nama_makanan" />
+
+            <TextView
+                android:id="@+id/tv_stok"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="@string/stok"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/text_stok"
+                app:layout_constraintTop_toBottomOf="@+id/tv_nama_makanan" />
+
+            <TextView
+                android:id="@+id/text_deskripsi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="@string/deskripsi"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_stok" />
+
+            <TextView
+                android:id="@+id/tv_deskripsi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="32dp"
+                android:paddingRight="32dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="@string/lorem_ipsum"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_deskripsi" />
+
+            <TextView
+                android:id="@+id/text_dibagikan_oleh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="@string/dibagikan_oleh"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_deskripsi" />
+
+            <ImageView
+                android:id="@+id/iv_giver"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="32dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_dibagikan_oleh"
+                tools:src="@drawable/ic_profile" />
+
+            <TextView
+                android:id="@+id/tv_giver_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="@string/nama_pemberi"
+                android:textColor="@color/black"
+                android:layout_marginStart="8dp"
+                android:textSize="16sp"
+                app:layout_constraintTop_toTopOf="@+id/iv_giver"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_giver"
+                app:layout_constraintStart_toEndOf="@+id/iv_giver"/>
 
 
-<!--            <Button-->
-<!--                android:id="@+id/btn_ambil_makanan_available"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:backgroundTint="@color/purple"-->
-<!--                android:fontFamily="@font/montserrat_bold"-->
-<!--                android:layout_marginTop="16dp"-->
-<!--                android:text="@string/ambil_makanan"-->
-<!--                android:textColor="@color/white"-->
-<!--                android:textSize="11sp"-->
-<!--                android:visibility="visible"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/iv_giver" />-->
+            <Button
+                android:id="@+id/btn_ambil_makanan_available"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/purple"
+                android:fontFamily="@font/montserrat_bold"
+                android:layout_marginTop="16dp"
+                android:text="@string/ambil_makanan"
+                android:textColor="@color/white"
+                android:textSize="11sp"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_giver" />
 
 
-<!--            <Button-->
-<!--                android:id="@+id/btn_ambil_makanan_unavailable"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:backgroundTint="@color/gray"-->
-<!--                android:fontFamily="@font/montserrat_bold"-->
-<!--                android:layout_marginTop="16dp"-->
-<!--                android:text="@string/makanan_tidak_tersedia"-->
-<!--                android:textColor="@color/white"-->
-<!--                android:textSize="11sp"-->
-<!--                android:visibility="gone"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/iv_giver" />-->
-<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+            <Button
+                android:id="@+id/btn_ambil_makanan_unavailable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/gray"
+                android:fontFamily="@font/montserrat_bold"
+                android:layout_marginTop="16dp"
+                android:text="@string/makanan_tidak_tersedia"
+                android:textColor="@color/white"
+                android:textSize="11sp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_giver" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-<!--&lt;!&ndash;    </ScrollView>&ndash;&gt;-->
-<!--</RelativeLayout>-->
+    </ScrollView>
+</RelativeLayout>
 
 
 
