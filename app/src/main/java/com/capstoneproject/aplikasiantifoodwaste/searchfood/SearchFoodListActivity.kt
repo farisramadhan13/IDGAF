@@ -3,6 +3,9 @@ package com.capstoneproject.aplikasiantifoodwaste.searchfood
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.capstoneproject.aplikasiantifoodwaste.R
@@ -30,6 +33,25 @@ class SearchFoodListActivity : AppCompatActivity(){
         searchFoodArrayList = arrayListOf<SearchFood>()
         if (search != null) {
             getSearchFoodData(search)
+        }
+
+        binding.etSearchFoodList.addTextChangedListener (object : TextWatcher {
+            override fun afterTextChanged(s: Editable) {
+                hideOrShowSearchBtn()
+            }
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
+                hideOrShowSearchBtn()
+            }
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                hideOrShowSearchBtn()
+            }
+        })
+
+        binding.ivSearch.setOnClickListener {
+            if(binding.etSearchFoodList.text?.trim()?.length != 0){
+                searchFoodArrayList = arrayListOf<SearchFood>()
+                getSearchFoodData(binding.etSearchFoodList.text.toString())
+            }
         }
     }
 
@@ -83,5 +105,14 @@ class SearchFoodListActivity : AppCompatActivity(){
             }
 
         })
+    }
+
+    private fun hideOrShowSearchBtn(){
+        if(binding.etSearchFoodList.text?.trim()?.length != 0){
+            binding.ivSearch.visibility = View.VISIBLE
+        }
+        else{
+            binding.ivSearch.visibility = View.GONE
+        }
     }
 }
