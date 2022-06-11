@@ -95,8 +95,20 @@ class HomeFragment : Fragment() {
         }
     }
     private fun getStorageData(uid: String){
-        database = FirebaseDatabase.getInstance().getReference("Users")
+        database = FirebaseDatabase.getInstance().getReference("Users").child(uid)
         var userRef = uid?.let { database.child(it).child("Storage") }
+
+        database.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val user = snapshot.getValue(Users::class.java)
+                if (user != null) {
+                    binding.tvWelcomeHome.text = "Hai ${user.name}!"
+                }
+            }
+            override fun onCancelled(error: DatabaseError) {
+//
+            }
+        })
 
         userRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
