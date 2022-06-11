@@ -8,7 +8,9 @@ import android.graphics.BitmapFactory
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.ContactsContract
 import android.util.Base64
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
@@ -19,9 +21,9 @@ import com.capstoneproject.aplikasiantifoodwaste.camera.rotateBitmap
 import com.capstoneproject.aplikasiantifoodwaste.camera.uriToFile
 import com.capstoneproject.aplikasiantifoodwaste.databinding.ActivityShareBinding
 import com.capstoneproject.aplikasiantifoodwaste.profile.AddressActivity
+import com.capstoneproject.aplikasiantifoodwaste.profile.Users
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileOutputStream
@@ -32,6 +34,7 @@ class ShareActivity : AppCompatActivity() {
     private lateinit var binding : ActivityShareBinding
     private var everTaken = false
     private lateinit var database : DatabaseReference
+    private lateinit var userRef: DatabaseReference
     private var b64 = ""
     private var getFile: File? = null
     private lateinit var uid: String
@@ -69,6 +72,24 @@ class ShareActivity : AppCompatActivity() {
         supportActionBar?.hide()
         binding.titleBarShare.bringToFront()
 
+        var users: Users? = null
+        var alamat = ""
+        val user = FirebaseAuth.getInstance().currentUser
+        user?.let{
+            uid = user.uid
+        }
+        userRef = FirebaseDatabase.getInstance().getReference("Users").child(uid)
+        userRef.addValueEventListener(object: ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                Log.e("User", snapshot.getValue(Users::class.java).toString())
+                users = snapshot.getValue(Users::class.java)
+                if (users != null) {
+                    alamat = users!!.address.toString()
+                }
+            }
+            override fun onCancelled(error: DatabaseError) { }
+        })
+
         if (!allPermissionsGranted()) {
             ActivityCompat.requestPermissions(
                 this,
@@ -100,38 +121,36 @@ class ShareActivity : AppCompatActivity() {
             startActivity(Intent(this@ShareActivity, AddressActivity::class.java))
         }
         binding.btnBagiMakanan.setOnClickListener {
-            //kirim data makanan
-            //val gambarMakanan = binding.ivGambarMakananShare.text.toString()
-            if(binding.tiNamaMakananShare.text?.trim()?.length != 0 && binding.tiDeskripsiMakananShare.text?.trim()?.length != 0 && binding.tiStokUserShare.text?.trim()?.length != 0 && getFile!=null){
-                val namaMakanan = binding.tiNamaMakananShare.text.toString()
-                val deskripsi = binding.tiDeskripsiMakananShare.text.toString()
-                val stok = binding.tiStokUserShare.text.toString()
-                b64 = convertBitmapToBase64(BitmapFactory.decodeFile(reduceFileImage(getFile as File).path))
-
-                database = FirebaseDatabase.getInstance().getReference("Share")
-
-                val user = FirebaseAuth.getInstance().currentUser
-                user?.let{
-                    uid = user.uid
-                }
-
-                var uniqueID = UUID.randomUUID().toString()
-                val share = Share(uniqueID, uid, namaMakanan, deskripsi, stok, b64)
-
-                database.child(uniqueID).setValue(share).addOnSuccessListener {
-                    binding.tiNamaMakananShare.text?.clear()
-                    binding.tiDeskripsiMakananShare.text?.clear()
-                    binding.tiStokUserShare.text?.clear()
-                    getFile = null
-                    Toast.makeText(this, "Makanan berhasil dibagikan", Toast.LENGTH_SHORT).show()
-                }.addOnFailureListener {
-                    Toast.makeText(this, "Gagal", Toast.LENGTH_SHORT).show()
-                }
+            if(alamat == "-"){
+                Toast.makeText(this, "Anda belum menyimpan alamat. Silakan simpan di menu profil", Toast.LENGTH_SHORT).show()
             }
             else{
-                Toast.makeText(this, "Data Belum Lengkap", Toast.LENGTH_SHORT).show()
-            }
+                if(binding.tiNamaMakananShare.text?.trim()?.length != 0 && binding.tiDeskripsiMakananShare.text?.trim()?.length != 0 && binding.tiStokUserShare.text?.trim()?.length != 0 && getFile!=null){
+                    val namaMakanan = binding.tiNamaMakananShare.text.toString()
+                    val deskripsi = binding.tiDeskripsiMakananShare.text.toString()
+                    val stok = binding.tiStokUserShare.text.toString()
+                    b64 = convertBitmapToBase64(BitmapFactory.decodeFile(reduceFileImage(getFile as File).path))
 
+                    database = FirebaseDatabase.getInstance().getReference("Share")
+
+                    var uniqueID = UUID.randomUUID().toString()
+                    val share = Share(uniqueID, uid, namaMakanan, deskripsi, stok, b64)
+
+                    database.child(uniqueID).setValue(share).addOnSuccessListener {
+                        binding.tiNamaMakananShare.text?.clear()
+                        binding.tiDeskripsiMakananShare.text?.clear()
+                        binding.tiStokUserShare.text?.clear()
+                        getFile = null
+                        Toast.makeText(this, "Makanan berhasil dibagikan", Toast.LENGTH_SHORT).show()
+                        finish()
+                    }.addOnFailureListener {
+                        Toast.makeText(this, "Gagal", Toast.LENGTH_SHORT).show()
+                    }
+                }
+                else{
+                    Toast.makeText(this, "Data Belum Lengkap", Toast.LENGTH_SHORT).show()
+                }
+            }
         }
     }
 
