@@ -99,6 +99,18 @@ class OrderFragment : Fragment() {
                     }
                     val adapter = OrderAdapter(listAmbilArrayList)
                     listAmbilRecyclerView.adapter = adapter
+                    adapter.setOnItemClickCallback(object: OrderAdapter.OnItemClickCallback{
+                        override fun onItemClicked(data: Order) {
+//                            Intent(activity, DetailOrderActivity::class.java).also {
+//                                it.putExtra(DetailOrderActivity.Extra_, data.idOrder)
+//                                it.putExtra(DetailOrderActivity.Extra_, data.gambarO)
+//                                it.putExtra(DetailOrderActivity.Extra_, data.namaMakananO)
+//                                it.putExtra(DetailOrderActivity.Extra_, data.jam)
+//                                it.putExtra(DetailOrderActivity.Extra_, data.jumlah)
+//                                startActivity(it)
+//                            }
+                        }
+                    })
                 }
             }
             override fun onCancelled(error: DatabaseError) {
