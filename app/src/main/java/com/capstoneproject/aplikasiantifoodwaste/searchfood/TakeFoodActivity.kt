@@ -133,7 +133,8 @@ class TakeFoodActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener
                             previewSelectedTimeTextView.text.toString(),
                             binding.tiStokUserShare.text.toString(),
                             uidUser,
-                            idPembagi
+                            idPembagi,
+                            searchFood?.deskripsi
                         )
                         simpanOrder.child(uniqueID).setValue(order).addOnSuccessListener {
                             Log.e("berhasil"," berhasil simpan order")

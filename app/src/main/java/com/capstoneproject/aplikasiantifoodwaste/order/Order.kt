@@ -7,5 +7,6 @@ data class Order(
     val jam : String? = null,
     val jumlah : String? = null,
     val idPenerima: String? = null,
-    val idPemberi : String? = null
+    val idPemberi : String? = null,
+    val deskripsi: String? = null
 )

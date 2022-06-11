@@ -102,11 +102,7 @@ class OrderFragment : Fragment() {
                     adapter.setOnItemClickCallback(object: OrderAdapter.OnItemClickCallback{
                         override fun onItemClicked(data: Order) {
                             Intent(activity, DetailOrderActivity::class.java).also {
-                                it.putExtra(DetailOrderActivity.Extra_Id, data.idOrder)
-                                it.putExtra(DetailOrderActivity.Extra_Gambar, data.gambarO)
-                                it.putExtra(DetailOrderActivity.Extra_NamaMakanan, data.namaMakananO)
-                                it.putExtra(DetailOrderActivity.Extra_Jam, data.jam)
-                                it.putExtra(DetailOrderActivity.Extra_Jumlah, data.jumlah)
+                                it.putExtra("EXTRA_ID_ORDER", data.idOrder )
                                 startActivity(it)
                             }
                         }
@@ -131,12 +127,20 @@ class OrderFragment : Fragment() {
                             if(order.idPemberi.toString().equals(uid)){
                                 Log.e("uid", uid)
                                 Log.e("idPemberi", order.idPemberi.toString())
-                                listAmbilArrayList.add(order!!)
+                                listBagiArrayList.add(order!!)
                             }
                         }
                     }
                     val adapter = OrderAdapter(listBagiArrayList)
                     listBagiRecyclerView.adapter = adapter
+                    adapter.setOnItemClickCallback(object: OrderAdapter.OnItemClickCallback{
+                        override fun onItemClicked(data: Order) {
+                            Intent(activity, DetailOrderActivity::class.java).also {
+                                it.putExtra("EXTRA_ID_ORDER", data.idOrder )
+                                startActivity(it)
+                            }
+                        }
+                    })
                 }
             }
             override fun onCancelled(error: DatabaseError) {
