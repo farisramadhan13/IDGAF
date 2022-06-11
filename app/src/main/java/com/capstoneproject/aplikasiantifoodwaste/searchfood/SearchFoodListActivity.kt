@@ -21,15 +21,19 @@ class SearchFoodListActivity : AppCompatActivity(){
         setContentView(binding.root)
         supportActionBar?.hide()
 
+        val search = intent.getStringExtra("EXTRA_SEARCH")?.lowercase()
+
         searchFoodRecyclerView = findViewById(R.id.searchFoodList)
         searchFoodRecyclerView.layoutManager = LinearLayoutManager(this@SearchFoodListActivity)
         searchFoodRecyclerView.setHasFixedSize(true)
 
         searchFoodArrayList = arrayListOf<SearchFood>()
-        getSearchFoodData()
+        if (search != null) {
+            getSearchFoodData(search)
+        }
     }
 
-    private fun getSearchFoodData() {
+    private fun getSearchFoodData(search: String) {
 
         dbref = FirebaseDatabase.getInstance().getReference("Share")
 
@@ -38,7 +42,22 @@ class SearchFoodListActivity : AppCompatActivity(){
                 if(snapshot.exists()){
                     for(shareSnapshot in snapshot.children){
                         val food = shareSnapshot.getValue(SearchFood::class.java)
-                        searchFoodArrayList.add(food!!)
+                        val foodName = food?.namaMakanan?.lowercase()
+                        val foodDesc = food?.deskripsi?.lowercase()
+
+                        //Buat cari hasil searchnya
+                        if(search == "-"){
+                            searchFoodArrayList.add(food!!)
+                        }
+                        else{
+                            if (foodName != null) {
+                                if (foodDesc != null) {
+                                    if(foodName.contains(search) || foodDesc.contains(search)){
+                                        searchFoodArrayList.add(food!!)
+                                    }
+                                }
+                            }
+                        }
                     }
 
                     val adapter = SearchFoodAdapter(searchFoodArrayList)

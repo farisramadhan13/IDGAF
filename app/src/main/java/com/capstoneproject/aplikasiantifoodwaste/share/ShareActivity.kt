@@ -117,9 +117,9 @@ class ShareActivity : AppCompatActivity() {
         binding.ivGambarMakananShare.setOnClickListener {
             if(everTaken) setButton(2)
         }
-        binding.btnAlamat.setOnClickListener {
-            startActivity(Intent(this@ShareActivity, AddressActivity::class.java))
-        }
+//        binding.btnAlamat.setOnClickListener {
+//            startActivity(Intent(this@ShareActivity, AddressActivity::class.java))
+//        }
         binding.btnBagiMakanan.setOnClickListener {
             if(alamat == "-"){
                 Toast.makeText(this, "Anda belum menyimpan alamat. Silakan simpan di menu profil", Toast.LENGTH_SHORT).show()
@@ -200,7 +200,7 @@ class ShareActivity : AppCompatActivity() {
             val bmpPicByteArray = bmpStream.toByteArray()
             streamLength = bmpPicByteArray.size
             compressQuality -= 5
-        } while (streamLength > 300000)
+        } while (streamLength > 50000)
         bitmap.compress(Bitmap.CompressFormat.JPEG, compressQuality, FileOutputStream(file))
         return file
     }

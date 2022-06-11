@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.capstoneproject.aplikasiantifoodwaste.R
 import com.capstoneproject.aplikasiantifoodwaste.databinding.FragmentHomeBinding
+import com.capstoneproject.aplikasiantifoodwaste.profile.ChangeProfileActivity
 import com.capstoneproject.aplikasiantifoodwaste.profile.Users
 import com.capstoneproject.aplikasiantifoodwaste.scan.FoodScanActivity
 import com.capstoneproject.aplikasiantifoodwaste.scan.Storage
@@ -85,14 +86,18 @@ class HomeFragment : Fragment() {
         })
         binding.ivSearch.setOnClickListener{
             if(binding.etSearchHome.text?.trim()?.length != 0){
-                startActivity(Intent(activity, SearchFoodListActivity::class.java))
+                val intent = Intent(activity, SearchFoodListActivity::class.java)
+                intent.putExtra("EXTRA_SEARCH",binding.etSearchHome.text.toString() )
+                startActivity(intent)
             }
         }
         binding.btnStorage.setOnClickListener {
             //startActivity(Intent(activity, StorageFragment::class.java))
         }
         binding.btnFoodNearby.setOnClickListener {
-            startActivity(Intent(activity, SearchFoodListActivity::class.java))
+            val intent = Intent(activity, SearchFoodListActivity::class.java)
+            intent.putExtra("EXTRA_SEARCH","-" )
+            startActivity(intent)
         }
     }
 
