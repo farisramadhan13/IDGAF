@@ -39,6 +39,7 @@ class SearchFoodDetailActivity : AppCompatActivity() {
 
                 var users: Users? = snapshot.getValue(Users::class.java)
                 binding.tvGiverName.text = users?.name
+                binding.ivGiver.setImageBitmap(base64ToBitmap(users?.photo))
             }
 
             override fun onCancelled(error: DatabaseError) {

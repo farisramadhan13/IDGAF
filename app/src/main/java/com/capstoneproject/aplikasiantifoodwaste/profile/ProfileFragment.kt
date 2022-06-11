@@ -1,7 +1,10 @@
 package com.capstoneproject.aplikasiantifoodwaste.profile
 
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.util.Base64
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -52,6 +55,7 @@ class ProfileFragment : Fragment(){
                     binding.tvNameProfile.text = users?.name
                     binding.tvTelephoneProfile.text = users?.telp
                     binding.tvAddressProfile.text = users?.address
+                    binding.ivProfilePhoto.setImageBitmap(base64ToBitmap(users?.photo))
                 }
 
                 override fun onCancelled(error: DatabaseError) {
@@ -88,5 +92,10 @@ class ProfileFragment : Fragment(){
         binding = FragmentProfileBinding.inflate(inflater, container, false)
         // Inflate the layout for this fragment
         return binding.root
+    }
+
+    private fun base64ToBitmap(b64: String?): Bitmap {
+        val base64 = Base64.decode(b64, Base64.DEFAULT)
+        return BitmapFactory.decodeByteArray(base64, 0, base64.size)
     }
 }
