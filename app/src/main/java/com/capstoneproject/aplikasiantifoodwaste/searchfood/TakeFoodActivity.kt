@@ -5,19 +5,24 @@ import android.app.TimePickerDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.*
 import com.capstoneproject.aplikasiantifoodwaste.databinding.ActivityTakeFoodBinding
+import com.capstoneproject.aplikasiantifoodwaste.order.Order
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import java.util.*
 
 class TakeFoodActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener{
 
     lateinit var previewSelectedTimeTextView: TextView
     private lateinit var binding : ActivityTakeFoodBinding
     private lateinit var databaseRef : DatabaseReference
+    private lateinit var simpanOrder: DatabaseReference
     var metode = arrayOf("Ambil sendiri", "Dengan Gosend")
     var spinner: Spinner? = null
+    private lateinit var uidPenerima: String
 
     private val timePickerDialogListener: TimePickerDialog.OnTimeSetListener =
         object : TimePickerDialog.OnTimeSetListener {
@@ -66,8 +71,10 @@ class TakeFoodActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener
         var searchFood: SearchFood? = null
         var stok = ""
         val idMakanan = intent.getStringExtra("EXTRA_ID_MAKANAN")!!
+        val idPembagi = intent.getStringExtra("EXTRA_ID_PEMBAGI")!!
 
         databaseRef = FirebaseDatabase.getInstance().getReference("Share").child(idMakanan)
+        simpanOrder = FirebaseDatabase.getInstance().getReference("Order")
         databaseRef.addValueEventListener(object: ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 searchFood = snapshot.getValue(SearchFood::class.java)
@@ -110,6 +117,7 @@ class TakeFoodActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener
                         Toast.makeText(this, "Waktu pengambilan belum dipilih", Toast.LENGTH_SHORT).show()
                     }
                     else{
+                        //Update stok
                         val updateStok = (stok.toInt() - binding.tiStokUserShare.text.toString().toInt())
                         val updateFood = SearchFood(searchFood?.idMakanan,
                             searchFood?.b64,
@@ -117,6 +125,16 @@ class TakeFoodActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener
                             searchFood?.deskripsi, searchFood?.id
                         )
 
+                        //Buat order
+                        var uniqueID = UUID.randomUUID().toString()
+                        val order = Order(uniqueID,uidUser, idPembagi,binding.tiStokUserShare.text.toString(),previewSelectedTimeTextView.text.toString())
+                        simpanOrder.child(uniqueID).setValue(order).addOnSuccessListener {
+                            Log.e("berhasil"," berhasil simpan order")
+                        }.addOnFailureListener {
+                            Log.e("gagal"," gagal simpan order")
+                        }
+
+                        //Update stok ke database
                         databaseRef.setValue(updateFood).addOnSuccessListener {
                             Toast.makeText(this, "Permintaan Pengambilan Makanan Berhasil", Toast.LENGTH_SHORT).show()
                             Intent(this@TakeFoodActivity, TakeFoodConfirmationActivity::class.java).also{

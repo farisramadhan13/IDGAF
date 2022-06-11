@@ -69,6 +69,7 @@ class SearchFoodDetailActivity : AppCompatActivity() {
             else{
                 Intent(this@SearchFoodDetailActivity, TakeFoodActivity::class.java).also{
                     it.putExtra("EXTRA_ID_MAKANAN", idMakanan )
+                    it.putExtra("EXTRA_ID_PEMBAGI", idPembagi)
                     startActivity(it)
                 }
             }
