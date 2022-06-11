@@ -95,7 +95,7 @@ class HomeFragment : Fragment() {
             }
         }
         binding.btnStorage.setOnClickListener {
-            //startActivity(Intent(activity, StorageFragment::class.java))
+            Toast.makeText(activity, "silakan klik tab penyimpanan", Toast.LENGTH_SHORT).show()
         }
         binding.btnFoodNearby.setOnClickListener {
             val intent = Intent(activity, SearchFoodListActivity::class.java)
