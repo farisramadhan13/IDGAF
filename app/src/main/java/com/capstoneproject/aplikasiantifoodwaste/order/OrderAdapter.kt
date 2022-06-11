@@ -42,13 +42,14 @@ class OrderAdapter (private val listOrder: ArrayList<Order>) : RecyclerView.Adap
                 onItemClickCallback?.onItemClicked(order)
             }
             binding.apply {
-                orderId.text = order.idOrder
+                orderId.text = "Order ID: ${order.idOrder}"
                 Glide.with(itemView)
                     .load(gambar)
                     .into(orderPhoto)
                 orderName.text = order.namaMakananO
-                orderTime.text = order.jam
-                orderQuantity.text = order.jumlah
+                orderTime.text = "Waktu Ambil: ${order.jam}"
+                orderQuantity.text = "Jumlah Ambil: ${order.jumlah} pcs"
+                //orderStatus.text = "Diambil Oleh: ${order.}"
                 //orderStatus.text = order.status
             }
         }

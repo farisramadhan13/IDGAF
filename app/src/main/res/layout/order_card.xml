@@ -76,6 +76,7 @@
             order_card:layout_constraintStart_toEndOf="@+id/order_photo"
             order_card:layout_constraintTop_toBottomOf="@+id/order_time" />
 
+        <!--
         <TextView
             android:id="@+id/order_status"
             android:layout_width="wrap_content"
@@ -88,6 +89,9 @@
             android:layout_marginStart="8dp"
             order_card:layout_constraintStart_toEndOf="@+id/order_photo"
             order_card:layout_constraintTop_toBottomOf="@+id/order_quantity" />
+
+        -->
+
 
         <TextView
             android:id="@+id/order_status_received"
