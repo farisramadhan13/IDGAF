@@ -66,7 +66,11 @@ class ChangeProfileActivity : AppCompatActivity() {
 
                 var database = Firebase.database.reference
                 if (uid != null) {
-                    database.child("Users").child(uid).setValue(userDetail)
+                    database.child("Users").child(uid).child("name").setValue(binding.etEditProfileName.text.toString())
+                    //Belum bisa ganti email yak
+                    //database.child("Users").child(uid).child("email").setValue(binding.etEditProfileName.text.toString())
+                    database.child("Users").child(uid).child("telp").setValue(binding.etEditProfileTelephone.text.toString())
+                    database.child("Users").child(uid).child("address").setValue(binding.etEditProfileAddress.text.toString())
                 }
 
                 Toast.makeText(this, "Data berhasil disimpan", Toast.LENGTH_SHORT).show()
