@@ -7,9 +7,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Base64
 import android.util.Log
+import android.view.View
+import android.widget.Toast
 import com.capstoneproject.aplikasiantifoodwaste.databinding.ActivitySearchFoodDetailBinding
 import com.capstoneproject.aplikasiantifoodwaste.profile.AddAddressActivity
 import com.capstoneproject.aplikasiantifoodwaste.profile.Users
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
 class SearchFoodDetailActivity : AppCompatActivity() {
@@ -50,10 +53,24 @@ class SearchFoodDetailActivity : AppCompatActivity() {
             tvDeskripsi.text = desc
         }
 
+        if (stock != null) {
+            if(stock.toInt()==0){
+                binding.btnAmbilMakananAvailable.visibility = View.GONE
+                binding.btnAmbilMakananUnavailable.visibility = View.VISIBLE
+            }
+        }
 
         binding.btnAmbilMakananAvailable.setOnClickListener{
-            startActivity(Intent(this@SearchFoodDetailActivity, TakeFoodActivity::class.java))
-            finish()
+
+            if(FirebaseAuth.getInstance().currentUser?.uid.equals(idPembagi)){
+                Toast.makeText(this, "Tidak bisa mengambil makanan yang dibagikan sendiri", Toast.LENGTH_SHORT).show()
+            }
+            else{
+                Intent(this@SearchFoodDetailActivity, TakeFoodActivity::class.java).also{
+                    it.putExtra("EXTRA_ID_MAKANAN", idMakanan )
+                    startActivity(it)
+                }
+            }
         }
     }
 
