@@ -79,10 +79,6 @@ class ProfileFragment : Fragment(){
         binding.btnMyAddress.setOnClickListener{
             startActivity(Intent(activity, AddressActivity::class.java))
         }
-
-        binding.btnDetailFood.setOnClickListener{
-            startActivity(Intent(activity, UploadArtikelActivity::class.java))
-        }
     }
 
     override fun onCreateView(

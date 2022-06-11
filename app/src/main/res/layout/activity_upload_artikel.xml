@@ -89,6 +89,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_kematangan"/>
 
+            <!--
             <TextView
                 android:id="@+id/tv_id_artikel"
                 android:layout_width="170dp"
@@ -116,7 +117,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_id_artikel"/>
-
+               -->
 
             <TextView
                 android:id="@+id/tv_judul_artikel"
@@ -129,7 +130,7 @@
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ti_id_artikel" />
+                app:layout_constraintTop_toBottomOf="@+id/ti_kematangan" />
 
 
             <com.capstoneproject.aplikasiantifoodwaste.custom.CustomEditText

@@ -6,6 +6,7 @@ import android.widget.Toast
 import com.capstoneproject.aplikasiantifoodwaste.databinding.ActivityUploadArtikelBinding
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import java.util.*
 
 class UploadArtikelActivity : AppCompatActivity() {
 
@@ -23,14 +24,15 @@ class UploadArtikelActivity : AppCompatActivity() {
         binding.btnUploadArtikel.setOnClickListener {
             val namaBuah = binding.tiNamaBuah.text.toString()
             val kematangan = binding.tiKematangan.text.toString()
-            val id = binding.tiIdArtikel.text.toString()
+            //val id = binding.tiIdArtikel.text.toString()
             val judul = binding.tiJudulArtikel.text.toString()
             val foto = binding.tiFotoArtikel.text.toString()
             val deskripsi = binding.tiDeskripsiArtikel.text.toString()
             val sumber = binding.tiSumberArtikel.text.toString()
 
+            var uniqueID = UUID.randomUUID().toString()
             val artikel = Artikel(deskripsi, foto, judul, sumber)
-            artikelRef.child(namaBuah).child(kematangan).child(id).setValue(artikel).addOnSuccessListener {
+            artikelRef.child(namaBuah).child(kematangan).child(uniqueID).setValue(artikel).addOnSuccessListener {
                 Toast.makeText(this, "Artikel berhasil diupload", Toast.LENGTH_SHORT).show()
                 finish()
             }.addOnFailureListener {

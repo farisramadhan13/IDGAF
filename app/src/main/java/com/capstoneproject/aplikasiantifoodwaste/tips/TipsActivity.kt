@@ -48,5 +48,8 @@ class TipsActivity : AppCompatActivity() {
             intent.putExtra("EXTRA_NAME", "SayurHijau" )
             startActivity(intent)
         }
+        binding.gambarTambahArtikel.setOnClickListener {
+            startActivity(Intent(this, UploadArtikelActivity::class.java))
+        }
     }
 }
