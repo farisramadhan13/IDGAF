@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:order_card="http://schemas.android.com/apk/res-auto"
+    xmlns:item_penyimpanan_home="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/order_card"
     android:layout_width="wrap_content"
@@ -11,7 +11,7 @@
     android:layout_marginTop="4dp"
     android:layout_marginRight="8dp"
     android:layout_marginBottom="4dp"
-    order_card:cardCornerRadius="4dp">
+    item_penyimpanan_home:cardCornerRadius="4dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
@@ -22,9 +22,9 @@
             android:id="@+id/iv_penyimpanan"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            order_card:layout_constraintEnd_toEndOf="parent"
-            order_card:layout_constraintStart_toStartOf="parent"
-            order_card:layout_constraintTop_toTopOf="parent"
+            item_penyimpanan_home:layout_constraintEnd_toEndOf="parent"
+            item_penyimpanan_home:layout_constraintStart_toStartOf="parent"
+            item_penyimpanan_home:layout_constraintTop_toTopOf="parent"
             tools:src="@tools:sample/avatars" />
 
         <TextView
@@ -36,9 +36,9 @@
             android:textColor="@color/black"
             android:layout_marginTop="2dp"
             android:textSize="13sp"
-            order_card:layout_constraintEnd_toEndOf="parent"
-            order_card:layout_constraintStart_toStartOf="parent"
-            order_card:layout_constraintTop_toBottomOf="@+id/iv_penyimpanan" />
+            item_penyimpanan_home:layout_constraintEnd_toEndOf="parent"
+            item_penyimpanan_home:layout_constraintStart_toStartOf="parent"
+            item_penyimpanan_home:layout_constraintTop_toBottomOf="@+id/iv_penyimpanan" />
 
         <TextView
             android:id="@+id/tv_status"
@@ -49,9 +49,9 @@
             android:textColor="@color/black"
             android:textSize="12sp"
             android:layout_marginTop="2dp"
-            order_card:layout_constraintEnd_toEndOf="parent"
-            order_card:layout_constraintStart_toStartOf="parent"
-            order_card:layout_constraintTop_toBottomOf="@+id/tv_nama_bahan" />
+            item_penyimpanan_home:layout_constraintEnd_toEndOf="parent"
+            item_penyimpanan_home:layout_constraintStart_toStartOf="parent"
+            item_penyimpanan_home:layout_constraintTop_toBottomOf="@+id/tv_nama_bahan" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

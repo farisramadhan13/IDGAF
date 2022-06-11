@@ -7,40 +7,43 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.StringRes
 import androidx.fragment.app.FragmentActivity
+import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.widget.ViewPager2
 import com.capstoneproject.aplikasiantifoodwaste.R
 import com.capstoneproject.aplikasiantifoodwaste.databinding.FragmentOrderBinding
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import com.google.firebase.database.DatabaseReference
 
 class OrderFragment : Fragment() {
 
     private lateinit var binding : FragmentOrderBinding
-
-    companion object {
-        @StringRes
-        private val TAB_TITLES = intArrayOf(
-            R.string.tab_text_1,
-            R.string.tab_text_2
-        )
-    }
+    private lateinit var listAmbilRecyclerView: RecyclerView
+    private lateinit var listBagiRecyclerView: RecyclerView
+    private lateinit var listAmbilArrayList: ArrayList<Order>
+    private lateinit var listBagiArrayList: ArrayList<Order>
+    private lateinit var database: DatabaseReference
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-//        val sectionsPagerAdapter = SectionsPagerAdapter(FragmentActivity().supportFragmentManager)
-//        val viewPager: ViewPager2 = findViewById(R.id.view_pager)
-//        viewPager.adapter = sectionsPagerAdapter
-//        val tabs: TabLayout = findViewById(R.id.tab_layout)
-//        TabLayoutMediator(tabs, viewPager) { tab, position ->
-//            tab.text = resources.getString(TAB_TITLES[position])
-////        }.attach()
+        super.onViewCreated(view, savedInstanceState)
+        binding.tvAmbil.setOnClickListener {
+            //binding.tvAmbil.textColors
+            binding.rvAmbil.visibility = View.VISIBLE
+            binding.rvBagi.visibility = View.GONE
+        }
+
+        binding.tvBagi.setOnClickListener {
+            //binding.tvBagi.textColors
+            binding.rvAmbil.visibility = View.GONE
+            binding.rvBagi.visibility = View.VISIBLE
+        }
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentOrderBinding.inflate(inflater, container, false)
         return binding.root
     }
