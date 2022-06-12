@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.capstoneproject.aplikasiantifoodwaste.R
 import com.capstoneproject.aplikasiantifoodwaste.databinding.ActivitySearchFoodListBinding
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
 class SearchFoodListActivity : AppCompatActivity(){
@@ -17,6 +18,7 @@ class SearchFoodListActivity : AppCompatActivity(){
     private lateinit var dbref: DatabaseReference
     private lateinit var searchFoodRecyclerView: RecyclerView
     private lateinit var searchFoodArrayList: ArrayList<SearchFood>
+    private lateinit var uid: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +27,8 @@ class SearchFoodListActivity : AppCompatActivity(){
         supportActionBar?.hide()
 
         val search = intent.getStringExtra("EXTRA_SEARCH")?.lowercase()
+        val user = FirebaseAuth.getInstance().currentUser
+        user?.let { uid = user.uid }
 
         searchFoodRecyclerView = findViewById(R.id.searchFoodList)
         searchFoodRecyclerView.layoutManager = LinearLayoutManager(this@SearchFoodListActivity)
@@ -32,7 +36,7 @@ class SearchFoodListActivity : AppCompatActivity(){
 
         searchFoodArrayList = arrayListOf<SearchFood>()
         if (search != null) {
-            getSearchFoodData(search)
+            getSearchFoodData(search,uid)
         }
 
         binding.etSearchFoodList.addTextChangedListener (object : TextWatcher {
@@ -50,12 +54,12 @@ class SearchFoodListActivity : AppCompatActivity(){
         binding.ivSearch.setOnClickListener {
             if(binding.etSearchFoodList.text?.trim()?.length != 0){
                 searchFoodArrayList = arrayListOf<SearchFood>()
-                getSearchFoodData(binding.etSearchFoodList.text.toString())
+                getSearchFoodData(binding.etSearchFoodList.text.toString(),uid)
             }
         }
     }
 
-    private fun getSearchFoodData(search: String) {
+    private fun getSearchFoodData(search: String, uid: String) {
 
         dbref = FirebaseDatabase.getInstance().getReference("Share")
 
@@ -68,14 +72,16 @@ class SearchFoodListActivity : AppCompatActivity(){
                         val foodDesc = food?.deskripsi?.lowercase()
 
                         //Buat cari hasil searchnya
-                        if(search == "-"){
-                            searchFoodArrayList.add(food!!)
-                        }
-                        else{
-                            if (foodName != null) {
-                                if (foodDesc != null) {
-                                    if(foodName.contains(search) || foodDesc.contains(search)){
-                                        searchFoodArrayList.add(food!!)
+                        if(!food?.id.equals(uid)){
+                            if(search == "-"){
+                                searchFoodArrayList.add(food!!)
+                            }
+                            else{
+                                if (foodName != null) {
+                                    if (foodDesc != null) {
+                                        if(foodName.contains(search) || foodDesc.contains(search)){
+                                            searchFoodArrayList.add(food!!)
+                                        }
                                     }
                                 }
                             }
