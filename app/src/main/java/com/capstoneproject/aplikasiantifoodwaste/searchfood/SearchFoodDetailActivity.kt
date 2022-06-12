@@ -83,9 +83,7 @@ class SearchFoodDetailActivity : AppCompatActivity() {
                     mPostReference.removeValue()
                 }
                 Toast.makeText(this, "Makanan berhasil dihapus", Toast.LENGTH_SHORT).show()
-                Handler(Looper.getMainLooper()).postDelayed({
-                    finish()
-                }, 2000)
+                finish()
             }
             else{
                 Intent(this@SearchFoodDetailActivity, TakeFoodActivity::class.java).also{
@@ -107,9 +105,7 @@ class SearchFoodDetailActivity : AppCompatActivity() {
                     mPostReference.removeValue()
                 }
                 Toast.makeText(this, "Makanan berhasil dihapus", Toast.LENGTH_SHORT).show()
-                Handler(Looper.getMainLooper()).postDelayed({
-                    finish()
-                }, 2000)
+                finish()
             }
         }
 
