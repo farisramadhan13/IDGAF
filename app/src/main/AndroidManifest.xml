@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AplikasiAntiFoodWaste">
         <activity
-            android:name=".AtributActivity"
+            android:name=".atribut.AtributActivity"
             android:exported="false" />
         <activity
             android:name=".order.DetailOrderActivity"

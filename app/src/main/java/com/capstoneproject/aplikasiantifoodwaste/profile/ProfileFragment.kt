@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.capstoneproject.aplikasiantifoodwaste.atribut.AtributActivity
 import com.capstoneproject.aplikasiantifoodwaste.databinding.FragmentProfileBinding
 import com.capstoneproject.aplikasiantifoodwaste.welcome.WelcomeActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -61,6 +62,10 @@ class ProfileFragment : Fragment(){
         binding.btnProfileLogout.setOnClickListener {
             auth.signOut()
             startActivity(Intent(activity, WelcomeActivity::class.java))
+        }
+
+        binding.buttonAtribut.setOnClickListener {
+            startActivity(Intent(activity, AtributActivity::class.java))
         }
 
         binding.btnProfileChange.setOnClickListener{
