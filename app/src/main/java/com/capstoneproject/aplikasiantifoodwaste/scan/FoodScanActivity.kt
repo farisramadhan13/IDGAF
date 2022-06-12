@@ -23,6 +23,7 @@ import com.capstoneproject.aplikasiantifoodwaste.camera.CameraActivity
 import com.capstoneproject.aplikasiantifoodwaste.camera.rotateBitmap
 import com.capstoneproject.aplikasiantifoodwaste.camera.uriToFile
 import com.capstoneproject.aplikasiantifoodwaste.databinding.ActivityFoodScanBinding
+import com.capstoneproject.aplikasiantifoodwaste.tips.artikel.ArtikelApelSangatSegarActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -131,6 +132,48 @@ class FoodScanActivity : AppCompatActivity() {
             intent.putExtra("EXTRA_NAME", binding.outputFruit.text)
             intent.putExtra("EXTRA_MATURITY", binding.outputMaturity.text)
             startActivity(intent)
+        }
+        binding.btnRekomendasi.setOnClickListener {
+            val intent = Intent(this, ArtikelApelSangatSegarActivity::class.java)
+            var launchActivity = false
+
+            if(binding.outputFruit.text.toString() ==("Sayuran Hijau")){
+                intent.putExtra("EXTRA_NAME", "SayuranHijau" )
+                Log.e("hasil", "SayuranHijau")
+                launchActivity = true
+            }
+            else if(binding.outputFruit.text.toString() == ("Output")){
+                Toast.makeText(this@FoodScanActivity, "Mohon ulangi proses scan", Toast.LENGTH_SHORT).show()
+            }
+            else{
+                Log.e("hasil", binding.outputFruit.text.toString())
+                intent.putExtra("EXTRA_NAME", binding.outputFruit.text.toString())
+                launchActivity = true
+            }
+
+            if(binding.outputMaturity.text.toString() =="Masih segar"){
+                intent.putExtra("EXTRA_MATURITY", "F")
+                Log.e("hasil", "F")
+                launchActivity = true
+            }
+            else if(binding.outputMaturity.text.toString() ==("Sedang")){
+                intent.putExtra("EXTRA_MATURITY", "M")
+                Log.e("hasil", "M")
+                launchActivity = true
+            }
+            else if(binding.outputMaturity.text.toString() ==("Sudah busuk")){
+                intent.putExtra("EXTRA_MATURITY", "R")
+                Log.e("hasil", "R")
+                launchActivity = true
+            }
+            else{
+                Log.e("masuk else",binding.outputMaturity.text.toString() )
+                Toast.makeText(this@FoodScanActivity, "Mohon ulangi proses scan", Toast.LENGTH_SHORT).show()
+            }
+
+            if(launchActivity){
+                startActivity(intent)
+            }
         }
     }
 
@@ -263,6 +306,7 @@ class FoodScanActivity : AppCompatActivity() {
                 binding.outputMaturity.visibility = View.GONE
                 binding.btnSimpanYes.visibility = View.GONE
                 binding.btnSimpanNo.visibility = View.GONE
+                binding.btnRekomendasi.visibility = View.GONE
             }
 
             //Yakin menggunakan gambar ini?
@@ -284,6 +328,7 @@ class FoodScanActivity : AppCompatActivity() {
                 binding.outputMaturity.visibility = View.GONE
                 binding.btnSimpanYes.visibility = View.GONE
                 binding.btnSimpanNo.visibility = View.GONE
+                binding.btnRekomendasi.visibility = View.GONE
             }
 
             //Loading
@@ -305,6 +350,7 @@ class FoodScanActivity : AppCompatActivity() {
                 binding.outputMaturity.visibility = View.GONE
                 binding.btnSimpanYes.visibility = View.GONE
                 binding.btnSimpanNo.visibility = View.GONE
+                binding.btnRekomendasi.visibility = View.GONE
             }
 
             //Hasil
@@ -326,6 +372,7 @@ class FoodScanActivity : AppCompatActivity() {
                 binding.outputMaturity.visibility = View.VISIBLE
                 binding.btnSimpanYes.visibility = View.VISIBLE
                 binding.btnSimpanNo.visibility = View.VISIBLE
+                binding.btnRekomendasi.visibility = View.VISIBLE
             }
         }
     }

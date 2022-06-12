@@ -116,10 +116,10 @@
                 android:id="@+id/tv_deskripsi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="32dp"
-                android:paddingRight="32dp"
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/montserrat_regular"
+                android:paddingLeft="32dp"
+                android:paddingRight="32dp"
                 android:text="@string/lorem_ipsum"
                 android:textColor="@color/black"
                 android:textSize="16sp"
@@ -144,8 +144,8 @@
                 android:id="@+id/iv_profile"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:layout_marginTop="8dp"
                 android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/text_dibagikan_oleh">
 
@@ -168,15 +168,26 @@
                 android:id="@+id/tv_giver_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
                 android:fontFamily="@font/montserrat_regular"
                 android:text="@string/nama_pemberi"
                 android:textColor="@color/black"
-                android:layout_marginStart="8dp"
                 android:textSize="16sp"
-                app:layout_constraintTop_toTopOf="@+id/iv_profile"
-                app:layout_constraintBottom_toBottomOf="@+id/iv_profile"
-                app:layout_constraintStart_toEndOf="@+id/iv_profile"/>
+                app:layout_constraintStart_toEndOf="@+id/iv_profile"
+                app:layout_constraintTop_toTopOf="@+id/iv_profile" />
 
+            <TextView
+                android:id="@+id/tv_giver_telp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="No. Telp"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/iv_profile"
+                app:layout_constraintTop_toBottomOf="@+id/tv_giver_name" />
 
             <Button
                 android:id="@+id/btn_ambil_makanan_available"

@@ -96,6 +96,10 @@ class HomeFragment : Fragment() {
             intent.putExtra("EXTRA_SEARCH","-" )
             startActivity(intent)
         }
+        binding.ivMakananDibagikan.setOnClickListener {
+            val intent = Intent(activity, SearchFoodListActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onCreateView(
@@ -165,7 +169,9 @@ class HomeFragment : Fragment() {
                 if (snapshot.exists()) {
                     for (shareSnapshot in snapshot.children) {
                         val food = shareSnapshot.getValue(SearchFood::class.java)
-                        listMakananSekitarArrayList.add(food!!)
+                        if(!food?.id.equals(uid)){
+                            listMakananSekitarArrayList.add(food!!)
+                        }
                     }
 
                     val adapter = ListMakananSekitarAdapter(listMakananSekitarArrayList)

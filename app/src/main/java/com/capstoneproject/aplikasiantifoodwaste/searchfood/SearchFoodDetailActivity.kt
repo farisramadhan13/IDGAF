@@ -5,12 +5,16 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Base64
 import android.util.Log
 import android.view.View
 import android.widget.Toast
 import com.capstoneproject.aplikasiantifoodwaste.databinding.ActivitySearchFoodDetailBinding
+import com.capstoneproject.aplikasiantifoodwaste.home.HomeActivity
 import com.capstoneproject.aplikasiantifoodwaste.profile.Users
+import com.capstoneproject.aplikasiantifoodwaste.welcome.WelcomeActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
@@ -39,6 +43,7 @@ class SearchFoodDetailActivity : AppCompatActivity() {
                 var users: Users? = snapshot.getValue(Users::class.java)
                 binding.tvGiverName.text = users?.name
                 binding.ivGiver.setImageBitmap(base64ToBitmap(users?.photo))
+                binding.tvGiverTelp.text = users?.telp
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -60,10 +65,25 @@ class SearchFoodDetailActivity : AppCompatActivity() {
             }
         }
 
+        if(FirebaseAuth.getInstance().currentUser?.uid.equals(idPembagi)){
+            binding.btnAmbilMakananAvailable.text = "Hapus Makanan"
+            binding.btnAmbilMakananUnavailable.text = "Hapus Makanan"
+        }
+
         binding.btnAmbilMakananAvailable.setOnClickListener{
 
             if(FirebaseAuth.getInstance().currentUser?.uid.equals(idPembagi)){
-                Toast.makeText(this, "Tidak bisa mengambil makanan yang dibagikan sendiri", Toast.LENGTH_SHORT).show()
+                val mPostReference =
+                    idMakanan?.let { it1 ->
+                        FirebaseDatabase.getInstance().getReference("Share").child(
+                            it1
+                        )
+                    }
+                if (mPostReference != null) {
+                    mPostReference.removeValue()
+                }
+                Toast.makeText(this, "Makanan berhasil dihapus", Toast.LENGTH_SHORT).show()
+                finish()
             }
             else{
                 Intent(this@SearchFoodDetailActivity, TakeFoodActivity::class.java).also{
@@ -73,6 +93,22 @@ class SearchFoodDetailActivity : AppCompatActivity() {
                 }
             }
         }
+        binding.btnAmbilMakananUnavailable.setOnClickListener {
+            if(FirebaseAuth.getInstance().currentUser?.uid.equals(idPembagi)){
+                val mPostReference =
+                    idMakanan?.let { it1 ->
+                        FirebaseDatabase.getInstance().getReference("Share").child(
+                            it1
+                        )
+                    }
+                if (mPostReference != null) {
+                    mPostReference.removeValue()
+                }
+                Toast.makeText(this, "Makanan berhasil dihapus", Toast.LENGTH_SHORT).show()
+                finish()
+            }
+        }
+
     }
 
     private fun base64ToBitmap(b64: String?): Bitmap {
