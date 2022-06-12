@@ -96,6 +96,10 @@ class HomeFragment : Fragment() {
             intent.putExtra("EXTRA_SEARCH","-" )
             startActivity(intent)
         }
+        binding.ivMakananDibagikan.setOnClickListener {
+            val intent = Intent(activity, SearchFoodListActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onCreateView(

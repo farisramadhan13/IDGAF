@@ -91,9 +91,6 @@
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_welcome_home">
-
-
-
     </androidx.cardview.widget.CardView>
 
     <ImageView
@@ -123,8 +120,8 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginTop="32dp"
+        android:layout_marginStart="50dp"
         android:background="@drawable/ic_share"
-        app:layout_constraintEnd_toStartOf="@+id/iv_tips"
         app:layout_constraintStart_toEndOf="@+id/iv_scan"
         app:layout_constraintTop_toTopOf="@+id/iv_hiasan_home_white_square" />
 
@@ -136,8 +133,8 @@
         android:text="@string/share"
         android:textColor="@color/black"
         android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/tv_tips"
-        app:layout_constraintStart_toEndOf="@+id/tv_scan"
+        app:layout_constraintEnd_toEndOf="@+id/iv_share"
+        app:layout_constraintStart_toStartOf="@+id/iv_share"
         app:layout_constraintTop_toBottomOf="@+id/iv_share" />
 
     <ImageView
@@ -145,21 +142,44 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="50dp"
         android:background="@drawable/ic_tips"
-        app:layout_constraintEnd_toEndOf="@+id/iv_hiasan_home_white_square"
+        app:layout_constraintEnd_toStartOf="@id/iv_makanan_dibagikan"
         app:layout_constraintTop_toTopOf="@+id/iv_hiasan_home_white_square" />
 
     <TextView
         android:id="@+id/tv_tips"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="35dp"
         android:fontFamily="@font/montserrat_bold"
         android:text="@string/tips"
         android:textColor="@color/black"
         android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/iv_tips"
+        app:layout_constraintStart_toStartOf="@+id/iv_tips"
+        app:layout_constraintTop_toBottomOf="@+id/iv_tips" />
+
+    <ImageView
+        android:id="@+id/iv_makanan_dibagikan"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/ic_food_bank"
         app:layout_constraintEnd_toEndOf="@+id/iv_hiasan_home_white_square"
+        app:layout_constraintTop_toTopOf="@+id/iv_hiasan_home_white_square" />
+
+    <TextView
+        android:id="@+id/tv_makanan_dibagikan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="35dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="MyShare"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/iv_hiasan_home_white_square"
+        app:layout_constraintStart_toStartOf="@+id/iv_makanan_dibagikan"
         app:layout_constraintTop_toBottomOf="@+id/iv_tips" />
 
     <TextView
