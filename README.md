@@ -1,7 +1,7 @@
 
 # **Bangkit Academy 2022 by Google, GoTo, Traveloka** Capstone Project 
 
-Team: C22-PS264
+Team: C22-PS264 <br>
 Members:
 * M2004F0232 - Gracia Angelina Jeniffer Masengi
 * M7008J0808 - Ester Nadia Emor
