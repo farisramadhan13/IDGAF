@@ -34,8 +34,8 @@ into one of the following classes of freshness level:
 ## Dataset
 The dataset used in this project are images of fruits and vegetables with varying degree of freshness. The dataset were collected from:
 * Publicly available datasets:
-* * https://data.mendeley.com/datasets/6ps7gtp2wg/1
-* * https://www.kaggle.com/datasets/raghavrpotdar/fresh-and-stale-images-of-fruits-and-vegetables
+  * https://data.mendeley.com/datasets/6ps7gtp2wg/1
+  * https://www.kaggle.com/datasets/raghavrpotdar/fresh-and-stale-images-of-fruits-and-vegetables
 * Google images
 * Pictures acquired by the team
 
